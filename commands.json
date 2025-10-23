@@ -1,0 +1,1817 @@
+[
+  {
+    "id": "ls",
+    "name": "ls",
+    "description": "List directory contents with detailed information, including hidden files and human-readable sizes. Essential for navigating and inspecting file systems.",
+    "category": "File Operations",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "ls -la",
+      "ls -lh /var/log",
+      "ls -lt | head -10"
+    ],
+    "tags": [
+      "list",
+      "directory",
+      "files",
+      "view"
+    ],
+    "variations": [
+      {
+        "syntax": "ls -lah",
+        "description": "List all files in long format with human-readable sizes.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ls -l",
+        "description": "Long listing format (permissions, owner, size, date)."
+      },
+      {
+        "syntax": "ls -lrt",
+        "description": "Long listing, reverse time order (show newest last)."
+      }
+    ]
+  },
+  {
+    "id": "grep",
+    "name": "grep",
+    "description": "Search for patterns in files recursively. Supports regular expressions.",
+    "category": "Text Processing",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "grep -i 'error' /var/log/syslog",
+      "grep -r 'TODO' .",
+      "grep -v '^#' config.file"
+    ],
+    "tags": [
+      "search",
+      "find",
+      "text",
+      "pattern",
+      "regex"
+    ],
+    "variations": [
+      {
+        "syntax": "grep -r 'pattern' /path/to/search",
+        "description": "Search recursively for a pattern starting at a given path.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "grep -i 'pattern'",
+        "description": "Case-insensitive search."
+      },
+      {
+        "syntax": "grep -A 5 'pattern'",
+        "description": "Show 5 lines of context AFTER the matching line."
+      }
+    ]
+  },
+  {
+    "id": "find",
+    "name": "find",
+    "description": "Search for files and directories in a directory hierarchy.",
+    "category": "File Operations",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "find . -name '*.log'",
+      "find /var -size +100M",
+      "find . -mtime -7"
+    ],
+    "tags": [
+      "search",
+      "files",
+      "locate"
+    ],
+    "variations": [
+      {
+        "syntax": "find /path -name 'filename' -type f",
+        "description": "Find files by name within a path.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "find /path -type d -name 'dir_name'",
+        "description": "Find directories by name."
+      },
+      {
+        "syntax": "find /path -mtime +7",
+        "description": "Find files modified more than 7 days ago."
+      }
+    ]
+  },
+  {
+    "id": "ps",
+    "name": "ps",
+    "description": "Display information about running processes.",
+    "category": "Process Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "ps aux | grep nginx",
+      "ps -ef",
+      "ps aux --sort=-%mem | head"
+    ],
+    "tags": [
+      "process",
+      "running",
+      "system",
+      "monitor"
+    ],
+    "variations": [
+      {
+        "syntax": "ps aux",
+        "description": "Display all processes running on the system (BSD syntax).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ps -ef",
+        "description": "Display all processes running on the system (Standard syntax)."
+      },
+      {
+        "syntax": "ps aux | grep [p]attern",
+        "description": "Find a specific process and exclude the grep command itself."
+      }
+    ]
+  },
+  {
+    "id": "top",
+    "name": "top",
+    "description": "Display and update sorted information about running processes.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "top",
+      "top -u username",
+      "top -p PID"
+    ],
+    "tags": [
+      "monitor",
+      "cpu",
+      "memory",
+      "performance",
+      "real-time"
+    ],
+    "variations": [
+      {
+        "syntax": "top -o %CPU",
+        "description": "Sort by CPU usage.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "top",
+        "description": "Start 'top' normally."
+      },
+      {
+        "syntax": "top -o %MEM",
+        "description": "Sort by memory usage."
+      }
+    ]
+  },
+  {
+    "id": "htop",
+    "name": "htop",
+    "description": "Interactive process viewer and system monitor. More user-friendly than top.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "htop",
+      "htop -u username",
+      "htop -p PID"
+    ],
+    "tags": [
+      "monitor",
+      "cpu",
+      "memory",
+      "performance",
+      "interactive"
+    ],
+    "variations": [
+      {
+        "syntax": "htop",
+        "description": "Launch the interactive monitor.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "htop -u username",
+        "description": "View processes for a specific user."
+      }
+    ]
+  },
+  {
+    "id": "netstat",
+    "name": "netstat",
+    "description": "Display network connections, routing tables, and statistics (Legacy).",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "netstat -an",
+      "netstat -r",
+      "netstat -i"
+    ],
+    "tags": [
+      "network",
+      "connections",
+      "ports",
+      "tcp",
+      "udp"
+    ],
+    "variations": [
+      {
+        "syntax": "netstat -tulpn",
+        "description": "Show listening TCP/UDP ports with PID/program name.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "netstat -an",
+        "description": "Show all connections and listening ports (numerical addresses)."
+      },
+      {
+        "syntax": "netstat -r",
+        "description": "Display the kernel routing table."
+      }
+    ]
+  },
+  {
+    "id": "ss",
+    "name": "ss",
+    "description": "Socket statistics utility - modern replacement for netstat.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "ss -t",
+      "ss -a",
+      "ss -s"
+    ],
+    "tags": [
+      "network",
+      "sockets",
+      "connections",
+      "tcp",
+      "udp"
+    ],
+    "variations": [
+      {
+        "syntax": "ss -tulpn",
+        "description": "Show listening TCP/UDP sockets with PID/program name.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ss -s",
+        "description": "Display summary statistics."
+      },
+      {
+        "syntax": "ss -t",
+        "description": "Show TCP sockets."
+      }
+    ]
+  },
+  {
+    "id": "tcpdump",
+    "name": "tcpdump",
+    "description": "Capture and analyze network packets.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "tcpdump -i any",
+      "tcpdump host 192.168.1.1",
+      "tcpdump -w capture.pcap"
+    ],
+    "tags": [
+      "network",
+      "packets",
+      "capture",
+      "tcp",
+      "troubleshoot",
+      "sniff"
+    ],
+    "variations": [
+      {
+        "syntax": "tcpdump -i eth0 -n port 80",
+        "description": "Capture traffic on interface eth0, port 80 (numerical output).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "tcpdump -i any -w file.pcap",
+        "description": "Capture all traffic and save to a file."
+      },
+      {
+        "syntax": "tcpdump host 1.2.3.4 and port 443",
+        "description": "Capture traffic to/from a specific host and port."
+      }
+    ]
+  },
+  {
+    "id": "iptables",
+    "name": "iptables",
+    "description": "Display firewall rules with verbose output.",
+    "category": "Security",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "iptables -L INPUT",
+      "iptables -S",
+      "iptables -t nat -L"
+    ],
+    "tags": [
+      "firewall",
+      "security",
+      "rules",
+      "network"
+    ],
+    "variations": [
+      {
+        "syntax": "iptables -L -n -v",
+        "description": "List all rules in all tables, numerical output, verbose.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "iptables -F",
+        "description": "Flush (delete) all rules in the current table (DANGEROUS)."
+      },
+      {
+        "syntax": "iptables -t nat -L",
+        "description": "List rules in the NAT table."
+      }
+    ]
+  },
+  {
+    "id": "chmod",
+    "name": "chmod",
+    "description": "Change file permissions.",
+    "category": "File Operations",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "chmod +x script.sh",
+      "chmod -R 644 /var/www",
+      "chmod u+w file"
+    ],
+    "tags": [
+      "permissions",
+      "security",
+      "access",
+      "files"
+    ],
+    "variations": [
+      {
+        "syntax": "chmod 755 filename",
+        "description": "Owner rwx, Group r-x, Others r-x.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "chmod +x script.sh",
+        "description": "Add execute permission to all users."
+      },
+      {
+        "syntax": "chmod -R 644 directory",
+        "description": "Recursively set permissions to rw- r-- r--."
+      }
+    ]
+  },
+  {
+    "id": "chown",
+    "name": "chown",
+    "description": "Change file owner and group.",
+    "category": "File Operations",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "chown -R www-data:www-data /var/www",
+      "chown user file",
+      "chown :group file"
+    ],
+    "tags": [
+      "ownership",
+      "user",
+      "group",
+      "permissions"
+    ],
+    "variations": [
+      {
+        "syntax": "chown user:group filename",
+        "description": "Change both the owner and the group.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "chown user filename",
+        "description": "Change only the owner."
+      },
+      {
+        "syntax": "chown -R user:group directory",
+        "description": "Recursively change owner and group for a directory."
+      }
+    ]
+  },
+  {
+    "id": "df",
+    "name": "df",
+    "description": "Display disk space usage in human-readable format.",
+    "category": "Disk Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "df -h",
+      "df -i",
+      "df -T"
+    ],
+    "tags": [
+      "disk",
+      "space",
+      "filesystem",
+      "storage"
+    ],
+    "variations": [
+      {
+        "syntax": "df -h",
+        "description": "Display disk space usage (human-readable).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "df -i",
+        "description": "Display inode usage."
+      },
+      {
+        "syntax": "df -T",
+        "description": "Display filesystem type."
+      }
+    ]
+  },
+  {
+    "id": "du",
+    "name": "du",
+    "description": "Display disk usage of files and directories.",
+    "category": "Disk Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "du -h --max-depth=1",
+      "du -ah | sort -h",
+      "du -csh *"
+    ],
+    "tags": [
+      "disk",
+      "usage",
+      "size",
+      "storage"
+    ],
+    "variations": [
+      {
+        "syntax": "du -sh /path/to/directory",
+        "description": "Summarize total size (human-readable).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "du -a",
+        "description": "Show disk usage for all files, not just directories."
+      },
+      {
+        "syntax": "du -h --max-depth=1",
+        "description": "Show usage for current level and direct subdirectories."
+      }
+    ]
+  },
+  {
+    "id": "tar",
+    "name": "tar",
+    "description": "Create compressed archive.",
+    "category": "Archive",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "tar -xzf archive.tar.gz",
+      "tar -czf backup.tar.gz /etc",
+      "tar -tf archive.tar"
+    ],
+    "tags": [
+      "compress",
+      "archive",
+      "backup",
+      "extract"
+    ],
+    "variations": [
+      {
+        "syntax": "tar -czf archive.tar.gz /path/to/directory",
+        "description": "Create a gzipped archive (c) with filename (f).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "tar -xzf archive.tar.gz",
+        "description": "Extract (x) a gzipped archive."
+      },
+      {
+        "syntax": "tar -tf archive.tar",
+        "description": "List the contents of an archive file."
+      }
+    ]
+  },
+  {
+    "id": "systemctl",
+    "name": "systemctl",
+    "description": "Control and query systemd system and service manager.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "systemctl restart nginx",
+      "systemctl enable apache2",
+      "systemctl list-units"
+    ],
+    "tags": [
+      "service",
+      "systemd",
+      "daemon",
+      "startup"
+    ],
+    "variations": [
+      {
+        "syntax": "systemctl status service-name",
+        "description": "Check the status of a service.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "systemctl restart service-name",
+        "description": "Restart a running service."
+      },
+      {
+        "syntax": "systemctl enable service-name",
+        "description": "Enable a service to start on boot."
+      }
+    ]
+  },
+  {
+    "id": "journalctl",
+    "name": "journalctl",
+    "description": "Query and display systemd journal logs.",
+    "category": "Logs",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "journalctl -xe",
+      "journalctl --since today",
+      "journalctl -p err"
+    ],
+    "tags": [
+      "logs",
+      "systemd",
+      "journal",
+      "debug"
+    ],
+    "variations": [
+      {
+        "syntax": "journalctl -u service-name -f",
+        "description": "View logs for a service and follow (f) in real-time.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "journalctl -xe",
+        "description": "View all log entries with details and explanatory text."
+      },
+      {
+        "syntax": "journalctl --since today",
+        "description": "View logs since the beginning of today."
+      }
+    ]
+  },
+  {
+    "id": "tail",
+    "name": "tail",
+    "description": "Display and follow the end of a file in real-time.",
+    "category": "Logs",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "tail -n 100 file.log",
+      "tail -f access.log",
+      "tail -n +10 file"
+    ],
+    "tags": [
+      "logs",
+      "monitor",
+      "follow",
+      "watch"
+    ],
+    "variations": [
+      {
+        "syntax": "tail -f /var/log/syslog",
+        "description": "Follow the file (f) as it grows.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "tail -n 50 filename",
+        "description": "Show the last 50 lines."
+      }
+    ]
+  },
+  {
+    "id": "less",
+    "name": "less",
+    "description": "View file contents with scrolling and search capabilities.",
+    "category": "Text Processing",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "less file.txt",
+      "less +G file.txt",
+      "command | less"
+    ],
+    "tags": [
+      "view",
+      "pager",
+      "scroll",
+      "read"
+    ],
+    "variations": [
+      {
+        "syntax": "less +F /var/log/syslog",
+        "description": "View file and automatically scroll/follow to the end.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "less filename",
+        "description": "Open file for standard viewing and scrolling."
+      }
+    ]
+  },
+  {
+    "id": "sed",
+    "name": "sed",
+    "description": "Stream editor for filtering and transforming text.",
+    "category": "Text Processing",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "sed 's/^/# /' file",
+      "sed -n '10,20p' file",
+      "sed '/pattern/d' file"
+    ],
+    "tags": [
+      "edit",
+      "replace",
+      "text",
+      "substitute"
+    ],
+    "variations": [
+      {
+        "syntax": "sed -i 's/old/new/g' filename",
+        "description": "In-place (i) global (g) substitution of text.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "sed '/pattern/d' filename",
+        "description": "Delete lines containing the pattern."
+      }
+    ]
+  },
+  {
+    "id": "awk",
+    "name": "awk",
+    "description": "Pattern scanning and text processing language.",
+    "category": "Text Processing",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "awk -F: '{print $1}' /etc/passwd",
+      "awk '$3 > 100' data",
+      "df | awk 'NR>1 {print $5}'"
+    ],
+    "tags": [
+      "text",
+      "columns",
+      "extract",
+      "process"
+    ],
+    "variations": [
+      {
+        "syntax": "awk '{print $1}' filename",
+        "description": "Print the first column ($1) of each line.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "awk -F: '{print $1}' /etc/passwd",
+        "description": "Use colon (:) as the field separator (F) and print first field."
+      }
+    ]
+  },
+  {
+    "id": "curl",
+    "name": "curl",
+    "description": "Transfer data from or to a server.",
+    "category": "Network",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "curl -I https://example.com",
+      "curl -o file.zip https://url",
+      "curl -H 'Content-Type: application/json' -d '{}'"
+    ],
+    "tags": [
+      "http",
+      "api",
+      "download",
+      "web",
+      "request"
+    ],
+    "variations": [
+      {
+        "syntax": "curl -X GET https://api.example.com",
+        "description": "Execute a basic GET request.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "curl -I https://example.com",
+        "description": "Fetch only the HTTP headers."
+      },
+      {
+        "syntax": "curl -o file.zip https://url",
+        "description": "Download a file and save it with the specified name."
+      }
+    ]
+  },
+  {
+    "id": "wget",
+    "name": "wget",
+    "description": "Download files from the web.",
+    "category": "Network",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "wget -c url",
+      "wget -r -np url",
+      "wget -q -O- url"
+    ],
+    "tags": [
+      "download",
+      "http",
+      "web",
+      "fetch"
+    ],
+    "variations": [
+      {
+        "syntax": "wget https://example.com/file.zip",
+        "description": "Basic download of a file.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "wget -c url",
+        "description": "Continue (c) an interrupted download."
+      },
+      {
+        "syntax": "wget -r -np url",
+        "description": "Recursive download, avoiding parent directories (np)."
+      }
+    ]
+  },
+  {
+    "id": "ssh",
+    "name": "ssh",
+    "description": "Secure shell - connect to remote servers securely.",
+    "category": "Network",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "ssh -p 2222 user@host",
+      "ssh -i key.pem user@host",
+      "ssh -L 8080:localhost:80 user@host"
+    ],
+    "tags": [
+      "remote",
+      "secure",
+      "login",
+      "connection"
+    ],
+    "variations": [
+      {
+        "syntax": "ssh user@hostname",
+        "description": "Connect to a remote server.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ssh -p 2222 user@host",
+        "description": "Connect using a non-standard port (p)."
+      },
+      {
+        "syntax": "ssh -i key.pem user@host",
+        "description": "Connect using a specified identity file (i)."
+      }
+    ]
+  },
+  {
+    "id": "scp",
+    "name": "scp",
+    "description": "Securely copy files between hosts over SSH.",
+    "category": "Network",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "scp user@host:/path/file .",
+      "scp -r directory user@host:/path",
+      "scp -P 2222 file user@host:"
+    ],
+    "tags": [
+      "copy",
+      "transfer",
+      "secure",
+      "remote",
+      "ssh"
+    ],
+    "variations": [
+      {
+        "syntax": "scp file.txt user@hostname:/path/to/destination",
+        "description": "Copy local file to remote host.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "scp user@host:/path/file .",
+        "description": "Copy remote file to local directory."
+      },
+      {
+        "syntax": "scp -r directory user@host:/path",
+        "description": "Recursively copy a directory."
+      }
+    ]
+  },
+  {
+    "id": "rsync",
+    "name": "rsync",
+    "description": "Sync files and directories efficiently between locations.",
+    "category": "File Operations",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "rsync -avz --delete src/ dst/",
+      "rsync -avz -e ssh src/ user@host:dst/",
+      "rsync -av --progress src dst"
+    ],
+    "tags": [
+      "sync",
+      "copy",
+      "backup",
+      "transfer",
+      "remote"
+    ],
+    "variations": [
+      {
+        "syntax": "rsync -avz /source user@hostname:/destination",
+        "description": "Archive mode (a), verbose (v), compressed (z) remote sync.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "rsync -avz --delete src/ dst/",
+        "description": "Sync directories, deleting files in destination not found in source."
+      }
+    ]
+  },
+  {
+    "id": "docker-ps",
+    "name": "docker ps",
+    "description": "List Docker containers.",
+    "category": "Containers",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker ps",
+      "docker ps -q",
+      "docker ps --filter 'status=running'"
+    ],
+    "tags": [
+      "docker",
+      "containers",
+      "list",
+      "running"
+    ],
+    "variations": [
+      {
+        "syntax": "docker ps -a",
+        "description": "List all containers, including stopped ones.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker ps",
+        "description": "List only running containers."
+      },
+      {
+        "syntax": "docker ps -q",
+        "description": "List only container IDs."
+      }
+    ]
+  },
+  {
+    "id": "docker-logs",
+    "name": "docker logs",
+    "description": "Display and follow logs from a Docker container.",
+    "category": "Containers",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker logs container-id",
+      "docker logs --tail 100 container",
+      "docker logs --since 1h container"
+    ],
+    "tags": [
+      "docker",
+      "logs",
+      "containers",
+      "debug"
+    ],
+    "variations": [
+      {
+        "syntax": "docker logs -f container-name",
+        "description": "Display and follow (f) logs in real-time.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker logs container-name",
+        "description": "Display all past logs."
+      },
+      {
+        "syntax": "docker logs --tail 50 container-name",
+        "description": "Display the last 50 lines of logs."
+      }
+    ]
+  },
+  {
+    "id": "kubectl-get",
+    "name": "kubectl get",
+    "description": "Display Kubernetes resources (pods, deployments, services).",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl get pods -A",
+      "kubectl get deployments",
+      "kubectl get services"
+    ],
+    "tags": [
+      "kubernetes",
+      "k8s",
+      "pods",
+      "cluster"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl get pods -n namespace",
+        "description": "Get pods in a specific namespace.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "kubectl get all -n namespace",
+        "description": "Get all primary resources in a namespace."
+      },
+      {
+        "syntax": "kubectl get svc",
+        "description": "Get services in the current namespace."
+      }
+    ]
+  },
+  {
+    "id": "kubectl-logs",
+    "name": "kubectl logs",
+    "description": "Display and follow logs from a Kubernetes pod.",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl logs pod-name",
+      "kubectl logs -f pod-name -c container",
+      "kubectl logs --previous pod-name"
+    ],
+    "tags": [
+      "kubernetes",
+      "k8s",
+      "logs",
+      "debug",
+      "pods"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl logs -f pod-name -n namespace",
+        "description": "Follow (f) logs for a pod in a namespace.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "kubectl logs pod-name -c container-name",
+        "description": "Get logs for a specific container in a pod."
+      },
+      {
+        "syntax": "kubectl logs --previous pod-name",
+        "description": "Get logs from a previous instance of the container."
+      }
+    ]
+  },
+  {
+    "id": "free",
+    "name": "free",
+    "description": "Display memory usage in human-readable format.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "free -m",
+      "free -g",
+      "free -h -s 5"
+    ],
+    "tags": [
+      "memory",
+      "ram",
+      "usage",
+      "system"
+    ],
+    "variations": [
+      {
+        "syntax": "free -h",
+        "description": "Display memory usage in human-readable (h) format.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "free -m",
+        "description": "Display memory usage in Megabytes (m)."
+      },
+      {
+        "syntax": "free -s 5",
+        "description": "Repeat output every 5 seconds."
+      }
+    ]
+  },
+  {
+    "id": "vmstat",
+    "name": "vmstat",
+    "description": "Report virtual memory statistics.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "vmstat",
+      "vmstat -s",
+      "vmstat -d"
+    ],
+    "tags": [
+      "memory",
+      "performance",
+      "system",
+      "statistics"
+    ],
+    "variations": [
+      {
+        "syntax": "vmstat 1 10",
+        "description": "Report stats every 1 second, 10 times.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "vmstat",
+        "description": "Display a single report since boot."
+      },
+      {
+        "syntax": "vmstat -s",
+        "description": "Display a table of various counters and event totals."
+      }
+    ]
+  },
+  {
+    "id": "iostat",
+    "name": "iostat",
+    "description": "Display extended I/O statistics.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "iostat",
+      "iostat -d",
+      "iostat -c"
+    ],
+    "tags": [
+      "io",
+      "disk",
+      "performance",
+      "statistics"
+    ],
+    "variations": [
+      {
+        "syntax": "iostat -x 1",
+        "description": "Display extended (x) stats every 1 second.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "iostat -c",
+        "description": "Display only CPU utilization report."
+      },
+      {
+        "syntax": "iostat -d",
+        "description": "Display only device utilization report."
+      }
+    ]
+  },
+  {
+    "id": "lsof",
+    "name": "lsof",
+    "description": "List open files and processes.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "lsof -u username",
+      "lsof /var/log/syslog",
+      "lsof -i tcp"
+    ],
+    "tags": [
+      "files",
+      "ports",
+      "process",
+      "network",
+      "open"
+    ],
+    "variations": [
+      {
+        "syntax": "lsof -i :80",
+        "description": "List processes using a specific port (80).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "lsof /path/to/file",
+        "description": "List processes that have a specific file open."
+      },
+      {
+        "syntax": "lsof -u username",
+        "description": "List files opened by a specific user."
+      }
+    ]
+  },
+  {
+    "id": "nc",
+    "name": "nc",
+    "description": "Network cat - versatile networking utility.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "nc -l 8080",
+      "nc hostname 80",
+      "nc -u hostname 53"
+    ],
+    "tags": [
+      "network",
+      "netcat",
+      "port",
+      "scan",
+      "tcp",
+      "udp"
+    ],
+    "variations": [
+      {
+        "syntax": "nc -zv hostname 1-1000",
+        "description": "Scan (z) ports 1-1000 on a host (verbose v).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "nc hostname 80",
+        "description": "Check if a TCP port (80) is open."
+      },
+      {
+        "syntax": "nc -l 8080",
+        "description": "Listen (l) on a port (8080) for incoming connections."
+      }
+    ]
+  },
+  {
+    "id": "ping",
+    "name": "ping",
+    "description": "Send ICMP echo requests to test network connectivity.",
+    "category": "Network",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "ping google.com",
+      "ping -i 2 host",
+      "ping -s 1000 host"
+    ],
+    "tags": [
+      "network",
+      "connectivity",
+      "icmp",
+      "test"
+    ],
+    "variations": [
+      {
+        "syntax": "ping -c 4 hostname",
+        "description": "Send 4 (c) packets and stop.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ping hostname",
+        "description": "Send continuous pings until manually stopped."
+      }
+    ]
+  },
+  {
+    "id": "traceroute",
+    "name": "traceroute",
+    "description": "Trace the network path packets take to reach a destination.",
+    "category": "Network",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "traceroute -n host",
+      "traceroute -I host",
+      "traceroute -m 20 host"
+    ],
+    "tags": [
+      "network",
+      "route",
+      "path",
+      "hops",
+      "trace"
+    ],
+    "variations": [
+      {
+        "syntax": "traceroute hostname",
+        "description": "Standard trace.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "traceroute -n hostname",
+        "description": "Do not resolve IP addresses to hostnames (faster)."
+      }
+    ]
+  },
+  {
+    "id": "nmap",
+    "name": "nmap",
+    "description": "Network mapper - scan ports and detect service versions.",
+    "category": "Security",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "nmap -sn 192.168.1.0/24",
+      "nmap -A hostname",
+      "nmap -sS -p 80,443 host"
+    ],
+    "tags": [
+      "network",
+      "scan",
+      "ports",
+      "security",
+      "discovery"
+    ],
+    "variations": [
+      {
+        "syntax": "nmap -sV -p- hostname",
+        "description": "Scan all ports (p-) and probe to determine service versions (sV).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "nmap hostname",
+        "description": "Default scan of the top 1000 ports."
+      },
+      {
+        "syntax": "nmap -sn 192.168.1.0/24",
+        "description": "Ping scan (sn) to list hosts that are up on a subnet."
+      }
+    ]
+  },
+  {
+    "id": "cron",
+    "name": "crontab",
+    "description": "Edit cron jobs for scheduled task automation.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "crontab -l",
+      "crontab -r",
+      "crontab -u username -l"
+    ],
+    "tags": [
+      "schedule",
+      "automation",
+      "cron",
+      "jobs",
+      "tasks"
+    ],
+    "variations": [
+      {
+        "syntax": "crontab -e",
+        "description": "Edit the current user's crontab file.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "crontab -l",
+        "description": "List the current crontab file."
+      },
+      {
+        "syntax": "crontab -r",
+        "description": "Remove the current crontab file (DANGEROUS)."
+      }
+    ]
+  },
+  {
+    "id": "at",
+    "name": "at",
+    "description": "Schedule a one-time command execution.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "at 10:00 AM",
+      "at tomorrow",
+      "atq"
+    ],
+    "tags": [
+      "schedule",
+      "task",
+      "delayed",
+      "jobs"
+    ],
+    "variations": [
+      {
+        "syntax": "at now + 1 hour",
+        "description": "Schedule a command to run in one hour.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "atq",
+        "description": "List the user's pending jobs."
+      }
+    ]
+  },
+  {
+    "id": "kill",
+    "name": "kill",
+    "description": "Force kill a process by PID.",
+    "category": "Process Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "kill PID",
+      "kill -15 PID",
+      "killall process-name"
+    ],
+    "tags": [
+      "process",
+      "terminate",
+      "signal",
+      "stop"
+    ],
+    "variations": [
+      {
+        "syntax": "kill -9 PID",
+        "description": "Force kill a process (SIGKILL).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "kill PID",
+        "description": "Send a graceful termination signal (SIGTERM)."
+      }
+    ]
+  },
+  {
+    "id": "pkill",
+    "name": "pkill",
+    "description": "Kill processes matching a pattern.",
+    "category": "Process Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "pkill process-name",
+      "pkill -u username",
+      "pkill -9 process"
+    ],
+    "tags": [
+      "process",
+      "kill",
+      "pattern",
+      "terminate"
+    ],
+    "variations": [
+      {
+        "syntax": "pkill -f 'pattern'",
+        "description": "Kill processes matching the full command line (f).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "pkill -9 process-name",
+        "description": "Force kill processes by name."
+      }
+    ]
+  },
+  {
+    "id": "nohup",
+    "name": "nohup",
+    "description": "Run command immune to hangups, in the background.",
+    "category": "Process Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "nohup ./script.sh &",
+      "nohup command > output.log 2>&1 &"
+    ],
+    "tags": [
+      "background",
+      "process",
+      "persistent",
+      "detach"
+    ],
+    "variations": [
+      {
+        "syntax": "nohup command &",
+        "description": "Run command in background, ignoring hangups.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "screen",
+    "name": "screen",
+    "description": "Create a named screen session.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "screen -r session-name",
+      "screen -ls",
+      "screen -d -r"
+    ],
+    "tags": [
+      "terminal",
+      "session",
+      "persistent",
+      "detach"
+    ],
+    "variations": [
+      {
+        "syntax": "screen -S session-name",
+        "description": "Create a new session with a name (S).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "screen -r session-name",
+        "description": "Reattach to a detached session."
+      },
+      {
+        "syntax": "screen -ls",
+        "description": "List all active sessions."
+      }
+    ]
+  },
+  {
+    "id": "tmux",
+    "name": "tmux",
+    "description": "Create a new tmux session.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "tmux attach -t session",
+      "tmux ls",
+      "tmux kill-session -t session"
+    ],
+    "tags": [
+      "terminal",
+      "session",
+      "multiplexer",
+      "split"
+    ],
+    "variations": [
+      {
+        "syntax": "tmux new -s session-name",
+        "description": "Create a new session with a name (s).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "tmux attach -t session-name",
+        "description": "Attach to an existing session."
+      },
+      {
+        "syntax": "tmux ls",
+        "description": "List all active sessions."
+      }
+    ]
+  },
+  {
+    "id": "mount",
+    "name": "mount",
+    "description": "Mount a filesystem or device.",
+    "category": "Disk Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "mount -a",
+      "mount -t nfs server:/share /mnt",
+      "mount -o remount,rw /"
+    ],
+    "tags": [
+      "filesystem",
+      "device",
+      "disk",
+      "attach"
+    ],
+    "variations": [
+      {
+        "syntax": "mount /dev/sdb1 /mnt/usb",
+        "description": "Mount the device to the mount point.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "mount -a",
+        "description": "Mount all filesystems listed in /etc/fstab."
+      }
+    ]
+  },
+  {
+    "id": "umount",
+    "name": "umount",
+    "description": "Unmount a filesystem.",
+    "category": "Disk Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "umount -f /mnt",
+      "umount -l /mnt"
+    ],
+    "tags": [
+      "filesystem",
+      "device",
+      "disk",
+      "detach",
+      "unmount"
+    ],
+    "variations": [
+      {
+        "syntax": "umount /mnt/usb",
+        "description": "Unmount the device at the mount point.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "umount -f /mnt",
+        "description": "Force unmount (use with caution)."
+      }
+    ]
+  },
+  {
+    "id": "fdisk",
+    "name": "fdisk",
+    "description": "List all disk partitions with detailed information.",
+    "category": "Disk Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "fdisk /dev/sda",
+      "fdisk -l /dev/sdb"
+    ],
+    "tags": [
+      "disk",
+      "partition",
+      "storage",
+      "device"
+    ],
+    "variations": [
+      {
+        "syntax": "fdisk -l",
+        "description": "List the partition tables for all devices.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "fdisk /dev/sda",
+        "description": "Enter the interactive utility for device sda (DANGEROUS)."
+      }
+    ]
+  },
+  {
+    "id": "dmesg",
+    "name": "dmesg",
+    "description": "Display the kernel ring buffer messages.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "dmesg -T",
+      "dmesg -w",
+      "dmesg | grep -i error"
+    ],
+    "tags": [
+      "kernel",
+      "logs",
+      "boot",
+      "hardware",
+      "debug"
+    ],
+    "variations": [
+      {
+        "syntax": "dmesg | tail -n 50",
+        "description": "Show the last 50 messages.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "dmesg -T",
+        "description": "Show human-readable timestamps (T)."
+      },
+      {
+        "syntax": "dmesg -w",
+        "description": "Wait (w) for new messages (follow)."
+      }
+    ]
+  },
+  {
+    "id": "uname",
+    "name": "uname",
+    "description": "Display all system information.",
+    "category": "System Info",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "uname -r",
+      "uname -m",
+      "uname -s"
+    ],
+    "tags": [
+      "system",
+      "kernel",
+      "version",
+      "info"
+    ],
+    "variations": [
+      {
+        "syntax": "uname -a",
+        "description": "Display all available information.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "uname -r",
+        "description": "Display the kernel release."
+      }
+    ]
+  },
+  {
+    "id": "uptime",
+    "name": "uptime",
+    "description": "Show how long the system has been running, and load averages.",
+    "category": "System Info",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "uptime -p",
+      "uptime -s"
+    ],
+    "tags": [
+      "system",
+      "load",
+      "running",
+      "time"
+    ],
+    "variations": [
+      {
+        "syntax": "uptime",
+        "description": "Standard output.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "uptime -p",
+        "description": "Pretty format (p)."
+      }
+    ]
+  },
+  {
+    "id": "who",
+    "name": "who",
+    "description": "Display who is logged in to the system.",
+    "category": "System Info",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "who -b",
+      "who -r",
+      "who -q"
+    ],
+    "tags": [
+      "users",
+      "logged",
+      "session",
+      "login"
+    ],
+    "variations": [
+      {
+        "syntax": "who",
+        "description": "Standard output.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "w",
+    "name": "w",
+    "description": "Show who is logged in and what they are doing.",
+    "category": "System Info",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "w username",
+      "w -s"
+    ],
+    "tags": [
+      "users",
+      "logged",
+      "process",
+      "activity"
+    ],
+    "variations": [
+      {
+        "syntax": "w",
+        "description": "Standard output.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-connect",
+    "name": "mysql",
+    "description": "Connect to a MySQL server and run administrative commands.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 2,
+    "examples": ["mysql -u root -p", "mysql -h 127.0.0.1 -u user"],
+    "tags": ["db", "sql", "connect", "admin"],
+    "variations": [
+      {
+        "syntax": "mysql -u root -p",
+        "description": "Connect as root user, prompting for password."
+      },
+      {
+        "syntax": "mysql -h hostname -u user -p",
+        "description": "Connect to a remote host."
+      }
+    ]
+  },
+  {
+    "id": "mysql-show-process",
+    "name": "SHOW PROCESSLIST",
+    "description": "Display currently executing database connections and queries.",
+    "category": "Query/Monitoring",
+    "platform": "MySQL",
+    "version": 2,
+    "examples": ["SHOW FULL PROCESSLIST;"],
+    "tags": ["monitor", "query", "performance", "locks"],
+    "variations": [
+      {
+        "syntax": "SHOW PROCESSLIST;",
+        "description": "Show the first 100 characters of each query."
+      },
+      {
+        "syntax": "SHOW FULL PROCESSLIST;",
+        "description": "Show the full text of all currently running queries."
+      }
+    ]
+  },
+  {
+    "id": "docker-ps",
+    "name": "docker ps",
+    "description": "List Docker containers.",
+    "category": "Container Management",
+    "platform": "Docker",
+    "version": 2,
+    "examples": ["docker ps -a", "docker ps -q"],
+    "tags": ["container", "list", "running", "status"],
+    "variations": [
+      {
+        "syntax": "docker ps",
+        "description": "List only running containers."
+      },
+      {
+        "syntax": "docker ps -a",
+        "description": "List all containers, including stopped ones."
+      },
+      {
+        "syntax": "docker ps -q",
+        "description": "List only the IDs of running containers."
+      }
+    ]
+  },
+  {
+    "id": "docker-logs",
+    "name": "docker logs",
+    "description": "Fetch logs from a container.",
+    "category": "Troubleshooting",
+    "platform": "Docker",
+    "version": 2,
+    "examples": ["docker logs my-app", "docker logs -f my-app"],
+    "tags": ["logs", "container", "debug", "output"],
+    "variations": [
+      {
+        "syntax": "docker logs container-name",
+        "description": "Fetch all logs from the container."
+      },
+      {
+        "syntax": "docker logs -f container-name",
+        "description": "Follow the log output in real-time (tail -f)."
+      },
+      {
+        "syntax": "docker logs --tail 100 container-name",
+        "description": "Show only the last 100 lines of logs."
+      }
+    ]
+  }
+]
