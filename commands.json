@@ -1813,5 +1813,44 @@
         "description": "Show only the last 100 lines of logs."
       }
     ]
-  }
+  },
+ {
+  "id": "ncdu",
+  "name": "ncdu",
+  "description": "NCurses Disk Usage: An interactive disk usage analyzer that provides a fast, graphical way to see where disk space is being used.",
+  "category": "System Info",
+  "platform": "Linux, macOS, Unix",
+  "version": 1,
+  "examples": [
+    "ncdu /var",
+    "ncdu -x /",
+    "ncdu -r ~"
+  ],
+  "tags": [
+    "disk",
+    "storage",
+    "usage",
+    "filesystem",
+    "analyze",
+    "ncurses",
+    "delete"
+  ],
+  "variations": [
+    {
+      "syntax": "ncdu [directory]",
+      "description": "Scans the current directory or the specified directory and displays an interactive, navigable list of files and subdirectories sorted by size.",
+      "isPrimary": true
+    },
+    {
+      "syntax": "ncdu -x /",
+      "description": "Scans the root directory (/) but **skips directories on different filesystems** (e.g., skips network mounts or /proc). This is recommended for full system scans.",
+      "isPrimary": false
+    },
+    {
+      "syntax": "ncdu -r /home",
+      "description": "Runs in **read-only mode** (`-r`), preventing accidental file deletions (`d` key) while analyzing disk usage in the `/home` directory.",
+      "isPrimary": false
+    }
+  ]
+}
 ]
