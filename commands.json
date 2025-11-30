@@ -1814,6 +1814,30 @@
       }
     ]
   },
+  {
+    "id": "nproc",
+    "name": "nproc",
+    "description": "Print the number of processing units available.",
+    "category": "System",
+    "platform": "Linux",
+    "version": 1,
+    "examples": ["nproc", "nproc --all"],
+    "tags": ["cpu", "processor", "core", "count", "system"],
+    "variations": [
+      {
+        "syntax": "nproc",
+        "description": "Print the number of processing units available to the current process."
+      },
+      {
+        "syntax": "nproc --all",
+        "description": "Print the number of installed processors."
+      },
+      {
+        "syntax": "nproc --ignore=1",
+        "description": "Exclude 1 processing unit from the count."
+      }
+    ]
+},
  {
   "id": "ncdu",
   "name": "ncdu",
