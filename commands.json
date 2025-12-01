@@ -1733,8 +1733,16 @@
     "category": "Database Administration",
     "platform": "MySQL",
     "version": 2,
-    "examples": ["mysql -u root -p", "mysql -h 127.0.0.1 -u user"],
-    "tags": ["db", "sql", "connect", "admin"],
+    "examples": [
+      "mysql -u root -p",
+      "mysql -h 127.0.0.1 -u user"
+    ],
+    "tags": [
+      "db",
+      "sql",
+      "connect",
+      "admin"
+    ],
     "variations": [
       {
         "syntax": "mysql -u root -p",
@@ -1753,8 +1761,15 @@
     "category": "Query/Monitoring",
     "platform": "MySQL",
     "version": 2,
-    "examples": ["SHOW FULL PROCESSLIST;"],
-    "tags": ["monitor", "query", "performance", "locks"],
+    "examples": [
+      "SHOW FULL PROCESSLIST;"
+    ],
+    "tags": [
+      "monitor",
+      "query",
+      "performance",
+      "locks"
+    ],
     "variations": [
       {
         "syntax": "SHOW PROCESSLIST;",
@@ -1767,62 +1782,23 @@
     ]
   },
   {
-    "id": "docker-ps",
-    "name": "docker ps",
-    "description": "List Docker containers.",
-    "category": "Container Management",
-    "platform": "Docker",
-    "version": 2,
-    "examples": ["docker ps -a", "docker ps -q"],
-    "tags": ["container", "list", "running", "status"],
-    "variations": [
-      {
-        "syntax": "docker ps",
-        "description": "List only running containers."
-      },
-      {
-        "syntax": "docker ps -a",
-        "description": "List all containers, including stopped ones."
-      },
-      {
-        "syntax": "docker ps -q",
-        "description": "List only the IDs of running containers."
-      }
-    ]
-  },
-  {
-    "id": "docker-logs",
-    "name": "docker logs",
-    "description": "Fetch logs from a container.",
-    "category": "Troubleshooting",
-    "platform": "Docker",
-    "version": 2,
-    "examples": ["docker logs my-app", "docker logs -f my-app"],
-    "tags": ["logs", "container", "debug", "output"],
-    "variations": [
-      {
-        "syntax": "docker logs container-name",
-        "description": "Fetch all logs from the container."
-      },
-      {
-        "syntax": "docker logs -f container-name",
-        "description": "Follow the log output in real-time (tail -f)."
-      },
-      {
-        "syntax": "docker logs --tail 100 container-name",
-        "description": "Show only the last 100 lines of logs."
-      }
-    ]
-  },
-  {
     "id": "nproc",
     "name": "nproc",
     "description": "Print the number of processing units available.",
     "category": "System",
     "platform": "Linux",
     "version": 1,
-    "examples": ["nproc", "nproc --all"],
-    "tags": ["cpu", "processor", "core", "count", "system"],
+    "examples": [
+      "nproc",
+      "nproc --all"
+    ],
+    "tags": [
+      "cpu",
+      "processor",
+      "core",
+      "count",
+      "system"
+    ],
     "variations": [
       {
         "syntax": "nproc",
@@ -1837,44 +1813,5352 @@
         "description": "Exclude 1 processing unit from the count."
       }
     ]
-},
- {
-  "id": "ncdu",
-  "name": "ncdu",
-  "description": "NCurses Disk Usage: An interactive disk usage analyzer that provides a fast, graphical way to see where disk space is being used.",
-  "category": "System Info",
-  "platform": "Linux, macOS, Unix",
-  "version": 1,
-  "examples": [
-    "ncdu /var",
-    "ncdu -x /",
-    "ncdu -r ~"
-  ],
-  "tags": [
-    "disk",
-    "storage",
-    "usage",
-    "filesystem",
-    "analyze",
-    "ncurses",
-    "delete"
-  ],
-  "variations": [
-    {
-      "syntax": "ncdu [directory]",
-      "description": "Scans the current directory or the specified directory and displays an interactive, navigable list of files and subdirectories sorted by size.",
-      "isPrimary": true
-    },
-    {
-      "syntax": "ncdu -x /",
-      "description": "Scans the root directory (/) but **skips directories on different filesystems** (e.g., skips network mounts or /proc). This is recommended for full system scans.",
-      "isPrimary": false
-    },
-    {
-      "syntax": "ncdu -r /home",
-      "description": "Runs in **read-only mode** (`-r`), preventing accidental file deletions (`d` key) while analyzing disk usage in the `/home` directory.",
-      "isPrimary": false
-    }
-  ]
-}
+  },
+  {
+    "id": "ncdu",
+    "name": "ncdu",
+    "description": "NCurses Disk Usage: An interactive disk usage analyzer that provides a fast, graphical way to see where disk space is being used.",
+    "category": "System Info",
+    "platform": "Linux, macOS, Unix",
+    "version": 1,
+    "examples": [
+      "ncdu /var",
+      "ncdu -x /",
+      "ncdu -r ~"
+    ],
+    "tags": [
+      "disk",
+      "storage",
+      "usage",
+      "filesystem",
+      "analyze",
+      "ncurses",
+      "delete"
+    ],
+    "variations": [
+      {
+        "syntax": "ncdu [directory]",
+        "description": "Scans the current directory or the specified directory and displays an interactive, navigable list of files and subdirectories sorted by size.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ncdu -x /",
+        "description": "Scans the root directory (/) but **skips directories on different filesystems** (e.g., skips network mounts or /proc). This is recommended for full system scans.",
+        "isPrimary": false
+      },
+      {
+        "syntax": "ncdu -r /home",
+        "description": "Runs in **read-only mode** (`-r`), preventing accidental file deletions (`d` key) while analyzing disk usage in the `/home` directory.",
+        "isPrimary": false
+      }
+    ]
+  },
+  {
+    "id": "sudo",
+    "name": "sudo",
+    "description": "Execute a command as another user, typically the superuser.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "sudo apt update",
+      "sudo -i",
+      "sudo -u postgres psql"
+    ],
+    "tags": [
+      "admin",
+      "root",
+      "permissions",
+      "execute"
+    ],
+    "variations": [
+      {
+        "syntax": "sudo command",
+        "description": "Run command as root.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "sudo -i",
+        "description": "Login as root (interactive shell)."
+      },
+      {
+        "syntax": "sudo -u user command",
+        "description": "Run command as a specific user."
+      }
+    ]
+  },
+  {
+    "id": "useradd",
+    "name": "useradd",
+    "description": "Create a new user or update default new user information.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "useradd newuser",
+      "useradd -m -s /bin/bash newuser",
+      "useradd -G sudo newuser"
+    ],
+    "tags": [
+      "user",
+      "account",
+      "create",
+      "admin"
+    ],
+    "variations": [
+      {
+        "syntax": "useradd username",
+        "description": "Create a new user with default settings.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "useradd -m -s /bin/bash username",
+        "description": "Create user with home directory (-m) and specific shell (-s)."
+      },
+      {
+        "syntax": "useradd -G groupname username",
+        "description": "Create user and add to a secondary group."
+      }
+    ]
+  },
+  {
+    "id": "usermod",
+    "name": "usermod",
+    "description": "Modify a user account.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "usermod -aG sudo newuser",
+      "usermod -L newuser",
+      "usermod -s /bin/zsh newuser"
+    ],
+    "tags": [
+      "user",
+      "account",
+      "modify",
+      "admin"
+    ],
+    "variations": [
+      {
+        "syntax": "usermod -aG group user",
+        "description": "Append (-a) user to a group (G).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "usermod -L user",
+        "description": "Lock a user account."
+      },
+      {
+        "syntax": "usermod -s /bin/shell user",
+        "description": "Change the user's login shell."
+      }
+    ]
+  },
+  {
+    "id": "passwd",
+    "name": "passwd",
+    "description": "Change user password.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "passwd",
+      "passwd user",
+      "passwd -d user"
+    ],
+    "tags": [
+      "password",
+      "security",
+      "user",
+      "admin"
+    ],
+    "variations": [
+      {
+        "syntax": "passwd",
+        "description": "Change the current user's password.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "passwd username",
+        "description": "Change another user's password (requires root)."
+      },
+      {
+        "syntax": "passwd -d username",
+        "description": "Delete a user's password (make account passwordless)."
+      }
+    ]
+  },
+  {
+    "id": "killall",
+    "name": "killall",
+    "description": "Terminate processes by name.",
+    "category": "Process Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "killall nginx",
+      "killall -u user",
+      "killall -9 node"
+    ],
+    "tags": [
+      "process",
+      "stop",
+      "terminate",
+      "name"
+    ],
+    "variations": [
+      {
+        "syntax": "killall process_name",
+        "description": "Kill all processes with the given name.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "killall -u user",
+        "description": "Kill all processes owned by a specific user."
+      }
+    ]
+  },
+  {
+    "id": "ip",
+    "name": "ip",
+    "description": "Show / manipulate routing, network devices, interfaces and tunnels.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "ip addr show",
+      "ip link set eth0 up",
+      "ip route show"
+    ],
+    "tags": [
+      "network",
+      "interface",
+      "address",
+      "route"
+    ],
+    "variations": [
+      {
+        "syntax": "ip addr show",
+        "description": "Show IP addresses assigned to all interfaces.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ip link set dev up",
+        "description": "Bring a network interface up."
+      },
+      {
+        "syntax": "ip route show",
+        "description": "Show the routing table."
+      }
+    ]
+  },
+  {
+    "id": "crontab",
+    "name": "crontab",
+    "description": "Maintain crontab files for individual users.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "crontab -e",
+      "crontab -l",
+      "crontab -r"
+    ],
+    "tags": [
+      "schedule",
+      "automation",
+      "cron",
+      "task"
+    ],
+    "variations": [
+      {
+        "syntax": "crontab -e",
+        "description": "Edit the current user's crontab file.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "crontab -l",
+        "description": "List the current user's crontab entries."
+      },
+      {
+        "syntax": "crontab -r",
+        "description": "Remove the current user's crontab."
+      }
+    ]
+  },
+  {
+    "id": "strace",
+    "name": "strace",
+    "description": "Trace system calls and signals.",
+    "category": "Debugging",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "strace ls",
+      "strace -p 1234",
+      "strace -e open ls"
+    ],
+    "tags": [
+      "debug",
+      "syscall",
+      "trace",
+      "kernel"
+    ],
+    "variations": [
+      {
+        "syntax": "strace command",
+        "description": "Run a command and trace its system calls.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "strace -p PID",
+        "description": "Attach to a running process."
+      },
+      {
+        "syntax": "strace -e trace=open,read command",
+        "description": "Trace only specific system calls."
+      }
+    ]
+  },
+  {
+    "id": "watch",
+    "name": "watch",
+    "description": "Execute a program periodically, showing output fullscreen.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "watch df -h",
+      "watch -n 1 'ps aux | grep node'",
+      "watch -d ls -l"
+    ],
+    "tags": [
+      "monitor",
+      "repeat",
+      "loop",
+      "display"
+    ],
+    "variations": [
+      {
+        "syntax": "watch command",
+        "description": "Run command every 2 seconds by default.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "watch -n 1 command",
+        "description": "Run command every 1 second."
+      },
+      {
+        "syntax": "watch -d command",
+        "description": "Highlight differences between updates."
+      }
+    ]
+  },
+  {
+    "id": "dig",
+    "name": "dig",
+    "description": "DNS lookup utility.",
+    "category": "Network",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "dig google.com",
+      "dig +short google.com",
+      "dig @8.8.8.8 google.com"
+    ],
+    "tags": [
+      "dns",
+      "lookup",
+      "network",
+      "internet"
+    ],
+    "variations": [
+      {
+        "syntax": "dig domain",
+        "description": "Perform a standard DNS lookup.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "dig +short domain",
+        "description": "Return only the IP address(es)."
+      },
+      {
+        "syntax": "dig @server domain",
+        "description": "Query a specific DNS server."
+      }
+    ]
+  },
+  {
+    "id": "nslookup",
+    "name": "nslookup",
+    "description": "Query Internet name servers interactively.",
+    "category": "Network",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "nslookup google.com",
+      "nslookup 8.8.8.8",
+      "nslookup -type=mx google.com"
+    ],
+    "tags": [
+      "dns",
+      "lookup",
+      "network",
+      "interactive"
+    ],
+    "variations": [
+      {
+        "syntax": "nslookup domain",
+        "description": "Query the IP address of a domain.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "nslookup -type=record_type domain",
+        "description": "Query specific DNS record types (MX, NS, etc.)."
+      }
+    ]
+  },
+  {
+    "id": "ifconfig",
+    "name": "ifconfig",
+    "description": "Configure a network interface.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "ifconfig",
+      "ifconfig eth0 up",
+      "ifconfig eth0 192.168.1.5 netmask 255.255.255.0"
+    ],
+    "tags": [
+      "network",
+      "interface",
+      "ip",
+      "configure"
+    ],
+    "variations": [
+      {
+        "syntax": "ifconfig",
+        "description": "Display all active network interfaces.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ifconfig -a",
+        "description": "Display all interfaces, including down ones."
+      },
+      {
+        "syntax": "ifconfig interface up",
+        "description": "Activate a network interface."
+      }
+    ]
+  },
+  {
+    "id": "hostnamectl",
+    "name": "hostnamectl",
+    "description": "Control the system hostname.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "hostnamectl",
+      "hostnamectl set-hostname new-name",
+      "hostnamectl status"
+    ],
+    "tags": [
+      "hostname",
+      "system",
+      "configure",
+      "name"
+    ],
+    "variations": [
+      {
+        "syntax": "hostnamectl",
+        "description": "Show current hostname and system info.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "hostnamectl set-hostname name",
+        "description": "Set the system hostname."
+      }
+    ]
+  },
+  {
+    "id": "nmcli",
+    "name": "nmcli",
+    "description": "Command-line tool for controlling NetworkManager.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "nmcli device status",
+      "nmcli connection show",
+      "nmcli radio wifi off"
+    ],
+    "tags": [
+      "network",
+      "manager",
+      "wifi",
+      "connection"
+    ],
+    "variations": [
+      {
+        "syntax": "nmcli device status",
+        "description": "Show status of network devices.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "nmcli connection up id",
+        "description": "Activate a connection by ID."
+      },
+      {
+        "syntax": "nmcli dev wifi list",
+        "description": "List available Wi-Fi networks."
+      }
+    ]
+  },
+  {
+    "id": "mtr",
+    "name": "mtr",
+    "description": "Network diagnostic tool combining ping and traceroute.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "mtr google.com",
+      "mtr -r google.com",
+      "mtr -w google.com"
+    ],
+    "tags": [
+      "network",
+      "diagnostic",
+      "ping",
+      "traceroute"
+    ],
+    "variations": [
+      {
+        "syntax": "mtr host",
+        "description": "Run interactive network diagnostic.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "mtr -r host",
+        "description": "Report mode (text output)."
+      }
+    ]
+  },
+  {
+    "id": "tracepath",
+    "name": "tracepath",
+    "description": "Traces path to destination discovering MTU along this path.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "tracepath google.com",
+      "tracepath -p 80 google.com",
+      "tracepath -n google.com"
+    ],
+    "tags": [
+      "network",
+      "trace",
+      "mtu",
+      "path"
+    ],
+    "variations": [
+      {
+        "syntax": "tracepath host",
+        "description": "Trace path to host.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "tracepath -n host",
+        "description": "Trace path without DNS resolution."
+      }
+    ]
+  },
+  {
+    "id": "arp",
+    "name": "arp",
+    "description": "Manipulate the system ARP cache.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "arp -a",
+      "arp -d 192.168.1.1",
+      "arp -s 192.168.1.1 00:11:22:33:44:55"
+    ],
+    "tags": [
+      "network",
+      "arp",
+      "mac",
+      "cache"
+    ],
+    "variations": [
+      {
+        "syntax": "arp -a",
+        "description": "Display current ARP entries.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "arp -d host",
+        "description": "Delete an ARP entry."
+      }
+    ]
+  },
+  {
+    "id": "whois",
+    "name": "whois",
+    "description": "Client for the whois directory service.",
+    "category": "Network",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "whois google.com",
+      "whois 8.8.8.8",
+      "whois -H google.com"
+    ],
+    "tags": [
+      "domain",
+      "info",
+      "registration",
+      "network"
+    ],
+    "variations": [
+      {
+        "syntax": "whois domain",
+        "description": "Query domain registration info.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "whois ip_address",
+        "description": "Query IP address info."
+      }
+    ]
+  },
+  {
+    "id": "telnet",
+    "name": "telnet",
+    "description": "User interface to the TELNET protocol (often used to test ports).",
+    "category": "Network",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "telnet google.com 80",
+      "telnet localhost 22",
+      "telnet 192.168.1.1"
+    ],
+    "tags": [
+      "network",
+      "port",
+      "test",
+      "connection"
+    ],
+    "variations": [
+      {
+        "syntax": "telnet host port",
+        "description": "Connect to a specific port on a host.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "telnet host",
+        "description": "Connect to default telnet port (23)."
+      }
+    ]
+  },
+  {
+    "id": "sftp",
+    "name": "sftp",
+    "description": "Secure file transfer program.",
+    "category": "File Transfer",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "sftp user@host",
+      "sftp -P 2222 user@host",
+      "sftp -i key.pem user@host"
+    ],
+    "tags": [
+      "transfer",
+      "secure",
+      "ssh",
+      "file"
+    ],
+    "variations": [
+      {
+        "syntax": "sftp user@host",
+        "description": "Connect to remote host for file transfer.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "sftp -P port user@host",
+        "description": "Connect using a specific port."
+      }
+    ]
+  },
+  {
+    "id": "ufw",
+    "name": "ufw",
+    "description": "Uncomplicated Firewall (standard on Ubuntu).",
+    "category": "Security",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "ufw enable",
+      "ufw allow 22",
+      "ufw status"
+    ],
+    "tags": [
+      "firewall",
+      "security",
+      "ubuntu",
+      "protect"
+    ],
+    "variations": [
+      {
+        "syntax": "ufw status",
+        "description": "Check firewall status.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ufw allow port",
+        "description": "Allow incoming traffic on a port."
+      },
+      {
+        "syntax": "ufw enable",
+        "description": "Enable the firewall."
+      }
+    ]
+  },
+  {
+    "id": "ethtool",
+    "name": "ethtool",
+    "description": "Query or control network driver and hardware settings.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "ethtool eth0",
+      "ethtool -i eth0",
+      "ethtool -S eth0"
+    ],
+    "tags": [
+      "driver",
+      "hardware",
+      "interface",
+      "settings"
+    ],
+    "variations": [
+      {
+        "syntax": "ethtool devname",
+        "description": "Display standard information about device.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ethtool -i devname",
+        "description": "Display driver information."
+      }
+    ]
+  },
+  {
+    "id": "iftop",
+    "name": "iftop",
+    "description": "Display bandwidth usage on an interface by host.",
+    "category": "Network Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "iftop",
+      "iftop -i eth0",
+      "iftop -n"
+    ],
+    "tags": [
+      "network",
+      "bandwidth",
+      "monitor",
+      "traffic"
+    ],
+    "variations": [
+      {
+        "syntax": "iftop",
+        "description": "Monitor bandwidth usage on default interface.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "iftop -i interface",
+        "description": "Monitor a specific interface."
+      },
+      {
+        "syntax": "iftop -n",
+        "description": "Don't do hostname lookups."
+      }
+    ]
+  },
+  {
+    "id": "nethogs",
+    "name": "nethogs",
+    "description": "Monitor bandwidth usage per process.",
+    "category": "Network Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "nethogs",
+      "nethogs eth0",
+      "nethogs -d 5"
+    ],
+    "tags": [
+      "network",
+      "bandwidth",
+      "process",
+      "monitor"
+    ],
+    "variations": [
+      {
+        "syntax": "nethogs",
+        "description": "Monitor bandwidth by process.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "nethogs device",
+        "description": "Monitor specific device."
+      }
+    ]
+  },
+  {
+    "id": "iperf3",
+    "name": "iperf3",
+    "description": "Perform network throughput tests.",
+    "category": "Network Testing",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "iperf3 -s",
+      "iperf3 -c host",
+      "iperf3 -c host -R"
+    ],
+    "tags": [
+      "network",
+      "speed",
+      "throughput",
+      "test"
+    ],
+    "variations": [
+      {
+        "syntax": "iperf3 -s",
+        "description": "Run in server mode.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "iperf3 -c host",
+        "description": "Run in client mode, connecting to host."
+      },
+      {
+        "syntax": "iperf3 -c host -R",
+        "description": "Reverse test (server sends, client receives)."
+      }
+    ]
+  },
+  {
+    "id": "vnstat",
+    "name": "vnstat",
+    "description": "Console-based network traffic monitor.",
+    "category": "Network Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "vnstat",
+      "vnstat -h",
+      "vnstat -l"
+    ],
+    "tags": [
+      "network",
+      "traffic",
+      "statistics",
+      "history"
+    ],
+    "variations": [
+      {
+        "syntax": "vnstat",
+        "description": "Show traffic statistics.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "vnstat -l",
+        "description": "Live traffic monitoring."
+      }
+    ]
+  },
+  {
+    "id": "iwconfig",
+    "name": "iwconfig",
+    "description": "Configure a wireless network interface.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "iwconfig",
+      "iwconfig wlan0 essid 'MyNetwork'",
+      "iwconfig wlan0 mode managed"
+    ],
+    "tags": [
+      "wireless",
+      "wifi",
+      "configure",
+      "interface"
+    ],
+    "variations": [
+      {
+        "syntax": "iwconfig",
+        "description": "Display wireless extensions.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "iwconfig interface essid name",
+        "description": "Set the ESSID (network name)."
+      }
+    ]
+  },
+  {
+    "id": "iw",
+    "name": "iw",
+    "description": "Show / manipulate wireless devices and their configuration.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "iw dev",
+      "iw dev wlan0 scan",
+      "iw dev wlan0 link"
+    ],
+    "tags": [
+      "wireless",
+      "wifi",
+      "scan",
+      "configure"
+    ],
+    "variations": [
+      {
+        "syntax": "iw dev",
+        "description": "List wireless devices.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "iw dev interface scan",
+        "description": "Scan for wireless networks."
+      },
+      {
+        "syntax": "iw dev interface link",
+        "description": "Get link status."
+      }
+    ]
+  },
+  {
+    "id": "socat",
+    "name": "socat",
+    "description": "Multipurpose relay (SOcket CAT).",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "socat TCP4-LISTEN:8080,fork TCP4:www.google.com:80",
+      "socat - TCP4:localhost:80",
+      "socat TCP-LISTEN:1234,fork EXEC:/bin/bash"
+    ],
+    "tags": [
+      "socket",
+      "relay",
+      "tcp",
+      "tunnel"
+    ],
+    "variations": [
+      {
+        "syntax": "socat TCP-LISTEN:port,fork TCP:host:port",
+        "description": "Port forwarder.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "socat - TCP:host:port",
+        "description": "Connect to a TCP port (like netcat)."
+      }
+    ]
+  },
+  {
+    "id": "tcpflow",
+    "name": "tcpflow",
+    "description": "TCP flow recorder.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "tcpflow -i eth0 port 80",
+      "tcpflow -r capture.pcap",
+      "tcpflow -c"
+    ],
+    "tags": [
+      "capture",
+      "flow",
+      "tcp",
+      "analyze"
+    ],
+    "variations": [
+      {
+        "syntax": "tcpflow -i interface port 80",
+        "description": "Capture HTTP traffic on interface.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "tcpflow -c",
+        "description": "Console print only (don't create files)."
+      }
+    ]
+  },
+  {
+    "id": "brctl",
+    "name": "brctl",
+    "description": "Ethernet bridge administration.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "brctl show",
+      "brctl addbr br0",
+      "brctl addif br0 eth0"
+    ],
+    "tags": [
+      "bridge",
+      "ethernet",
+      "network",
+      "configure"
+    ],
+    "variations": [
+      {
+        "syntax": "brctl show",
+        "description": "Show all bridges.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "brctl addbr name",
+        "description": "Create a new bridge."
+      },
+      {
+        "syntax": "brctl addif bridge device",
+        "description": "Add an interface to a bridge."
+      }
+    ]
+  },
+  {
+    "id": "ipcalc",
+    "name": "ipcalc",
+    "description": "Perform IP address calculations.",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "ipcalc 192.168.1.1/24",
+      "ipcalc -b 192.168.1.1",
+      "ipcalc -n 192.168.1.1"
+    ],
+    "tags": [
+      "ip",
+      "calculator",
+      "subnet",
+      "network"
+    ],
+    "variations": [
+      {
+        "syntax": "ipcalc ip/netmask",
+        "description": "Calculate subnet info.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ipcalc -b ip",
+        "description": "Show broadcast address."
+      }
+    ]
+  },
+  {
+    "id": "route",
+    "name": "route",
+    "description": "Show / manipulate the IP routing table (legacy).",
+    "category": "Network",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "route -n",
+      "route add default gw 192.168.1.1",
+      "route del -net 10.0.0.0 netmask 255.0.0.0"
+    ],
+    "tags": [
+      "route",
+      "gateway",
+      "network",
+      "table"
+    ],
+    "variations": [
+      {
+        "syntax": "route -n",
+        "description": "Show routing table (numerical addresses).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "route add default gw ip",
+        "description": "Add a default gateway."
+      }
+    ]
+  },
+  {
+    "id": "cp",
+    "name": "cp",
+    "description": "Copy files and directories.",
+    "category": "File Operations",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "cp file1 file2",
+      "cp -r dir1 dir2",
+      "cp -a source dest"
+    ],
+    "tags": [
+      "file",
+      "copy",
+      "directory",
+      "duplicate"
+    ],
+    "variations": [
+      {
+        "syntax": "cp source dest",
+        "description": "Copy source to destination.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "cp -r source_dir dest_dir",
+        "description": "Copy directory recursively."
+      },
+      {
+        "syntax": "cp -a source dest",
+        "description": "Archive mode (preserve attributes, recursive)."
+      }
+    ]
+  },
+  {
+    "id": "mv",
+    "name": "mv",
+    "description": "Move (rename) files.",
+    "category": "File Operations",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "mv file1 file2",
+      "mv file dir/",
+      "mv oldname newname"
+    ],
+    "tags": [
+      "file",
+      "move",
+      "rename",
+      "directory"
+    ],
+    "variations": [
+      {
+        "syntax": "mv source dest",
+        "description": "Move or rename source to destination.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "mv -f source dest",
+        "description": "Force move (overwrite without prompting)."
+      }
+    ]
+  },
+  {
+    "id": "rm",
+    "name": "rm",
+    "description": "Remove files or directories.",
+    "category": "File Operations",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "rm file",
+      "rm -rf directory",
+      "rm -i file"
+    ],
+    "tags": [
+      "file",
+      "delete",
+      "remove",
+      "directory"
+    ],
+    "variations": [
+      {
+        "syntax": "rm file",
+        "description": "Remove a file.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "rm -rf directory",
+        "description": "Recursively and forcefully remove a directory."
+      },
+      {
+        "syntax": "rm -i file",
+        "description": "Prompt before every removal."
+      }
+    ]
+  },
+  {
+    "id": "mkdir",
+    "name": "mkdir",
+    "description": "Make directories.",
+    "category": "File Operations",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "mkdir dir",
+      "mkdir -p path/to/dir",
+      "mkdir -m 755 dir"
+    ],
+    "tags": [
+      "directory",
+      "create",
+      "folder",
+      "make"
+    ],
+    "variations": [
+      {
+        "syntax": "mkdir dir",
+        "description": "Create a directory.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "mkdir -p path/to/dir",
+        "description": "Create parent directories as needed."
+      }
+    ]
+  },
+  {
+    "id": "rmdir",
+    "name": "rmdir",
+    "description": "Remove empty directories.",
+    "category": "File Operations",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "rmdir dir",
+      "rmdir -p path/to/dir"
+    ],
+    "tags": [
+      "directory",
+      "remove",
+      "delete",
+      "empty"
+    ],
+    "variations": [
+      {
+        "syntax": "rmdir dir",
+        "description": "Remove an empty directory.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "rmdir -p path/to/dir",
+        "description": "Remove a directory and its ancestors if they become empty."
+      }
+    ]
+  },
+  {
+    "id": "touch",
+    "name": "touch",
+    "description": "Change file timestamps / create empty files.",
+    "category": "File Operations",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "touch file",
+      "touch -c file",
+      "touch -t 202301011200 file"
+    ],
+    "tags": [
+      "file",
+      "create",
+      "timestamp",
+      "update"
+    ],
+    "variations": [
+      {
+        "syntax": "touch file",
+        "description": "Update timestamps or create empty file.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "touch -c file",
+        "description": "Do not create any files."
+      }
+    ]
+  },
+  {
+    "id": "ln",
+    "name": "ln",
+    "description": "Make links between files.",
+    "category": "File Operations",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "ln -s target link",
+      "ln target link",
+      "ln -sf target link"
+    ],
+    "tags": [
+      "link",
+      "symlink",
+      "shortcut",
+      "file"
+    ],
+    "variations": [
+      {
+        "syntax": "ln -s target linkname",
+        "description": "Create a symbolic link.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ln target linkname",
+        "description": "Create a hard link."
+      }
+    ]
+  },
+  {
+    "id": "file",
+    "name": "file",
+    "description": "Determine file type.",
+    "category": "File Operations",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "file image.jpg",
+      "file -i document.txt",
+      "file *"
+    ],
+    "tags": [
+      "file",
+      "type",
+      "info",
+      "mime"
+    ],
+    "variations": [
+      {
+        "syntax": "file filename",
+        "description": "Determine type of file.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "file -i filename",
+        "description": "Output mime type strings."
+      }
+    ]
+  },
+  {
+    "id": "date",
+    "name": "date",
+    "description": "Print or set the system date and time.",
+    "category": "System Information",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "date",
+      "date +%Y-%m-%d",
+      "date -u"
+    ],
+    "tags": [
+      "time",
+      "date",
+      "system",
+      "clock"
+    ],
+    "variations": [
+      {
+        "syntax": "date",
+        "description": "Display current date and time.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "date +format",
+        "description": "Display date in specified format (e.g., +%F)."
+      }
+    ]
+  },
+  {
+    "id": "cal",
+    "name": "cal",
+    "description": "Display a calendar.",
+    "category": "System Information",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "cal",
+      "cal 2024",
+      "cal -3"
+    ],
+    "tags": [
+      "calendar",
+      "date",
+      "time",
+      "display"
+    ],
+    "variations": [
+      {
+        "syntax": "cal",
+        "description": "Show current month calendar.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "cal -y",
+        "description": "Show calendar for the whole year."
+      }
+    ]
+  },
+  {
+    "id": "whoami",
+    "name": "whoami",
+    "description": "Print effective userid.",
+    "category": "System Information",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "whoami",
+      "whoami --version"
+    ],
+    "tags": [
+      "user",
+      "id",
+      "name",
+      "current"
+    ],
+    "variations": [
+      {
+        "syntax": "whoami",
+        "description": "Print the current user name.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "id",
+    "name": "id",
+    "description": "Print user and group information.",
+    "category": "System Information",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "id",
+      "id user",
+      "id -u"
+    ],
+    "tags": [
+      "user",
+      "group",
+      "uid",
+      "gid"
+    ],
+    "variations": [
+      {
+        "syntax": "id",
+        "description": "Print info for current user.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "id username",
+        "description": "Print info for a specific user."
+      }
+    ]
+  },
+  {
+    "id": "env",
+    "name": "env",
+    "description": "Run a program in a modified environment / print environment variables.",
+    "category": "System Information",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "env",
+      "env VAR=value command",
+      "env -u VAR command"
+    ],
+    "tags": [
+      "environment",
+      "variables",
+      "run",
+      "shell"
+    ],
+    "variations": [
+      {
+        "syntax": "env",
+        "description": "Print all environment variables.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "env VAR=val command",
+        "description": "Run command with variable set."
+      }
+    ]
+  },
+  {
+    "id": "history",
+    "name": "history",
+    "description": "Display or manipulate the history list.",
+    "category": "Shell",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "history",
+      "history 10",
+      "history -c"
+    ],
+    "tags": [
+      "shell",
+      "commands",
+      "previous",
+      "list"
+    ],
+    "variations": [
+      {
+        "syntax": "history",
+        "description": "Show full command history.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "history n",
+        "description": "Show last n commands."
+      },
+      {
+        "syntax": "history -c",
+        "description": "Clear the history list."
+      }
+    ]
+  },
+  {
+    "id": "alias",
+    "name": "alias",
+    "description": "Define or display aliases.",
+    "category": "Shell",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "alias",
+      "alias ll='ls -l'",
+      "unalias ll"
+    ],
+    "tags": [
+      "shell",
+      "shortcut",
+      "command",
+      "define"
+    ],
+    "variations": [
+      {
+        "syntax": "alias",
+        "description": "List all aliases.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "alias name='command'",
+        "description": "Create an alias."
+      }
+    ]
+  },
+  {
+    "id": "echo",
+    "name": "echo",
+    "description": "Display a line of text.",
+    "category": "Shell",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "echo 'Hello World'",
+      "echo $PATH",
+      "echo -e 'Line1\\nLine2'"
+    ],
+    "tags": [
+      "print",
+      "text",
+      "display",
+      "output"
+    ],
+    "variations": [
+      {
+        "syntax": "echo string",
+        "description": "Print string to stdout.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "echo -e string",
+        "description": "Enable interpretation of backslash escapes."
+      }
+    ]
+  },
+  {
+    "id": "cat",
+    "name": "cat",
+    "description": "Concatenate files and print on the standard output.",
+    "category": "File Operations",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "cat file.txt",
+      "cat file1 file2 > combined.txt",
+      "cat -n file.txt"
+    ],
+    "tags": [
+      "file",
+      "read",
+      "print",
+      "concatenate"
+    ],
+    "variations": [
+      {
+        "syntax": "cat filename",
+        "description": "Display file contents.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "cat > filename",
+        "description": "Create file from stdin (Ctrl+D to save)."
+      }
+    ]
+  },
+  {
+    "id": "man",
+    "name": "man",
+    "description": "An interface to the system reference manuals.",
+    "category": "System Information",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "man ls",
+      "man -k keyword",
+      "man 5 crontab"
+    ],
+    "tags": [
+      "help",
+      "manual",
+      "docs",
+      "info"
+    ],
+    "variations": [
+      {
+        "syntax": "man command",
+        "description": "Show manual page for command.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "man -k keyword",
+        "description": "Search manual pages for keyword."
+      }
+    ]
+  },
+  {
+    "id": "which",
+    "name": "which",
+    "description": "Locate a command.",
+    "category": "System Information",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "which python",
+      "which -a ls"
+    ],
+    "tags": [
+      "locate",
+      "path",
+      "command",
+      "find"
+    ],
+    "variations": [
+      {
+        "syntax": "which command",
+        "description": "Show full path of command.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "which -a command",
+        "description": "Show all matching executables in PATH."
+      }
+    ]
+  },
+  {
+    "id": "shutdown",
+    "name": "shutdown",
+    "description": "Halt, power-off or reboot the machine.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "shutdown now",
+      "shutdown -r now",
+      "shutdown +10"
+    ],
+    "tags": [
+      "power",
+      "reboot",
+      "halt",
+      "system"
+    ],
+    "variations": [
+      {
+        "syntax": "shutdown now",
+        "description": "Power off immediately.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "shutdown -r now",
+        "description": "Reboot immediately."
+      },
+      {
+        "syntax": "shutdown +m",
+        "description": "Shutdown in m minutes."
+      }
+    ]
+  },
+  {
+    "id": "mysql-select",
+    "name": "mysql select",
+    "description": "Retrieve data from tables.",
+    "category": "Database",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SELECT * FROM users;",
+      "SELECT id, name FROM users WHERE id = 1;",
+      "SELECT * FROM users ORDER BY created_at DESC LIMIT 10;"
+    ],
+    "tags": [
+      "mysql",
+      "select",
+      "query",
+      "read"
+    ],
+    "variations": [
+      {
+        "syntax": "SELECT * FROM table_name;",
+        "description": "Select all columns from a table.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "SELECT col1, col2 FROM table_name WHERE condition;",
+        "description": "Select specific columns with a condition."
+      }
+    ]
+  },
+  {
+    "id": "mysql-insert",
+    "name": "mysql insert",
+    "description": "Insert new data into tables.",
+    "category": "Database",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "INSERT INTO users (name, email) VALUES ('John', 'john@example.com');",
+      "INSERT INTO users VALUES (1, 'John', 'john@example.com');"
+    ],
+    "tags": [
+      "mysql",
+      "insert",
+      "create",
+      "write"
+    ],
+    "variations": [
+      {
+        "syntax": "INSERT INTO table (col1, col2) VALUES (val1, val2);",
+        "description": "Insert a new row with specific values.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-update",
+    "name": "mysql update",
+    "description": "Modify existing data.",
+    "category": "Database",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "UPDATE users SET email = 'new@example.com' WHERE id = 1;",
+      "UPDATE users SET status = 'active';"
+    ],
+    "tags": [
+      "mysql",
+      "update",
+      "modify",
+      "write"
+    ],
+    "variations": [
+      {
+        "syntax": "UPDATE table SET col = val WHERE condition;",
+        "description": "Update rows matching a condition.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-delete",
+    "name": "mysql delete",
+    "description": "Remove data from tables.",
+    "category": "Database",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "DELETE FROM users WHERE id = 1;",
+      "DELETE FROM users WHERE status = 'inactive';"
+    ],
+    "tags": [
+      "mysql",
+      "delete",
+      "remove",
+      "write"
+    ],
+    "variations": [
+      {
+        "syntax": "DELETE FROM table WHERE condition;",
+        "description": "Delete rows matching a condition.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-create-db",
+    "name": "mysql create database",
+    "description": "Create a new database.",
+    "category": "Database",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "CREATE DATABASE my_app;",
+      "CREATE DATABASE IF NOT EXISTS my_app CHARACTER SET utf8mb4;"
+    ],
+    "tags": [
+      "mysql",
+      "create",
+      "database",
+      "ddl"
+    ],
+    "variations": [
+      {
+        "syntax": "CREATE DATABASE name;",
+        "description": "Create a new database.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-create-table",
+    "name": "mysql create table",
+    "description": "Create a new table.",
+    "category": "Database",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255));",
+      "CREATE TABLE logs (id INT, message TEXT) ENGINE=InnoDB;"
+    ],
+    "tags": [
+      "mysql",
+      "create",
+      "table",
+      "ddl"
+    ],
+    "variations": [
+      {
+        "syntax": "CREATE TABLE name (col type options, ...);",
+        "description": "Create a new table with columns.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-alter-table",
+    "name": "mysql alter table",
+    "description": "Modify table structure.",
+    "category": "Database",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "ALTER TABLE users ADD COLUMN age INT;",
+      "ALTER TABLE users DROP COLUMN age;",
+      "ALTER TABLE users MODIFY COLUMN name VARCHAR(100);"
+    ],
+    "tags": [
+      "mysql",
+      "alter",
+      "table",
+      "ddl"
+    ],
+    "variations": [
+      {
+        "syntax": "ALTER TABLE name ADD COLUMN col type;",
+        "description": "Add a new column to a table.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ALTER TABLE name DROP COLUMN col;",
+        "description": "Remove a column from a table."
+      }
+    ]
+  },
+  {
+    "id": "mysql-drop-table",
+    "name": "mysql drop table",
+    "description": "Delete a table.",
+    "category": "Database",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "DROP TABLE users;",
+      "DROP TABLE IF EXISTS users;"
+    ],
+    "tags": [
+      "mysql",
+      "drop",
+      "table",
+      "ddl"
+    ],
+    "variations": [
+      {
+        "syntax": "DROP TABLE name;",
+        "description": "Delete a table permanently.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-truncate",
+    "name": "mysql truncate",
+    "description": "Empty a table.",
+    "category": "Database",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "TRUNCATE TABLE users;"
+    ],
+    "tags": [
+      "mysql",
+      "truncate",
+      "empty",
+      "ddl"
+    ],
+    "variations": [
+      {
+        "syntax": "TRUNCATE TABLE name;",
+        "description": "Remove all rows from a table (reset auto-increment).",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-show-databases",
+    "name": "mysql show databases",
+    "description": "List all databases.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW DATABASES;",
+      "SHOW DATABASES LIKE 'my_%';"
+    ],
+    "tags": [
+      "mysql",
+      "show",
+      "databases",
+      "list"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW DATABASES;",
+        "description": "List all databases on the server.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-show-tables",
+    "name": "mysql show tables",
+    "description": "List tables in a database.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW TABLES;",
+      "SHOW TABLES LIKE 'user%';"
+    ],
+    "tags": [
+      "mysql",
+      "show",
+      "tables",
+      "list"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW TABLES;",
+        "description": "List all tables in the current database.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-processlist",
+    "name": "mysql show processlist",
+    "description": "Show running threads.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW PROCESSLIST;",
+      "SHOW FULL PROCESSLIST;"
+    ],
+    "tags": [
+      "mysql",
+      "process",
+      "threads",
+      "monitor"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW PROCESSLIST;",
+        "description": "Show currently running queries and connections.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "SHOW FULL PROCESSLIST;",
+        "description": "Show full query text."
+      }
+    ]
+  },
+  {
+    "id": "mysql-show-status",
+    "name": "mysql show status",
+    "description": "Show server status variables.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW STATUS;",
+      "SHOW STATUS LIKE 'Threads_%';"
+    ],
+    "tags": [
+      "mysql",
+      "status",
+      "variables",
+      "monitor"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW STATUS;",
+        "description": "Show all status variables.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "SHOW STATUS LIKE 'pattern';",
+        "description": "Filter status variables by pattern."
+      }
+    ]
+  },
+  {
+    "id": "mysql-show-variables",
+    "name": "mysql show variables",
+    "description": "Show server system variables.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW VARIABLES;",
+      "SHOW VARIABLES LIKE 'max_connections';"
+    ],
+    "tags": [
+      "mysql",
+      "variables",
+      "config",
+      "settings"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW VARIABLES;",
+        "description": "Show all system variables.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "SHOW VARIABLES LIKE 'pattern';",
+        "description": "Filter system variables by pattern."
+      }
+    ]
+  },
+  {
+    "id": "mysql-kill",
+    "name": "mysql kill",
+    "description": "Kill a connection/thread.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "KILL 1234;",
+      "KILL QUERY 1234;"
+    ],
+    "tags": [
+      "mysql",
+      "kill",
+      "process",
+      "stop"
+    ],
+    "variations": [
+      {
+        "syntax": "KILL thread_id;",
+        "description": "Terminate a connection.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "KILL QUERY thread_id;",
+        "description": "Terminate only the query running on the connection."
+      }
+    ]
+  },
+  {
+    "id": "mysql-slave-status",
+    "name": "mysql show slave status",
+    "description": "Show replica status.",
+    "category": "Database Replication",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW SLAVE STATUS\\G"
+    ],
+    "tags": [
+      "mysql",
+      "replication",
+      "slave",
+      "status"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW SLAVE STATUS\\G",
+        "description": "Show replication status in vertical format.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-master-status",
+    "name": "mysql show master status",
+    "description": "Show source status.",
+    "category": "Database Replication",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW MASTER STATUS\\G"
+    ],
+    "tags": [
+      "mysql",
+      "replication",
+      "master",
+      "status"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW MASTER STATUS\\G",
+        "description": "Show binary log file and position.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "galera-cluster-size",
+    "name": "galera cluster size",
+    "description": "Check cluster size.",
+    "category": "Galera Cluster",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW STATUS LIKE 'wsrep_cluster_size';"
+    ],
+    "tags": [
+      "galera",
+      "cluster",
+      "size",
+      "monitor"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW STATUS LIKE 'wsrep_cluster_size';",
+        "description": "Show the number of nodes in the cluster.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "galera-cluster-status",
+    "name": "galera cluster status",
+    "description": "Check cluster status.",
+    "category": "Galera Cluster",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW STATUS LIKE 'wsrep_cluster_status';"
+    ],
+    "tags": [
+      "galera",
+      "cluster",
+      "status",
+      "monitor"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW STATUS LIKE 'wsrep_cluster_status';",
+        "description": "Show the primary status of the cluster component (Primary/Non-Primary).",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "galera-local-state",
+    "name": "galera local state",
+    "description": "Check local node state.",
+    "category": "Galera Cluster",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW STATUS LIKE 'wsrep_local_state_comment';"
+    ],
+    "tags": [
+      "galera",
+      "node",
+      "state",
+      "monitor"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW STATUS LIKE 'wsrep_local_state_comment';",
+        "description": "Show the state of the local node (Synced, Donor, Joiner, etc.).",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "galera-incoming-addresses",
+    "name": "galera incoming addresses",
+    "description": "Show incoming addresses.",
+    "category": "Galera Cluster",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW STATUS LIKE 'wsrep_incoming_addresses';"
+    ],
+    "tags": [
+      "galera",
+      "cluster",
+      "addresses",
+      "nodes"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW STATUS LIKE 'wsrep_incoming_addresses';",
+        "description": "Show the IP addresses of all nodes in the cluster.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "smem",
+    "name": "smem",
+    "description": "Report memory usage with shared memory divided proportionally.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "smem",
+      "smem -r",
+      "smem -u -p"
+    ],
+    "tags": [
+      "memory",
+      "usage",
+      "shared",
+      "monitor"
+    ],
+    "variations": [
+      {
+        "syntax": "smem",
+        "description": "Show memory usage by process.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "smem -r",
+        "description": "Show memory usage in reverse order."
+      }
+    ]
+  },
+  {
+    "id": "slabtop",
+    "name": "slabtop",
+    "description": "Display kernel slab cache information in real time.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "slabtop",
+      "slabtop -s c"
+    ],
+    "tags": [
+      "memory",
+      "kernel",
+      "slab",
+      "cache"
+    ],
+    "variations": [
+      {
+        "syntax": "slabtop",
+        "description": "Display slab cache info.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "slabtop -s c",
+        "description": "Sort by cache size."
+      }
+    ]
+  },
+  {
+    "id": "pmap",
+    "name": "pmap",
+    "description": "Report memory map of a process.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "pmap 1234",
+      "pmap -x 1234"
+    ],
+    "tags": [
+      "memory",
+      "process",
+      "map",
+      "debug"
+    ],
+    "variations": [
+      {
+        "syntax": "pmap pid",
+        "description": "Show memory map for process ID.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "pmap -x pid",
+        "description": "Show extended memory map information."
+      }
+    ]
+  },
+  {
+    "id": "mpstat",
+    "name": "mpstat",
+    "description": "Report processors related statistics.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "mpstat",
+      "mpstat -P ALL",
+      "mpstat 1 5"
+    ],
+    "tags": [
+      "cpu",
+      "processor",
+      "statistics",
+      "monitor"
+    ],
+    "variations": [
+      {
+        "syntax": "mpstat",
+        "description": "Show CPU statistics.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "mpstat -P ALL",
+        "description": "Show statistics for all CPUs individually."
+      }
+    ]
+  },
+  {
+    "id": "lscpu",
+    "name": "lscpu",
+    "description": "Display information about the CPU architecture.",
+    "category": "System Information",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "lscpu",
+      "lscpu -e"
+    ],
+    "tags": [
+      "cpu",
+      "info",
+      "architecture",
+      "hardware"
+    ],
+    "variations": [
+      {
+        "syntax": "lscpu",
+        "description": "Show CPU architecture info.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "lscpu -e",
+        "description": "Show extended information."
+      }
+    ]
+  },
+  {
+    "id": "pidstat",
+    "name": "pidstat",
+    "description": "Report statistics for Linux tasks (processes).",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "pidstat",
+      "pidstat -r",
+      "pidstat -d"
+    ],
+    "tags": [
+      "process",
+      "cpu",
+      "memory",
+      "io"
+    ],
+    "variations": [
+      {
+        "syntax": "pidstat",
+        "description": "Show CPU usage by process.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "pidstat -r",
+        "description": "Show memory usage by process."
+      },
+      {
+        "syntax": "pidstat -d",
+        "description": "Show I/O statistics by process."
+      }
+    ]
+  },
+  {
+    "id": "sar",
+    "name": "sar",
+    "description": "Collect, report, or save system activity information.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "sar",
+      "sar -u 1 5",
+      "sar -r"
+    ],
+    "tags": [
+      "system",
+      "activity",
+      "monitor",
+      "history"
+    ],
+    "variations": [
+      {
+        "syntax": "sar",
+        "description": "Show CPU activity history.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "sar -r",
+        "description": "Show memory utilization history."
+      }
+    ]
+  },
+  {
+    "id": "lsblk",
+    "name": "lsblk",
+    "description": "List block devices.",
+    "category": "Disk Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "lsblk",
+      "lsblk -f",
+      "lsblk -m"
+    ],
+    "tags": [
+      "disk",
+      "block",
+      "device",
+      "list"
+    ],
+    "variations": [
+      {
+        "syntax": "lsblk",
+        "description": "List all block devices.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "lsblk -f",
+        "description": "Output info about filesystems."
+      }
+    ]
+  },
+  {
+    "id": "blkid",
+    "name": "blkid",
+    "description": "Locate/print block device attributes.",
+    "category": "Disk Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "blkid",
+      "blkid /dev/sda1"
+    ],
+    "tags": [
+      "disk",
+      "uuid",
+      "filesystem",
+      "id"
+    ],
+    "variations": [
+      {
+        "syntax": "blkid",
+        "description": "Print attributes for all block devices.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "blkid device",
+        "description": "Print attributes for a specific device."
+      }
+    ]
+  },
+  {
+    "id": "smartctl",
+    "name": "smartctl",
+    "description": "Control and monitor S.M.A.R.T. enabled hard drives.",
+    "category": "Disk Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "smartctl -a /dev/sda",
+      "smartctl -H /dev/sda",
+      "smartctl -t short /dev/sda"
+    ],
+    "tags": [
+      "disk",
+      "smart",
+      "health",
+      "monitor"
+    ],
+    "variations": [
+      {
+        "syntax": "smartctl -a device",
+        "description": "Show all SMART information for device.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "smartctl -H device",
+        "description": "Show device health status."
+      }
+    ]
+  },
+  {
+    "id": "badblocks",
+    "name": "badblocks",
+    "description": "Search a device for bad blocks.",
+    "category": "Disk Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "badblocks -v /dev/sda1",
+      "badblocks -s /dev/sda1"
+    ],
+    "tags": [
+      "disk",
+      "check",
+      "blocks",
+      "repair"
+    ],
+    "variations": [
+      {
+        "syntax": "badblocks -v device",
+        "description": "Check for bad blocks in verbose mode.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "fsck",
+    "name": "fsck",
+    "description": "Check and repair a Linux filesystem.",
+    "category": "Disk Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "fsck /dev/sda1",
+      "fsck -y /dev/sda1"
+    ],
+    "tags": [
+      "disk",
+      "filesystem",
+      "check",
+      "repair"
+    ],
+    "variations": [
+      {
+        "syntax": "fsck device",
+        "description": "Check filesystem on device.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "fsck -y device",
+        "description": "Attempt to fix detected errors automatically."
+      }
+    ]
+  },
+  {
+    "id": "iotop",
+    "name": "iotop",
+    "description": "Simple top-like I/O monitor.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "iotop",
+      "iotop -o",
+      "iotop -b -n 5"
+    ],
+    "tags": [
+      "io",
+      "disk",
+      "monitor",
+      "process"
+    ],
+    "variations": [
+      {
+        "syntax": "iotop",
+        "description": "Show I/O usage by process.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "iotop -o",
+        "description": "Show only processes doing I/O."
+      }
+    ]
+  },
+  {
+    "id": "ioping",
+    "name": "ioping",
+    "description": "Simple disk I/O latency monitoring tool.",
+    "category": "System Monitoring",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "ioping .",
+      "ioping -c 10 ."
+    ],
+    "tags": [
+      "io",
+      "latency",
+      "disk",
+      "test"
+    ],
+    "variations": [
+      {
+        "syntax": "ioping .",
+        "description": "Check I/O latency on current directory.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "ionice",
+    "name": "ionice",
+    "description": "Set or get the I/O scheduling class and priority for a program.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "ionice -p 1234",
+      "ionice -c 3 -p 1234"
+    ],
+    "tags": [
+      "io",
+      "priority",
+      "process",
+      "schedule"
+    ],
+    "variations": [
+      {
+        "syntax": "ionice -p pid",
+        "description": "Get I/O priority of a process.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "ionice -c class -p pid",
+        "description": "Set I/O scheduling class (1=RT, 2=BE, 3=Idle)."
+      }
+    ]
+  },
+  {
+    "id": "go-build",
+    "name": "go build",
+    "description": "Compile packages and dependencies.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go build",
+      "go build -o myapp",
+      "go build ./..."
+    ],
+    "tags": [
+      "go",
+      "build",
+      "compile",
+      "golang"
+    ],
+    "variations": [
+      {
+        "syntax": "go build",
+        "description": "Build the package in the current directory.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "go build -o output_name",
+        "description": "Build and specify output file name."
+      }
+    ]
+  },
+  {
+    "id": "go-run",
+    "name": "go run",
+    "description": "Compile and run Go program.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go run main.go",
+      "go run .",
+      "go run -race main.go"
+    ],
+    "tags": [
+      "go",
+      "run",
+      "execute",
+      "golang"
+    ],
+    "variations": [
+      {
+        "syntax": "go run file.go",
+        "description": "Run a Go source file.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "go run .",
+        "description": "Run the package in the current directory."
+      }
+    ]
+  },
+  {
+    "id": "go-clean",
+    "name": "go clean",
+    "description": "Remove object files and cached files.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go clean",
+      "go clean -modcache"
+    ],
+    "tags": [
+      "go",
+      "clean",
+      "remove",
+      "golang"
+    ],
+    "variations": [
+      {
+        "syntax": "go clean",
+        "description": "Remove object files from current directory.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "go clean -modcache",
+        "description": "Remove the entire module download cache."
+      }
+    ]
+  },
+  {
+    "id": "go-install",
+    "name": "go install",
+    "description": "Compile and install packages and dependencies.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go install",
+      "go install example.com/cmd/pkg@latest"
+    ],
+    "tags": [
+      "go",
+      "install",
+      "package",
+      "golang"
+    ],
+    "variations": [
+      {
+        "syntax": "go install",
+        "description": "Install the package in the current directory.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "go install package@version",
+        "description": "Install a specific version of a package."
+      }
+    ]
+  },
+  {
+    "id": "go-mod-init",
+    "name": "go mod init",
+    "description": "Initialize new module in current directory.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go mod init example.com/my-module"
+    ],
+    "tags": [
+      "go",
+      "mod",
+      "init",
+      "module"
+    ],
+    "variations": [
+      {
+        "syntax": "go mod init module_name",
+        "description": "Initialize a new module with the given name.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "go-mod-tidy",
+    "name": "go mod tidy",
+    "description": "Add missing and remove unused modules.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go mod tidy"
+    ],
+    "tags": [
+      "go",
+      "mod",
+      "tidy",
+      "dependencies"
+    ],
+    "variations": [
+      {
+        "syntax": "go mod tidy",
+        "description": "Ensure go.mod matches the source code.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "go-mod-vendor",
+    "name": "go mod vendor",
+    "description": "Make vendored copy of dependencies.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go mod vendor"
+    ],
+    "tags": [
+      "go",
+      "mod",
+      "vendor",
+      "dependencies"
+    ],
+    "variations": [
+      {
+        "syntax": "go mod vendor",
+        "description": "Copy dependencies to the vendor directory.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "go-get",
+    "name": "go get",
+    "description": "Add dependencies to current module and install them.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go get example.com/pkg",
+      "go get -u example.com/pkg",
+      "go get example.com/pkg@v1.2.3"
+    ],
+    "tags": [
+      "go",
+      "get",
+      "dependency",
+      "install"
+    ],
+    "variations": [
+      {
+        "syntax": "go get package",
+        "description": "Add a dependency.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "go get -u package",
+        "description": "Update a dependency."
+      }
+    ]
+  },
+  {
+    "id": "go-list",
+    "name": "go list",
+    "description": "List packages or modules.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go list -m all",
+      "go list ./..."
+    ],
+    "tags": [
+      "go",
+      "list",
+      "packages",
+      "modules"
+    ],
+    "variations": [
+      {
+        "syntax": "go list -m all",
+        "description": "List all modules.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "go list ./...",
+        "description": "List all packages in the current module."
+      }
+    ]
+  },
+  {
+    "id": "go-test",
+    "name": "go test",
+    "description": "Test packages.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go test",
+      "go test ./...",
+      "go test -v"
+    ],
+    "tags": [
+      "go",
+      "test",
+      "check",
+      "golang"
+    ],
+    "variations": [
+      {
+        "syntax": "go test",
+        "description": "Run tests in the current package.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "go test ./...",
+        "description": "Run tests in all subdirectories."
+      },
+      {
+        "syntax": "go test -v",
+        "description": "Run tests with verbose output."
+      }
+    ]
+  },
+  {
+    "id": "go-fmt",
+    "name": "go fmt",
+    "description": "Gofmt (reformat) package sources.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go fmt",
+      "go fmt ./..."
+    ],
+    "tags": [
+      "go",
+      "fmt",
+      "format",
+      "code"
+    ],
+    "variations": [
+      {
+        "syntax": "go fmt",
+        "description": "Format code in the current package.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "go fmt ./...",
+        "description": "Format code in all subdirectories."
+      }
+    ]
+  },
+  {
+    "id": "go-vet",
+    "name": "go vet",
+    "description": "Report likely mistakes in packages.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go vet",
+      "go vet ./..."
+    ],
+    "tags": [
+      "go",
+      "vet",
+      "lint",
+      "check"
+    ],
+    "variations": [
+      {
+        "syntax": "go vet",
+        "description": "Vet the current package.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "go vet ./...",
+        "description": "Vet all subdirectories."
+      }
+    ]
+  },
+  {
+    "id": "go-doc",
+    "name": "go doc",
+    "description": "Show documentation for package or symbol.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go doc fmt",
+      "go doc json.Encoder"
+    ],
+    "tags": [
+      "go",
+      "doc",
+      "help",
+      "documentation"
+    ],
+    "variations": [
+      {
+        "syntax": "go doc package",
+        "description": "Show documentation for a package.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "go doc symbol",
+        "description": "Show documentation for a symbol."
+      }
+    ]
+  },
+  {
+    "id": "go-version",
+    "name": "go version",
+    "description": "Print Go version.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go version"
+    ],
+    "tags": [
+      "go",
+      "version",
+      "info",
+      "golang"
+    ],
+    "variations": [
+      {
+        "syntax": "go version",
+        "description": "Print the Go version.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "go-env",
+    "name": "go env",
+    "description": "Print Go environment information.",
+    "category": "Go",
+    "platform": "General",
+    "version": 1,
+    "examples": [
+      "go env",
+      "go env GOPATH",
+      "go env -w GOPROXY=direct"
+    ],
+    "tags": [
+      "go",
+      "env",
+      "environment",
+      "config"
+    ],
+    "variations": [
+      {
+        "syntax": "go env",
+        "description": "Print all environment variables.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "go env VAR",
+        "description": "Print a specific environment variable."
+      }
+    ]
+  },
+  {
+    "id": "docker-run",
+    "name": "docker run",
+    "description": "Run a command in a new container.",
+    "category": "Container Management",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker run -it ubuntu bash",
+      "docker run -d -p 80:80 nginx",
+      "docker run --rm alpine echo 'hello'"
+    ],
+    "tags": [
+      "docker",
+      "run",
+      "container",
+      "start"
+    ],
+    "variations": [
+      {
+        "syntax": "docker run image",
+        "description": "Run a container from an image.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker run -d image",
+        "description": "Run container in detached mode (background)."
+      },
+      {
+        "syntax": "docker run -it image command",
+        "description": "Run container interactively."
+      }
+    ]
+  },
+  {
+    "id": "docker-exec",
+    "name": "docker exec",
+    "description": "Run a command in a running container.",
+    "category": "Container Management",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker exec -it container_id bash",
+      "docker exec container_id ls /app"
+    ],
+    "tags": [
+      "docker",
+      "exec",
+      "container",
+      "command"
+    ],
+    "variations": [
+      {
+        "syntax": "docker exec container command",
+        "description": "Execute a command in a running container.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker exec -it container bash",
+        "description": "Start an interactive shell in a running container."
+      }
+    ]
+  },
+  {
+    "id": "docker-stop",
+    "name": "docker stop",
+    "description": "Stop one or more running containers.",
+    "category": "Container Management",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker stop container_id",
+      "docker stop $(docker ps -q)"
+    ],
+    "tags": [
+      "docker",
+      "stop",
+      "container",
+      "halt"
+    ],
+    "variations": [
+      {
+        "syntax": "docker stop container",
+        "description": "Stop a running container.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "docker-start",
+    "name": "docker start",
+    "description": "Start one or more stopped containers.",
+    "category": "Container Management",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker start container_id",
+      "docker start -a container_id"
+    ],
+    "tags": [
+      "docker",
+      "start",
+      "container",
+      "resume"
+    ],
+    "variations": [
+      {
+        "syntax": "docker start container",
+        "description": "Start a stopped container.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "docker-restart",
+    "name": "docker restart",
+    "description": "Restart one or more containers.",
+    "category": "Container Management",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker restart container_id"
+    ],
+    "tags": [
+      "docker",
+      "restart",
+      "container",
+      "reboot"
+    ],
+    "variations": [
+      {
+        "syntax": "docker restart container",
+        "description": "Restart a container.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "docker-rm",
+    "name": "docker rm",
+    "description": "Remove one or more containers.",
+    "category": "Container Management",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker rm container_id",
+      "docker rm -f container_id",
+      "docker rm $(docker ps -aq)"
+    ],
+    "tags": [
+      "docker",
+      "remove",
+      "delete",
+      "container"
+    ],
+    "variations": [
+      {
+        "syntax": "docker rm container",
+        "description": "Remove a stopped container.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker rm -f container",
+        "description": "Force remove a running container."
+      }
+    ]
+  },
+  {
+    "id": "docker-inspect",
+    "name": "docker inspect",
+    "description": "Return low-level information on Docker objects.",
+    "category": "Container Management",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker inspect container_id",
+      "docker inspect network_name"
+    ],
+    "tags": [
+      "docker",
+      "inspect",
+      "info",
+      "details"
+    ],
+    "variations": [
+      {
+        "syntax": "docker inspect object",
+        "description": "Inspect a Docker object (container, image, volume, network).",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "docker-images",
+    "name": "docker images",
+    "description": "List images.",
+    "category": "Image Management",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker images",
+      "docker images -a"
+    ],
+    "tags": [
+      "docker",
+      "images",
+      "list",
+      "show"
+    ],
+    "variations": [
+      {
+        "syntax": "docker images",
+        "description": "List all top-level images.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "docker-rmi",
+    "name": "docker rmi",
+    "description": "Remove one or more images.",
+    "category": "Image Management",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker rmi image_id",
+      "docker rmi -f image_id"
+    ],
+    "tags": [
+      "docker",
+      "remove",
+      "delete",
+      "image"
+    ],
+    "variations": [
+      {
+        "syntax": "docker rmi image",
+        "description": "Remove an image.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker rmi -f image",
+        "description": "Force remove an image."
+      }
+    ]
+  },
+  {
+    "id": "docker-pull",
+    "name": "docker pull",
+    "description": "Pull an image or a repository from a registry.",
+    "category": "Image Management",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker pull ubuntu",
+      "docker pull nginx:latest"
+    ],
+    "tags": [
+      "docker",
+      "pull",
+      "download",
+      "image"
+    ],
+    "variations": [
+      {
+        "syntax": "docker pull image",
+        "description": "Download an image from a registry.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "docker-build",
+    "name": "docker build",
+    "description": "Build an image from a Dockerfile.",
+    "category": "Image Management",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker build -t myimage .",
+      "docker build -f Dockerfile.dev ."
+    ],
+    "tags": [
+      "docker",
+      "build",
+      "create",
+      "image"
+    ],
+    "variations": [
+      {
+        "syntax": "docker build .",
+        "description": "Build image from Dockerfile in current directory.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker build -t tag .",
+        "description": "Build and tag an image."
+      }
+    ]
+  },
+  {
+    "id": "docker-network-ls",
+    "name": "docker network ls",
+    "description": "List networks.",
+    "category": "Docker Network",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker network ls"
+    ],
+    "tags": [
+      "docker",
+      "network",
+      "list",
+      "show"
+    ],
+    "variations": [
+      {
+        "syntax": "docker network ls",
+        "description": "List all Docker networks.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "docker-network-create",
+    "name": "docker network create",
+    "description": "Create a network.",
+    "category": "Docker Network",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker network create mynet",
+      "docker network create --driver bridge mynet"
+    ],
+    "tags": [
+      "docker",
+      "network",
+      "create",
+      "add"
+    ],
+    "variations": [
+      {
+        "syntax": "docker network create name",
+        "description": "Create a new network.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "docker-volume-ls",
+    "name": "docker volume ls",
+    "description": "List volumes.",
+    "category": "Docker Volume",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker volume ls"
+    ],
+    "tags": [
+      "docker",
+      "volume",
+      "list",
+      "show"
+    ],
+    "variations": [
+      {
+        "syntax": "docker volume ls",
+        "description": "List all Docker volumes.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "docker-volume-create",
+    "name": "docker volume create",
+    "description": "Create a volume.",
+    "category": "Docker Volume",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker volume create myvol"
+    ],
+    "tags": [
+      "docker",
+      "volume",
+      "create",
+      "add"
+    ],
+    "variations": [
+      {
+        "syntax": "docker volume create name",
+        "description": "Create a new volume.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "docker-system-prune",
+    "name": "docker system prune",
+    "description": "Remove unused data.",
+    "category": "Docker System",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker system prune",
+      "docker system prune -a",
+      "docker system prune --volumes"
+    ],
+    "tags": [
+      "docker",
+      "system",
+      "prune",
+      "clean"
+    ],
+    "variations": [
+      {
+        "syntax": "docker system prune",
+        "description": "Remove unused containers, networks, images (dangling).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker system prune -a",
+        "description": "Remove all unused images not just dangling ones."
+      }
+    ]
+  },
+  {
+    "id": "docker-compose-up",
+    "name": "docker-compose up",
+    "description": "Create and start containers.",
+    "category": "Docker Compose",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker-compose up",
+      "docker-compose up -d"
+    ],
+    "tags": [
+      "docker",
+      "compose",
+      "up",
+      "start"
+    ],
+    "variations": [
+      {
+        "syntax": "docker-compose up",
+        "description": "Start services defined in docker-compose.yml.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker-compose up -d",
+        "description": "Start services in detached mode."
+      }
+    ]
+  },
+  {
+    "id": "docker-compose-down",
+    "name": "docker-compose down",
+    "description": "Stop and remove containers, networks, images, and volumes.",
+    "category": "Docker Compose",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker-compose down",
+      "docker-compose down -v"
+    ],
+    "tags": [
+      "docker",
+      "compose",
+      "down",
+      "stop"
+    ],
+    "variations": [
+      {
+        "syntax": "docker-compose down",
+        "description": "Stop and remove resources created by up.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker-compose down -v",
+        "description": "Remove named volumes declared in the volumes section."
+      }
+    ]
+  },
+  {
+    "id": "docker-compose-logs",
+    "name": "docker-compose logs",
+    "description": "View output from containers.",
+    "category": "Docker Compose",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker-compose logs",
+      "docker-compose logs -f"
+    ],
+    "tags": [
+      "docker",
+      "compose",
+      "logs",
+      "monitor"
+    ],
+    "variations": [
+      {
+        "syntax": "docker-compose logs",
+        "description": "View output from services.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker-compose logs -f",
+        "description": "Follow log output."
+      }
+    ]
+  }
+,
+  {
+    "id": "gluster-volume-info",
+    "name": "gluster volume info",
+    "description": "List information about all volumes.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume info",
+      "gluster volume info myvol"
+    ],
+    "tags": [
+      "gluster",
+      "volume",
+      "info",
+      "list"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume info",
+        "description": "Show info for all volumes.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "gluster volume info volume_name",
+        "description": "Show info for a specific volume."
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-status",
+    "name": "gluster volume status",
+    "description": "Display status of all volumes.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume status",
+      "gluster volume status myvol detail"
+    ],
+    "tags": [
+      "gluster",
+      "volume",
+      "status",
+      "health"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume status",
+        "description": "Show status for all volumes.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "gluster volume status volume_name detail",
+        "description": "Show detailed status for a specific volume."
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-create",
+    "name": "gluster volume create",
+    "description": "Create a new volume.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume create myvol replica 3 server1:/exp1 server2:/exp2 server3:/exp3"
+    ],
+    "tags": [
+      "gluster",
+      "volume",
+      "create",
+      "add"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume create name replica count bricks",
+        "description": "Create a replicated volume.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-start",
+    "name": "gluster volume start",
+    "description": "Start a volume.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume start myvol"
+    ],
+    "tags": [
+      "gluster",
+      "volume",
+      "start",
+      "online"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume start volume_name",
+        "description": "Start the specified volume.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-set",
+    "name": "gluster volume set",
+    "description": "Set volume options.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume set myvol performance.cache-size 256MB"
+    ],
+    "tags": [
+      "gluster",
+      "volume",
+      "set",
+      "configure"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume set volume_name key value",
+        "description": "Set a tunable option for a volume.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "gluster-peer-probe",
+    "name": "gluster peer probe",
+    "description": "Probe a new peer.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster peer probe server2"
+    ],
+    "tags": [
+      "gluster",
+      "peer",
+      "probe",
+      "add"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster peer probe hostname",
+        "description": "Add a new server to the trusted storage pool.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "gluster-peer-status",
+    "name": "gluster peer status",
+    "description": "List status of peers.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster peer status"
+    ],
+    "tags": [
+      "gluster",
+      "peer",
+      "status",
+      "list"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster peer status",
+        "description": "Show status of all peers.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "gluster-geo-replication",
+    "name": "gluster geo-replication",
+    "description": "Manage geo-replication.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume geo-replication myvol slave_host::slave_vol create push-pem"
+    ],
+    "tags": [
+      "gluster",
+      "geo-replication",
+      "dr",
+      "backup"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume geo-replication master slave create",
+        "description": "Create a geo-replication session.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "zpool-status",
+    "name": "zpool status",
+    "description": "Display pool status.",
+    "category": "ZFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "zpool status",
+      "zpool status -x"
+    ],
+    "tags": [
+      "zfs",
+      "zpool",
+      "status",
+      "health"
+    ],
+    "variations": [
+      {
+        "syntax": "zpool status",
+        "description": "Show detailed status of all pools.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "zpool status -x",
+        "description": "Show only unhealthy pools."
+      }
+    ]
+  },
+  {
+    "id": "zpool-list",
+    "name": "zpool list",
+    "description": "List all pools.",
+    "category": "ZFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "zpool list"
+    ],
+    "tags": [
+      "zfs",
+      "zpool",
+      "list",
+      "show"
+    ],
+    "variations": [
+      {
+        "syntax": "zpool list",
+        "description": "List all ZFS storage pools.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "zpool-create",
+    "name": "zpool create",
+    "description": "Create a new storage pool.",
+    "category": "ZFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "zpool create mypool mirror /dev/sdb /dev/sdc"
+    ],
+    "tags": [
+      "zfs",
+      "zpool",
+      "create",
+      "add"
+    ],
+    "variations": [
+      {
+        "syntax": "zpool create pool_name type devices",
+        "description": "Create a new pool with specified vdevs.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "zfs-list",
+    "name": "zfs list",
+    "description": "List ZFS datasets.",
+    "category": "ZFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "zfs list",
+      "zfs list -r mypool"
+    ],
+    "tags": [
+      "zfs",
+      "dataset",
+      "list",
+      "show"
+    ],
+    "variations": [
+      {
+        "syntax": "zfs list",
+        "description": "List all ZFS datasets.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "zfs-create",
+    "name": "zfs create",
+    "description": "Create a new ZFS filesystem.",
+    "category": "ZFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "zfs create mypool/myfs"
+    ],
+    "tags": [
+      "zfs",
+      "filesystem",
+      "create",
+      "add"
+    ],
+    "variations": [
+      {
+        "syntax": "zfs create dataset",
+        "description": "Create a new ZFS filesystem.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "zfs-set",
+    "name": "zfs set",
+    "description": "Set ZFS properties.",
+    "category": "ZFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "zfs set compression=lz4 mypool/myfs",
+      "zfs set quota=10G mypool/myfs"
+    ],
+    "tags": [
+      "zfs",
+      "property",
+      "set",
+      "configure"
+    ],
+    "variations": [
+      {
+        "syntax": "zfs set property=value dataset",
+        "description": "Set a property on a dataset.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "zfs-snapshot",
+    "name": "zfs snapshot",
+    "description": "Create a snapshot.",
+    "category": "ZFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "zfs snapshot mypool/myfs@snap1"
+    ],
+    "tags": [
+      "zfs",
+      "snapshot",
+      "create",
+      "backup"
+    ],
+    "variations": [
+      {
+        "syntax": "zfs snapshot dataset@snapshot_name",
+        "description": "Create a snapshot of a dataset.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "zfs-rollback",
+    "name": "zfs rollback",
+    "description": "Rollback to a snapshot.",
+    "category": "ZFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "zfs rollback mypool/myfs@snap1"
+    ],
+    "tags": [
+      "zfs",
+      "snapshot",
+      "rollback",
+      "restore"
+    ],
+    "variations": [
+      {
+        "syntax": "zfs rollback snapshot",
+        "description": "Rollback filesystem to specified snapshot.",
+        "isPrimary": true
+      }
+    ]
+  }
+,
+  {
+    "id": "vtysh",
+    "name": "vtysh",
+    "description": "Enter the FRR shell.",
+    "category": "Networking",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "vtysh"
+    ],
+    "tags": [
+      "vtysh",
+      "frr",
+      "routing",
+      "shell"
+    ],
+    "variations": [
+      {
+        "syntax": "vtysh",
+        "description": "Enter the integrated shell for FRRouting.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "vtysh-show-ip-route",
+    "name": "vtysh show ip route",
+    "description": "Show IP routing table.",
+    "category": "Networking",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "vtysh -c 'show ip route'"
+    ],
+    "tags": [
+      "vtysh",
+      "route",
+      "ip",
+      "show"
+    ],
+    "variations": [
+      {
+        "syntax": "vtysh -c 'show ip route'",
+        "description": "Display the IP routing table.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "vtysh-show-run",
+    "name": "vtysh show run",
+    "description": "Show running configuration.",
+    "category": "Networking",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "vtysh -c 'show running-config'"
+    ],
+    "tags": [
+      "vtysh",
+      "config",
+      "show",
+      "running"
+    ],
+    "variations": [
+      {
+        "syntax": "vtysh -c 'show running-config'",
+        "description": "Display the current running configuration.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "systemctl-daemon-reload",
+    "name": "systemctl daemon-reload",
+    "description": "Reload systemd manager configuration.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "systemctl daemon-reload"
+    ],
+    "tags": [
+      "systemctl",
+      "systemd",
+      "reload",
+      "config"
+    ],
+    "variations": [
+      {
+        "syntax": "systemctl daemon-reload",
+        "description": "Reload systemd manager configuration.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "systemctl-list-units",
+    "name": "systemctl list-units",
+    "description": "List all units.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "systemctl list-units",
+      "systemctl list-units --type=service"
+    ],
+    "tags": [
+      "systemctl",
+      "systemd",
+      "list",
+      "units"
+    ],
+    "variations": [
+      {
+        "syntax": "systemctl list-units",
+        "description": "List all loaded units.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "systemctl list-units --type=service",
+        "description": "List only service units."
+      }
+    ]
+  },
+  {
+    "id": "systemctl-failed",
+    "name": "systemctl failed",
+    "description": "List failed units.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "systemctl --failed"
+    ],
+    "tags": [
+      "systemctl",
+      "systemd",
+      "failed",
+      "error"
+    ],
+    "variations": [
+      {
+        "syntax": "systemctl --failed",
+        "description": "List units in failed state.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-create-user",
+    "name": "mysql create user",
+    "description": "Create a new database user.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';"
+    ],
+    "tags": [
+      "mysql",
+      "user",
+      "create",
+      "admin"
+    ],
+    "variations": [
+      {
+        "syntax": "CREATE USER 'user'@'host' IDENTIFIED BY 'password';",
+        "description": "Create a new user with a password.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-grant",
+    "name": "mysql grant",
+    "description": "Grant privileges to a user.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';"
+    ],
+    "tags": [
+      "mysql",
+      "grant",
+      "privileges",
+      "admin"
+    ],
+    "variations": [
+      {
+        "syntax": "GRANT privileges ON database.table TO 'user'@'host';",
+        "description": "Grant specific privileges to a user.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-revoke",
+    "name": "mysql revoke",
+    "description": "Revoke privileges from a user.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "REVOKE ALL PRIVILEGES ON *.* FROM 'user'@'localhost';"
+    ],
+    "tags": [
+      "mysql",
+      "revoke",
+      "privileges",
+      "admin"
+    ],
+    "variations": [
+      {
+        "syntax": "REVOKE privileges ON database.table FROM 'user'@'host';",
+        "description": "Revoke specific privileges from a user.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-show-grants",
+    "name": "mysql show grants",
+    "description": "Show grants for a user.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "SHOW GRANTS FOR 'user'@'localhost';"
+    ],
+    "tags": [
+      "mysql",
+      "show",
+      "grants",
+      "admin"
+    ],
+    "variations": [
+      {
+        "syntax": "SHOW GRANTS FOR 'user'@'host';",
+        "description": "Display privileges for a user.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-alter-user",
+    "name": "mysql alter user",
+    "description": "Modify a user account.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "ALTER USER 'user'@'localhost' IDENTIFIED BY 'new_password';"
+    ],
+    "tags": [
+      "mysql",
+      "alter",
+      "user",
+      "password"
+    ],
+    "variations": [
+      {
+        "syntax": "ALTER USER 'user'@'host' IDENTIFIED BY 'new_password';",
+        "description": "Change user password.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "mysql-drop-user",
+    "name": "mysql drop user",
+    "description": "Remove a user account.",
+    "category": "Database Administration",
+    "platform": "MySQL",
+    "version": 1,
+    "examples": [
+      "DROP USER 'user'@'localhost';"
+    ],
+    "tags": [
+      "mysql",
+      "drop",
+      "user",
+      "delete"
+    ],
+    "variations": [
+      {
+        "syntax": "DROP USER 'user'@'host';",
+        "description": "Delete a user account.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "asadm",
+    "name": "asadm",
+    "description": "Aerospike Administration Tool.",
+    "category": "Aerospike",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "asadm",
+      "asadm -e 'info'"
+    ],
+    "tags": [
+      "aerospike",
+      "admin",
+      "tool",
+      "cli"
+    ],
+    "variations": [
+      {
+        "syntax": "asadm",
+        "description": "Start the interactive administration shell.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "asadm -e 'command'",
+        "description": "Execute a command non-interactively."
+      }
+    ]
+  },
+  {
+    "id": "aql",
+    "name": "aql",
+    "description": "Aerospike Query Language CLI.",
+    "category": "Aerospike",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "aql",
+      "aql -c 'SHOW NAMESPACES'"
+    ],
+    "tags": [
+      "aerospike",
+      "query",
+      "sql",
+      "cli"
+    ],
+    "variations": [
+      {
+        "syntax": "aql",
+        "description": "Start the interactive query shell.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "aql -c 'command'",
+        "description": "Execute a command non-interactively."
+      }
+    ]
+  },
+  {
+    "id": "asinfo",
+    "name": "asinfo",
+    "description": "Collect information from Aerospike server.",
+    "category": "Aerospike",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "asinfo -v statistics",
+      "asinfo -v namespaces"
+    ],
+    "tags": [
+      "aerospike",
+      "info",
+      "stats",
+      "server"
+    ],
+    "variations": [
+      {
+        "syntax": "asinfo -v command",
+        "description": "Request specific information from the server.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "jq",
+    "name": "jq",
+    "description": "Command-line JSON processor.",
+    "category": "Data Processing",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "cat file.json | jq .",
+      "jq '.key' file.json"
+    ],
+    "tags": [
+      "json",
+      "processor",
+      "parser",
+      "tool"
+    ],
+    "variations": [
+      {
+        "syntax": "jq filter file",
+        "description": "Process JSON file with filter.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "yq",
+    "name": "yq",
+    "description": "Command-line YAML processor.",
+    "category": "Data Processing",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "yq e '.key' file.yaml"
+    ],
+    "tags": [
+      "yaml",
+      "processor",
+      "parser",
+      "tool"
+    ],
+    "variations": [
+      {
+        "syntax": "yq e filter file",
+        "description": "Process YAML file with filter.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "openssl-s-client",
+    "name": "openssl s_client",
+    "description": "Debug SSL/TLS connections.",
+    "category": "Security",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "openssl s_client -connect google.com:443",
+      "openssl s_client -connect example.com:443 -showcerts"
+    ],
+    "tags": [
+      "openssl",
+      "ssl",
+      "tls",
+      "debug"
+    ],
+    "variations": [
+      {
+        "syntax": "openssl s_client -connect host:port",
+        "description": "Connect to a server using SSL/TLS.",
+        "isPrimary": true
+      }
+    ]
+  }
+,
+  {
+    "id": "gluster-geo-replication-status",
+    "name": "gluster geo-replication status",
+    "description": "Check status of geo-replication sessions.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume geo-replication myvol slave_host::slave_vol status"
+    ],
+    "tags": [
+      "gluster",
+      "geo-replication",
+      "status",
+      "dr"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume geo-replication master slave status",
+        "description": "Show status of geo-replication session.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-heal-info",
+    "name": "gluster volume heal info",
+    "description": "Check self-heal status (brick health).",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume heal myvol info",
+      "gluster volume heal myvol info healed",
+      "gluster volume heal myvol info heal-failed"
+    ],
+    "tags": [
+      "gluster",
+      "heal",
+      "info",
+      "health"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume heal volume_name info",
+        "description": "List files that need healing.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "gluster volume heal volume_name info healed",
+        "description": "List files that have been healed."
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-profile",
+    "name": "gluster volume profile",
+    "description": "Interface for volume performance profiling.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume profile myvol start",
+      "gluster volume profile myvol info",
+      "gluster volume profile myvol stop"
+    ],
+    "tags": [
+      "gluster",
+      "profile",
+      "performance",
+      "stats"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume profile volume_name start",
+        "description": "Start profiling on the volume.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "gluster volume profile volume_name info",
+        "description": "Show profiling information."
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-top",
+    "name": "gluster volume top",
+    "description": "Interface for volume performance metrics (top-like).",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume top myvol open",
+      "gluster volume top myvol read",
+      "gluster volume top myvol write"
+    ],
+    "tags": [
+      "gluster",
+      "top",
+      "performance",
+      "metrics"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume top volume_name open",
+        "description": "List top open calls.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "gluster volume top volume_name read",
+        "description": "List top read calls."
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-bitrot",
+    "name": "gluster volume bitrot",
+    "description": "Manage bitrot detection.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume bitrot myvol enable",
+      "gluster volume bitrot myvol scrub status"
+    ],
+    "tags": [
+      "gluster",
+      "bitrot",
+      "scrub",
+      "data-integrity"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume bitrot volume_name enable",
+        "description": "Enable bitrot detection.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "gluster volume bitrot volume_name scrub status",
+        "description": "Show scrubber status."
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-quota",
+    "name": "gluster volume quota",
+    "description": "Manage volume quotas.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume quota myvol enable",
+      "gluster volume quota myvol limit-usage /dir 10GB",
+      "gluster volume quota myvol list"
+    ],
+    "tags": [
+      "gluster",
+      "quota",
+      "limit",
+      "storage"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume quota volume_name enable",
+        "description": "Enable quotas on the volume.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "gluster volume quota volume_name limit-usage path limit",
+        "description": "Set usage limit for a path."
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-rebalance",
+    "name": "gluster volume rebalance",
+    "description": "Rebalance data across bricks.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume rebalance myvol start",
+      "gluster volume rebalance myvol status"
+    ],
+    "tags": [
+      "gluster",
+      "rebalance",
+      "distribute",
+      "maintenance"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume rebalance volume_name start",
+        "description": "Start rebalance operation.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "gluster volume rebalance volume_name status",
+        "description": "Check rebalance status."
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-remove-brick",
+    "name": "gluster volume remove-brick",
+    "description": "Remove a brick from a volume.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume remove-brick myvol server2:/exp2 start",
+      "gluster volume remove-brick myvol server2:/exp2 status",
+      "gluster volume remove-brick myvol server2:/exp2 commit"
+    ],
+    "tags": [
+      "gluster",
+      "brick",
+      "remove",
+      "shrink"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume remove-brick volume_name brick start",
+        "description": "Start removing a brick (migrates data).",
+        "isPrimary": true
+      },
+      {
+        "syntax": "gluster volume remove-brick volume_name brick commit",
+        "description": "Commit removal after migration."
+      }
+    ]
+  },
+  {
+    "id": "gluster-volume-replace-brick",
+    "name": "gluster volume replace-brick",
+    "description": "Replace a brick in a volume.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster volume replace-brick myvol server1:/exp1 server1:/new_exp1 commit force"
+    ],
+    "tags": [
+      "gluster",
+      "brick",
+      "replace",
+      "maintenance"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster volume replace-brick volume_name old_brick new_brick commit force",
+        "description": "Replace a brick with a new one.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "gluster-snapshot-create",
+    "name": "gluster snapshot create",
+    "description": "Create a volume snapshot.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster snapshot create snap1 myvol no-timestamp"
+    ],
+    "tags": [
+      "gluster",
+      "snapshot",
+      "create",
+      "backup"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster snapshot create snapname volume_name",
+        "description": "Create a snapshot of a volume.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "gluster-snapshot-list",
+    "name": "gluster snapshot list",
+    "description": "List volume snapshots.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster snapshot list"
+    ],
+    "tags": [
+      "gluster",
+      "snapshot",
+      "list",
+      "show"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster snapshot list",
+        "description": "List all snapshots.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "gluster-snapshot-restore",
+    "name": "gluster snapshot restore",
+    "description": "Restore a volume from a snapshot.",
+    "category": "GlusterFS",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "gluster snapshot restore snap1"
+    ],
+    "tags": [
+      "gluster",
+      "snapshot",
+      "restore",
+      "recover"
+    ],
+    "variations": [
+      {
+        "syntax": "gluster snapshot restore snapname",
+        "description": "Restore volume to the state of the snapshot.",
+        "isPrimary": true
+      }
+    ]
+  }
+,
+  {
+    "id": "npm-install",
+    "name": "npm install",
+    "description": "Install dependencies.",
+    "category": "NPM",
+    "platform": "Node.js",
+    "version": 1,
+    "examples": [
+      "npm install",
+      "npm install express",
+      "npm install -g nodemon"
+    ],
+    "tags": [
+      "npm",
+      "install",
+      "dependencies",
+      "package"
+    ],
+    "variations": [
+      {
+        "syntax": "npm install package_name",
+        "description": "Install a package locally.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "npm install -g package_name",
+        "description": "Install a package globally."
+      }
+    ]
+  },
+  {
+    "id": "npm-start",
+    "name": "npm start",
+    "description": "Start the package.",
+    "category": "NPM",
+    "platform": "Node.js",
+    "version": 1,
+    "examples": [
+      "npm start"
+    ],
+    "tags": [
+      "npm",
+      "start",
+      "run",
+      "script"
+    ],
+    "variations": [
+      {
+        "syntax": "npm start",
+        "description": "Run the start script defined in package.json.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "npm-test",
+    "name": "npm test",
+    "description": "Test the package.",
+    "category": "NPM",
+    "platform": "Node.js",
+    "version": 1,
+    "examples": [
+      "npm test"
+    ],
+    "tags": [
+      "npm",
+      "test",
+      "run",
+      "script"
+    ],
+    "variations": [
+      {
+        "syntax": "npm test",
+        "description": "Run the test script defined in package.json.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "npm-run",
+    "name": "npm run",
+    "description": "Run a script.",
+    "category": "NPM",
+    "platform": "Node.js",
+    "version": 1,
+    "examples": [
+      "npm run build",
+      "npm run dev"
+    ],
+    "tags": [
+      "npm",
+      "run",
+      "script",
+      "custom"
+    ],
+    "variations": [
+      {
+        "syntax": "npm run script_name",
+        "description": "Run a custom script defined in package.json.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "npm-init",
+    "name": "npm init",
+    "description": "Create a package.json file.",
+    "category": "NPM",
+    "platform": "Node.js",
+    "version": 1,
+    "examples": [
+      "npm init",
+      "npm init -y"
+    ],
+    "tags": [
+      "npm",
+      "init",
+      "create",
+      "setup"
+    ],
+    "variations": [
+      {
+        "syntax": "npm init",
+        "description": "Interactively create a package.json file.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "npm init -y",
+        "description": "Create a package.json with default values."
+      }
+    ]
+  },
+  {
+    "id": "npm-update",
+    "name": "npm update",
+    "description": "Update packages.",
+    "category": "NPM",
+    "platform": "Node.js",
+    "version": 1,
+    "examples": [
+      "npm update",
+      "npm update express"
+    ],
+    "tags": [
+      "npm",
+      "update",
+      "upgrade",
+      "dependencies"
+    ],
+    "variations": [
+      {
+        "syntax": "npm update",
+        "description": "Update all packages to the latest version respecting semver.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "npm-audit",
+    "name": "npm audit",
+    "description": "Run a security audit.",
+    "category": "NPM",
+    "platform": "Node.js",
+    "version": 1,
+    "examples": [
+      "npm audit",
+      "npm audit fix"
+    ],
+    "tags": [
+      "npm",
+      "audit",
+      "security",
+      "vulnerability"
+    ],
+    "variations": [
+      {
+        "syntax": "npm audit",
+        "description": "Scan project for vulnerabilities.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "npm audit fix",
+        "description": "Automatically fix vulnerabilities."
+      }
+    ]
+  },
+  {
+    "id": "npm-publish",
+    "name": "npm publish",
+    "description": "Publish a package.",
+    "category": "NPM",
+    "platform": "Node.js",
+    "version": 1,
+    "examples": [
+      "npm publish"
+    ],
+    "tags": [
+      "npm",
+      "publish",
+      "registry",
+      "upload"
+    ],
+    "variations": [
+      {
+        "syntax": "npm publish",
+        "description": "Publish the package to the registry.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "node",
+    "name": "node",
+    "description": "Run the Node.js REPL or a script.",
+    "category": "Node.js",
+    "platform": "Node.js",
+    "version": 1,
+    "examples": [
+      "node",
+      "node app.js"
+    ],
+    "tags": [
+      "node",
+      "repl",
+      "run",
+      "javascript"
+    ],
+    "variations": [
+      {
+        "syntax": "node",
+        "description": "Start the Node.js REPL.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "node filename.js",
+        "description": "Execute a JavaScript file."
+      }
+    ]
+  },
+  {
+    "id": "node-version",
+    "name": "node version",
+    "description": "Check Node.js version.",
+    "category": "Node.js",
+    "platform": "Node.js",
+    "version": 1,
+    "examples": [
+      "node -v",
+      "node --version"
+    ],
+    "tags": [
+      "node",
+      "version",
+      "info",
+      "check"
+    ],
+    "variations": [
+      {
+        "syntax": "node -v",
+        "description": "Print the Node.js version.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "node-eval",
+    "name": "node eval",
+    "description": "Evaluate script.",
+    "category": "Node.js",
+    "platform": "Node.js",
+    "version": 1,
+    "examples": [
+      "node -e 'console.log(1+1)'"
+    ],
+    "tags": [
+      "node",
+      "eval",
+      "execute",
+      "inline"
+    ],
+    "variations": [
+      {
+        "syntax": "node -e 'script'",
+        "description": "Evaluate the following argument as JavaScript.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "kubectl-apply",
+    "name": "kubectl apply",
+    "description": "Apply a configuration to a resource.",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl apply -f deployment.yaml"
+    ],
+    "tags": [
+      "kubectl",
+      "apply",
+      "deploy",
+      "create"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl apply -f filename",
+        "description": "Apply a configuration change to a resource from a file.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "kubectl-delete",
+    "name": "kubectl delete",
+    "description": "Delete resources.",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl delete pod my-pod",
+      "kubectl delete -f deployment.yaml"
+    ],
+    "tags": [
+      "kubectl",
+      "delete",
+      "remove",
+      "destroy"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl delete type name",
+        "description": "Delete resources by type and name.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "kubectl-describe",
+    "name": "kubectl describe",
+    "description": "Show details of a specific resource.",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl describe pod my-pod",
+      "kubectl describe node my-node"
+    ],
+    "tags": [
+      "kubectl",
+      "describe",
+      "info",
+      "details"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl describe type name",
+        "description": "Show details of a specific resource or group of resources.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "kubectl-exec",
+    "name": "kubectl exec",
+    "description": "Execute a command in a container.",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl exec -it my-pod -- /bin/bash",
+      "kubectl exec my-pod -- ls /"
+    ],
+    "tags": [
+      "kubectl",
+      "exec",
+      "run",
+      "shell"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl exec -it pod_name -- command",
+        "description": "Execute a command in a container with an interactive TTY.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "kubectl-port-forward",
+    "name": "kubectl port-forward",
+    "description": "Forward one or more local ports to a pod.",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl port-forward my-pod 8080:80"
+    ],
+    "tags": [
+      "kubectl",
+      "port-forward",
+      "network",
+      "access"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl port-forward resource local_port:remote_port",
+        "description": "Forward one or more local ports to a pod.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "kubectl-config",
+    "name": "kubectl config",
+    "description": "Modify kubeconfig files.",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl config view",
+      "kubectl config use-context my-context"
+    ],
+    "tags": [
+      "kubectl",
+      "config",
+      "context",
+      "settings"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl config view",
+        "description": "Display merged kubeconfig settings or a specified kubeconfig file.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "kubectl config use-context context_name",
+        "description": "Sets the current-context in a kubeconfig file."
+      }
+    ]
+  },
+  {
+    "id": "kubectl-cluster-info",
+    "name": "kubectl cluster-info",
+    "description": "Display cluster info.",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl cluster-info"
+    ],
+    "tags": [
+      "kubectl",
+      "info",
+      "cluster",
+      "status"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl cluster-info",
+        "description": "Display addresses of the master and services.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "kubectl-rollout",
+    "name": "kubectl rollout",
+    "description": "Manage the rollout of a resource.",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl rollout status deployment/my-dep",
+      "kubectl rollout undo deployment/my-dep"
+    ],
+    "tags": [
+      "kubectl",
+      "rollout",
+      "deploy",
+      "update"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl rollout status resource",
+        "description": "Show the status of the rollout.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "kubectl rollout undo resource",
+        "description": "Undo a previous rollout."
+      }
+    ]
+  },
+  {
+    "id": "kubectl-scale",
+    "name": "kubectl scale",
+    "description": "Set a new size for a Deployment, ReplicaSet, etc.",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl scale --replicas=3 deployment/my-dep"
+    ],
+    "tags": [
+      "kubectl",
+      "scale",
+      "replicas",
+      "resize"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl scale --replicas=count resource",
+        "description": "Scale a resource to a new size.",
+        "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "kubectl-get-all",
+    "name": "kubectl get all",
+    "description": "List all resources (variation of get).",
+    "category": "Kubernetes",
+    "platform": "Kubernetes",
+    "version": 1,
+    "examples": [
+      "kubectl get all",
+      "kubectl get all --all-namespaces"
+    ],
+    "tags": [
+      "kubectl",
+      "get",
+      "list",
+      "all"
+    ],
+    "variations": [
+      {
+        "syntax": "kubectl get all",
+        "description": "List all resources in the current namespace.",
+        "isPrimary": true
+      }
+    ]
+  }
 ]
