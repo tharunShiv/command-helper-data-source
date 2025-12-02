@@ -7161,4 +7161,34 @@
       }
     ]
   }
+,
+  {
+    "id": "reboot",
+    "name": "reboot",
+    "description": "Restart the system.",
+    "category": "System Management",
+    "platform": "Linux",
+    "version": 1,
+    "examples": [
+      "reboot",
+      "reboot -f"
+    ],
+    "tags": [
+      "reboot",
+      "restart",
+      "system",
+      "power"
+    ],
+    "variations": [
+      {
+        "syntax": "reboot",
+        "description": "Restart the system.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "reboot -f",
+        "description": "Force reboot."
+      }
+    ]
+  }
 ]
