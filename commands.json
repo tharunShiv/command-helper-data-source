@@ -30,6 +30,18 @@
       {
         "syntax": "ls -lrt",
         "description": "Long listing, reverse time order (show newest last)."
+      },
+      {
+        "syntax": "ls -R",
+        "description": "List directory contents recursively."
+      },
+      {
+        "syntax": "ls -S",
+        "description": "Sort files by size."
+      },
+      {
+        "syntax": "ls -d */",
+        "description": "List only directories."
       }
     ]
   },
@@ -65,6 +77,18 @@
       {
         "syntax": "grep -A 5 'pattern'",
         "description": "Show 5 lines of context AFTER the matching line."
+      },
+      {
+        "syntax": "grep -l 'pattern' *",
+        "description": "Show only filenames of matching files."
+      },
+      {
+        "syntax": "grep -c 'pattern' filename",
+        "description": "Count occurrences of the pattern in the file."
+      },
+      {
+        "syntax": "grep -v 'pattern' filename",
+        "description": "Invert match (show lines NOT containing the pattern)."
       }
     ]
   },
@@ -98,6 +122,18 @@
       {
         "syntax": "find /path -mtime +7",
         "description": "Find files modified more than 7 days ago."
+      },
+      {
+        "syntax": "find /path -size +100M",
+        "description": "Find files larger than 100MB."
+      },
+      {
+        "syntax": "find /path -name '*.log' -delete",
+        "description": "Find and delete files matching the pattern."
+      },
+      {
+        "syntax": "find /path -perm 777",
+        "description": "Find files with specific permissions (e.g., 777)."
       }
     ]
   },
@@ -132,6 +168,14 @@
       {
         "syntax": "ps aux | grep [p]attern",
         "description": "Find a specific process and exclude the grep command itself."
+      },
+      {
+        "syntax": "ps -u username",
+        "description": "Display processes for a specific user."
+      },
+      {
+        "syntax": "ps -ejH",
+        "description": "Show process tree."
       }
     ]
   },
@@ -167,6 +211,14 @@
       {
         "syntax": "top -o %MEM",
         "description": "Sort by memory usage."
+      },
+      {
+        "syntax": "top -u username",
+        "description": "Show processes for a specific user."
+      },
+      {
+        "syntax": "top -b -n 1 > top.txt",
+        "description": "Run in batch mode (useful for logging output to a file)."
       }
     ]
   },
@@ -198,6 +250,14 @@
       {
         "syntax": "htop -u username",
         "description": "View processes for a specific user."
+      },
+      {
+        "syntax": "htop -p PID",
+        "description": "Monitor a specific process ID."
+      },
+      {
+        "syntax": "htop -s PERCENT_CPU",
+        "description": "Sort by CPU usage."
       }
     ]
   },
@@ -233,6 +293,14 @@
       {
         "syntax": "netstat -r",
         "description": "Display the kernel routing table."
+      },
+      {
+        "syntax": "netstat -i",
+        "description": "Display network interface statistics."
+      },
+      {
+        "syntax": "netstat -l",
+        "description": "Show only listening sockets."
       }
     ]
   },
@@ -268,6 +336,18 @@
       {
         "syntax": "ss -t",
         "description": "Show TCP sockets."
+      },
+      {
+        "syntax": "ss -u",
+        "description": "Show UDP sockets."
+      },
+      {
+        "syntax": "ss -l",
+        "description": "Show listening sockets."
+      },
+      {
+        "syntax": "ss -p",
+        "description": "Show process using socket."
       }
     ]
   },
@@ -304,6 +384,18 @@
       {
         "syntax": "tcpdump host 1.2.3.4 and port 443",
         "description": "Capture traffic to/from a specific host and port."
+      },
+      {
+        "syntax": "tcpdump -r file.pcap",
+        "description": "Read from a saved pcap file."
+      },
+      {
+        "syntax": "tcpdump -i eth0 icmp",
+        "description": "Capture only ICMP packets (ping)."
+      },
+      {
+        "syntax": "tcpdump -A -i eth0",
+        "description": "Print each packet (minus its link level header) in ASCII."
       }
     ]
   },
@@ -338,6 +430,14 @@
       {
         "syntax": "iptables -t nat -L",
         "description": "List rules in the NAT table."
+      },
+      {
+        "syntax": "iptables -A INPUT -s 1.2.3.4 -j DROP",
+        "description": "Block traffic from a specific IP."
+      },
+      {
+        "syntax": "iptables -A INPUT -p tcp --dport 22 -j ACCEPT",
+        "description": "Allow SSH traffic."
       }
     ]
   },
@@ -372,6 +472,14 @@
       {
         "syntax": "chmod -R 644 directory",
         "description": "Recursively set permissions to rw- r-- r--."
+      },
+      {
+        "syntax": "chmod u=rwx,g=rx,o=r filename",
+        "description": "Set permissions explicitly using symbolic mode."
+      },
+      {
+        "syntax": "chmod --reference=file1 file2",
+        "description": "Copy permissions from file1 to file2."
       }
     ]
   },
@@ -406,6 +514,14 @@
       {
         "syntax": "chown -R user:group directory",
         "description": "Recursively change owner and group for a directory."
+      },
+      {
+        "syntax": "chown :group filename",
+        "description": "Change only the group of the file."
+      },
+      {
+        "syntax": "chown --reference=file1 file2",
+        "description": "Copy ownership from file1 to file2."
       }
     ]
   },
@@ -440,6 +556,14 @@
       {
         "syntax": "df -T",
         "description": "Display filesystem type."
+      },
+      {
+        "syntax": "df -h /path/to/mountpoint",
+        "description": "Check disk space for a specific mount point."
+      },
+      {
+        "syntax": "df --total -h",
+        "description": "Display a grand total of disk usage."
       }
     ]
   },
@@ -474,6 +598,14 @@
       {
         "syntax": "du -h --max-depth=1",
         "description": "Show usage for current level and direct subdirectories."
+      },
+      {
+        "syntax": "du -ch | grep total",
+        "description": "Calculate and display the grand total size."
+      },
+      {
+        "syntax": "du -h --exclude='*.log'",
+        "description": "Show usage excluding specific file patterns."
       }
     ]
   },
@@ -508,6 +640,18 @@
       {
         "syntax": "tar -tf archive.tar",
         "description": "List the contents of an archive file."
+      },
+      {
+        "syntax": "tar -cjf archive.tar.bz2 /path/to/directory",
+        "description": "Create a bzip2 compressed archive."
+      },
+      {
+        "syntax": "tar -xjf archive.tar.bz2",
+        "description": "Extract a bzip2 compressed archive."
+      },
+      {
+        "syntax": "tar -rvf archive.tar file_to_append",
+        "description": "Append a file to an existing uncompressed archive."
       }
     ]
   },
@@ -542,6 +686,18 @@
       {
         "syntax": "systemctl enable service-name",
         "description": "Enable a service to start on boot."
+      },
+      {
+        "syntax": "systemctl stop service-name",
+        "description": "Stop a running service."
+      },
+      {
+        "syntax": "systemctl disable service-name",
+        "description": "Disable a service from starting on boot."
+      },
+      {
+        "syntax": "systemctl list-unit-files --type=service",
+        "description": "List all service unit files."
       }
     ]
   },
@@ -576,6 +732,18 @@
       {
         "syntax": "journalctl --since today",
         "description": "View logs since the beginning of today."
+      },
+      {
+        "syntax": "journalctl -p err",
+        "description": "View only error messages."
+      },
+      {
+        "syntax": "journalctl --disk-usage",
+        "description": "Show how much disk space the journal is using."
+      },
+      {
+        "syntax": "journalctl --vacuum-time=2d",
+        "description": "Delete journal logs older than 2 days."
       }
     ]
   },
@@ -606,6 +774,14 @@
       {
         "syntax": "tail -n 50 filename",
         "description": "Show the last 50 lines."
+      },
+      {
+        "syntax": "tail -n +10 filename",
+        "description": "Output lines starting from line 10."
+      },
+      {
+        "syntax": "tail -f --pid=PID filename",
+        "description": "Follow file until the specified process ID dies."
       }
     ]
   },
@@ -636,6 +812,14 @@
       {
         "syntax": "less filename",
         "description": "Open file for standard viewing and scrolling."
+      },
+      {
+        "syntax": "less -N filename",
+        "description": "View file with line numbers."
+      },
+      {
+        "syntax": "less -S filename",
+        "description": "View file with long lines chopped (no wrap)."
       }
     ]
   },
@@ -666,6 +850,18 @@
       {
         "syntax": "sed '/pattern/d' filename",
         "description": "Delete lines containing the pattern."
+      },
+      {
+        "syntax": "sed -n '5,10p' filename",
+        "description": "Print only lines 5 through 10."
+      },
+      {
+        "syntax": "sed 's/^/prefix/' filename",
+        "description": "Add a prefix to the beginning of every line."
+      },
+      {
+        "syntax": "sed 's/$/suffix/' filename",
+        "description": "Add a suffix to the end of every line."
       }
     ]
   },
@@ -696,6 +892,18 @@
       {
         "syntax": "awk -F: '{print $1}' /etc/passwd",
         "description": "Use colon (:) as the field separator (F) and print first field."
+      },
+      {
+        "syntax": "awk '/pattern/ {print $0}' filename",
+        "description": "Print lines matching the pattern."
+      },
+      {
+        "syntax": "awk '{sum+=$1} END {print sum}' filename",
+        "description": "Sum the values in the first column."
+      },
+      {
+        "syntax": "awk 'length($0) > 80' filename",
+        "description": "Print lines longer than 80 characters."
       }
     ]
   },
@@ -731,6 +939,18 @@
       {
         "syntax": "curl -o file.zip https://url",
         "description": "Download a file and save it with the specified name."
+      },
+      {
+        "syntax": "curl -d 'data' -X POST url",
+        "description": "Send a POST request with data."
+      },
+      {
+        "syntax": "curl -u user:pass url",
+        "description": "Send a request with Basic Authentication."
+      },
+      {
+        "syntax": "curl -L url",
+        "description": "Follow redirects."
       }
     ]
   },
@@ -765,6 +985,18 @@
       {
         "syntax": "wget -r -np url",
         "description": "Recursive download, avoiding parent directories (np)."
+      },
+      {
+        "syntax": "wget -O filename url",
+        "description": "Download and save with a specific filename."
+      },
+      {
+        "syntax": "wget --limit-rate=200k url",
+        "description": "Limit the download speed."
+      },
+      {
+        "syntax": "wget -b url",
+        "description": "Download in the background."
       }
     ]
   },
@@ -799,6 +1031,18 @@
       {
         "syntax": "ssh -i key.pem user@host",
         "description": "Connect using a specified identity file (i)."
+      },
+      {
+        "syntax": "ssh -L 8080:localhost:80 user@host",
+        "description": "Local port forwarding."
+      },
+      {
+        "syntax": "ssh -R 8080:localhost:80 user@host",
+        "description": "Remote port forwarding."
+      },
+      {
+        "syntax": "ssh -J user@bastion user@host",
+        "description": "Connect via a jump host."
       }
     ]
   },
@@ -834,6 +1078,18 @@
       {
         "syntax": "scp -r directory user@host:/path",
         "description": "Recursively copy a directory."
+      },
+      {
+        "syntax": "scp -P 2222 file user@host:",
+        "description": "Copy using a specific port."
+      },
+      {
+        "syntax": "scp -i key.pem file user@host:",
+        "description": "Copy using a specific identity file."
+      },
+      {
+        "syntax": "scp -C file user@host:",
+        "description": "Enable compression during transfer."
       }
     ]
   },
@@ -865,6 +1121,18 @@
       {
         "syntax": "rsync -avz --delete src/ dst/",
         "description": "Sync directories, deleting files in destination not found in source."
+      },
+      {
+        "syntax": "rsync -avz -e 'ssh -p 2222' src dst",
+        "description": "Sync using a custom SSH port."
+      },
+      {
+        "syntax": "rsync --progress src dst",
+        "description": "Show progress during transfer."
+      },
+      {
+        "syntax": "rsync --exclude='*.log' src dst",
+        "description": "Exclude files matching a pattern."
       }
     ]
   },
@@ -899,6 +1167,18 @@
       {
         "syntax": "docker ps -q",
         "description": "List only container IDs."
+      },
+      {
+        "syntax": "docker ps --format '{{.ID}}: {{.Image}}'",
+        "description": "List containers with a custom format."
+      },
+      {
+        "syntax": "docker ps --filter 'status=exited'",
+        "description": "Filter containers by status."
+      },
+      {
+        "syntax": "docker ps -s",
+        "description": "Display total file sizes."
       }
     ]
   },
@@ -933,6 +1213,18 @@
       {
         "syntax": "docker logs --tail 50 container-name",
         "description": "Display the last 50 lines of logs."
+      },
+      {
+        "syntax": "docker logs --since 10m container-name",
+        "description": "Display logs since 10 minutes ago."
+      },
+      {
+        "syntax": "docker logs --timestamps container-name",
+        "description": "Show timestamps in logs."
+      },
+      {
+        "syntax": "docker logs --details container-name",
+        "description": "Show extra details provided to logs."
       }
     ]
   },
@@ -956,17 +1248,29 @@
     ],
     "variations": [
       {
-        "syntax": "kubectl get pods -n namespace",
-        "description": "Get pods in a specific namespace.",
+        "syntax": "kubectl get pods",
+        "description": "List all pods in the current namespace.",
         "isPrimary": true
       },
       {
-        "syntax": "kubectl get all -n namespace",
-        "description": "Get all primary resources in a namespace."
+        "syntax": "kubectl get all",
+        "description": "List all resources."
       },
       {
-        "syntax": "kubectl get svc",
-        "description": "Get services in the current namespace."
+        "syntax": "kubectl get pods -o wide",
+        "description": "List pods with more details (IP, Node)."
+      },
+      {
+        "syntax": "kubectl get pods -n namespace",
+        "description": "List pods in a specific namespace."
+      },
+      {
+        "syntax": "kubectl get pods --all-namespaces",
+        "description": "List pods in all namespaces."
+      },
+      {
+        "syntax": "kubectl get pods -w",
+        "description": "Watch for changes."
       }
     ]
   },
@@ -991,17 +1295,21 @@
     ],
     "variations": [
       {
-        "syntax": "kubectl logs -f pod-name -n namespace",
-        "description": "Follow (f) logs for a pod in a namespace.",
+        "syntax": "kubectl logs pod",
+        "description": "Print the logs for a container in a pod.",
         "isPrimary": true
       },
       {
-        "syntax": "kubectl logs pod-name -c container-name",
-        "description": "Get logs for a specific container in a pod."
+        "syntax": "kubectl logs -f pod",
+        "description": "Stream the logs."
       },
       {
-        "syntax": "kubectl logs --previous pod-name",
-        "description": "Get logs from a previous instance of the container."
+        "syntax": "kubectl logs -p pod",
+        "description": "Print the logs for the previous instance of the container."
+      },
+      {
+        "syntax": "kubectl logs pod -c container",
+        "description": "Print the logs for a specific container in a pod."
       }
     ]
   },
@@ -1036,6 +1344,18 @@
       {
         "syntax": "free -s 5",
         "description": "Repeat output every 5 seconds."
+      },
+      {
+        "syntax": "free -t",
+        "description": "Display a line showing the column totals."
+      },
+      {
+        "syntax": "free -g",
+        "description": "Display memory usage in Gigabytes."
+      },
+      {
+        "syntax": "free --lohi",
+        "description": "Show detailed low and high memory statistics."
       }
     ]
   },
@@ -1070,6 +1390,18 @@
       {
         "syntax": "vmstat -s",
         "description": "Display a table of various counters and event totals."
+      },
+      {
+        "syntax": "vmstat -d",
+        "description": "Report disk statistics."
+      },
+      {
+        "syntax": "vmstat -a",
+        "description": "Display active and inactive memory."
+      },
+      {
+        "syntax": "vmstat -f",
+        "description": "Display the number of forks since boot."
       }
     ]
   },
@@ -1104,6 +1436,18 @@
       {
         "syntax": "iostat -d",
         "description": "Display only device utilization report."
+      },
+      {
+        "syntax": "iostat -k",
+        "description": "Display statistics in kilobytes per second."
+      },
+      {
+        "syntax": "iostat -m",
+        "description": "Display statistics in megabytes per second."
+      },
+      {
+        "syntax": "iostat -p",
+        "description": "Display statistics for block devices and all their partitions."
       }
     ]
   },
@@ -1139,6 +1483,18 @@
       {
         "syntax": "lsof -u username",
         "description": "List files opened by a specific user."
+      },
+      {
+        "syntax": "lsof -c process_name",
+        "description": "List files opened by a specific command."
+      },
+      {
+        "syntax": "lsof +D /path",
+        "description": "Recursively list open files in a directory."
+      },
+      {
+        "syntax": "lsof -i tcp",
+        "description": "List only TCP connections."
       }
     ]
   },
@@ -1175,6 +1531,18 @@
       {
         "syntax": "nc -l 8080",
         "description": "Listen (l) on a port (8080) for incoming connections."
+      },
+      {
+        "syntax": "nc -u hostname 53",
+        "description": "Connect using UDP protocol."
+      },
+      {
+        "syntax": "nc -w 3 hostname 80",
+        "description": "Connect with a timeout of 3 seconds."
+      },
+      {
+        "syntax": "nc -k -l 8080",
+        "description": "Keep listening after the current connection is closed."
       }
     ]
   },
@@ -1205,6 +1573,18 @@
       {
         "syntax": "ping hostname",
         "description": "Send continuous pings until manually stopped."
+      },
+      {
+        "syntax": "ping -i 0.5 hostname",
+        "description": "Ping with an interval of 0.5 seconds."
+      },
+      {
+        "syntax": "ping -s 1000 hostname",
+        "description": "Send packets of 1000 bytes size."
+      },
+      {
+        "syntax": "ping -D hostname",
+        "description": "Print timestamps for each packet."
       }
     ]
   },
@@ -1236,6 +1616,18 @@
       {
         "syntax": "traceroute -n hostname",
         "description": "Do not resolve IP addresses to hostnames (faster)."
+      },
+      {
+        "syntax": "traceroute -I hostname",
+        "description": "Use ICMP ECHO for probes."
+      },
+      {
+        "syntax": "traceroute -T hostname",
+        "description": "Use TCP SYN for probes."
+      },
+      {
+        "syntax": "traceroute -p 80 hostname",
+        "description": "Use a specific destination port."
       }
     ]
   },
@@ -1271,6 +1663,18 @@
       {
         "syntax": "nmap -sn 192.168.1.0/24",
         "description": "Ping scan (sn) to list hosts that are up on a subnet."
+      },
+      {
+        "syntax": "nmap -A hostname",
+        "description": "Enable OS detection, version detection, script scanning, and traceroute."
+      },
+      {
+        "syntax": "nmap -O hostname",
+        "description": "Enable OS detection."
+      },
+      {
+        "syntax": "nmap -F hostname",
+        "description": "Fast mode - Scan fewer ports than the default scan."
       }
     ]
   },
@@ -1306,6 +1710,18 @@
       {
         "syntax": "crontab -r",
         "description": "Remove the current crontab file (DANGEROUS)."
+      },
+      {
+        "syntax": "crontab -u username -e",
+        "description": "Edit another user's crontab."
+      },
+      {
+        "syntax": "crontab -u username -l",
+        "description": "List another user's crontab."
+      },
+      {
+        "syntax": "crontab -i -r",
+        "description": "Prompt before removing the crontab."
       }
     ]
   },
@@ -1336,6 +1752,18 @@
       {
         "syntax": "atq",
         "description": "List the user's pending jobs."
+      },
+      {
+        "syntax": "atrm job_id",
+        "description": "Remove a specific job."
+      },
+      {
+        "syntax": "at -c job_id",
+        "description": "Cat the contents of a specific job."
+      },
+      {
+        "syntax": "at 10:00 AM",
+        "description": "Schedule a command to run at a specific time."
       }
     ]
   },
@@ -1366,6 +1794,18 @@
       {
         "syntax": "kill PID",
         "description": "Send a graceful termination signal (SIGTERM)."
+      },
+      {
+        "syntax": "kill -l",
+        "description": "List all available signals."
+      },
+      {
+        "syntax": "kill -15 PID",
+        "description": "Send SIGTERM explicitly."
+      },
+      {
+        "syntax": "kill -HUP PID",
+        "description": "Send SIGHUP (often used to reload configuration)."
       }
     ]
   },
@@ -1396,6 +1836,18 @@
       {
         "syntax": "pkill -9 process-name",
         "description": "Force kill processes by name."
+      },
+      {
+        "syntax": "pkill -u username",
+        "description": "Kill all processes owned by a specific user."
+      },
+      {
+        "syntax": "pkill -o process-name",
+        "description": "Kill the oldest process matching the name."
+      },
+      {
+        "syntax": "pkill -n process-name",
+        "description": "Kill the newest process matching the name."
       }
     ]
   },
@@ -1421,6 +1873,14 @@
         "syntax": "nohup command &",
         "description": "Run command in background, ignoring hangups.",
         "isPrimary": true
+      },
+      {
+        "syntax": "nohup command > /dev/null 2>&1 &",
+        "description": "Run in background and discard all output."
+      },
+      {
+        "syntax": "nohup command > output.log &",
+        "description": "Run in background and save output to a file."
       }
     ]
   },
@@ -1455,6 +1915,14 @@
       {
         "syntax": "screen -ls",
         "description": "List all active sessions."
+      },
+      {
+        "syntax": "screen -d -r session-name",
+        "description": "Detach a running session and reattach to it."
+      },
+      {
+        "syntax": "screen -X quit",
+        "description": "Kill the current session."
       }
     ]
   },
@@ -1489,6 +1957,14 @@
       {
         "syntax": "tmux ls",
         "description": "List all active sessions."
+      },
+      {
+        "syntax": "tmux kill-session -t session-name",
+        "description": "Kill a specific session."
+      },
+      {
+        "syntax": "tmux detach",
+        "description": "Detach from the current session."
       }
     ]
   },
@@ -1519,6 +1995,18 @@
       {
         "syntax": "mount -a",
         "description": "Mount all filesystems listed in /etc/fstab."
+      },
+      {
+        "syntax": "mount -o remount,rw /",
+        "description": "Remount the root filesystem as read-write."
+      },
+      {
+        "syntax": "mount -t nfs host:/share /mnt",
+        "description": "Mount an NFS share."
+      },
+      {
+        "syntax": "mount -o loop file.iso /mnt",
+        "description": "Mount an ISO file."
       }
     ]
   },
@@ -1549,6 +2037,14 @@
       {
         "syntax": "umount -f /mnt",
         "description": "Force unmount (use with caution)."
+      },
+      {
+        "syntax": "umount -l /mnt",
+        "description": "Lazy unmount (detach now, clean up later)."
+      },
+      {
+        "syntax": "umount -R /mnt",
+        "description": "Recursive unmount."
       }
     ]
   },
@@ -1578,6 +2074,14 @@
       {
         "syntax": "fdisk /dev/sda",
         "description": "Enter the interactive utility for device sda (DANGEROUS)."
+      },
+      {
+        "syntax": "fdisk -s /dev/sda",
+        "description": "Display the size of the partition."
+      },
+      {
+        "syntax": "fdisk -l /dev/sda",
+        "description": "List the partition table for a specific device."
       }
     ]
   },
@@ -1613,6 +2117,18 @@
       {
         "syntax": "dmesg -w",
         "description": "Wait (w) for new messages (follow)."
+      },
+      {
+        "syntax": "dmesg | grep -i error",
+        "description": "Search for error messages in the kernel log."
+      },
+      {
+        "syntax": "dmesg -c",
+        "description": "Clear the ring buffer after printing."
+      },
+      {
+        "syntax": "dmesg -L",
+        "description": "Colorize the output."
       }
     ]
   },
@@ -1643,6 +2159,18 @@
       {
         "syntax": "uname -r",
         "description": "Display the kernel release."
+      },
+      {
+        "syntax": "uname -m",
+        "description": "Display the machine hardware name."
+      },
+      {
+        "syntax": "uname -s",
+        "description": "Display the kernel name."
+      },
+      {
+        "syntax": "uname -n",
+        "description": "Display the network node hostname."
       }
     ]
   },
@@ -1672,6 +2200,10 @@
       {
         "syntax": "uptime -p",
         "description": "Pretty format (p)."
+      },
+      {
+        "syntax": "uptime -s",
+        "description": "Display the time the system has been up since."
       }
     ]
   },
@@ -1698,6 +2230,18 @@
         "syntax": "who",
         "description": "Standard output.",
         "isPrimary": true
+      },
+      {
+        "syntax": "who -b",
+        "description": "Display the time of the last system boot."
+      },
+      {
+        "syntax": "who -r",
+        "description": "Display the current runlevel."
+      },
+      {
+        "syntax": "who -q",
+        "description": "Display only the count of logged in users."
       }
     ]
   },
@@ -1723,6 +2267,14 @@
         "syntax": "w",
         "description": "Standard output.",
         "isPrimary": true
+      },
+      {
+        "syntax": "w -s",
+        "description": "Use the short format."
+      },
+      {
+        "syntax": "w username",
+        "description": "Show information for a specific user."
       }
     ]
   },
@@ -1751,6 +2303,14 @@
       {
         "syntax": "mysql -h hostname -u user -p",
         "description": "Connect to a remote host."
+      },
+      {
+        "syntax": "mysql -u user -p -D dbname",
+        "description": "Connect to a specific database."
+      },
+      {
+        "syntax": "mysql -u user -p -e 'SHOW DATABASES;'",
+        "description": "Execute a query and exit."
       }
     ]
   },
@@ -1850,6 +2410,18 @@
         "syntax": "ncdu -r /home",
         "description": "Runs in **read-only mode** (`-r`), preventing accidental file deletions (`d` key) while analyzing disk usage in the `/home` directory.",
         "isPrimary": false
+      },
+      {
+        "syntax": "ncdu -o file.json",
+        "description": "Export the scan results to a file."
+      },
+      {
+        "syntax": "ncdu -f file.json",
+        "description": "Import scan results from a file."
+      },
+      {
+        "syntax": "ncdu --color dark",
+        "description": "Use a dark color scheme."
       }
     ]
   },
@@ -1884,6 +2456,18 @@
       {
         "syntax": "sudo -u user command",
         "description": "Run command as a specific user."
+      },
+      {
+        "syntax": "sudo -s",
+        "description": "Run a shell as the target user."
+      },
+      {
+        "syntax": "sudo -k",
+        "description": "Kill the timestamp (force password prompt next time)."
+      },
+      {
+        "syntax": "sudo -l",
+        "description": "List allowed commands for the current user."
       }
     ]
   },
@@ -1918,6 +2502,18 @@
       {
         "syntax": "useradd -G groupname username",
         "description": "Create user and add to a secondary group."
+      },
+      {
+        "syntax": "useradd -D",
+        "description": "Display default values."
+      },
+      {
+        "syntax": "useradd -e 2025-01-01 username",
+        "description": "Create user with an expiry date."
+      },
+      {
+        "syntax": "useradd -u 1001 username",
+        "description": "Create user with a specific UID."
       }
     ]
   },
@@ -1950,8 +2546,16 @@
         "description": "Lock a user account."
       },
       {
+        "syntax": "usermod -U user",
+        "description": "Unlock a user account."
+      },
+      {
         "syntax": "usermod -s /bin/shell user",
         "description": "Change the user's login shell."
+      },
+      {
+        "syntax": "usermod -l newname oldname",
+        "description": "Rename a user."
       }
     ]
   },
@@ -1986,6 +2590,18 @@
       {
         "syntax": "passwd -d username",
         "description": "Delete a user's password (make account passwordless)."
+      },
+      {
+        "syntax": "passwd -l username",
+        "description": "Lock a user account."
+      },
+      {
+        "syntax": "passwd -u username",
+        "description": "Unlock a user account."
+      },
+      {
+        "syntax": "passwd -e username",
+        "description": "Expire a password, forcing change on next login."
       }
     ]
   },
@@ -2016,6 +2632,18 @@
       {
         "syntax": "killall -u user",
         "description": "Kill all processes owned by a specific user."
+      },
+      {
+        "syntax": "killall -I process_name",
+        "description": "Kill processes matching name (case insensitive)."
+      },
+      {
+        "syntax": "killall -o 1h process_name",
+        "description": "Kill processes older than 1 hour."
+      },
+      {
+        "syntax": "killall -y 1h process_name",
+        "description": "Kill processes younger than 1 hour."
       }
     ]
   },
@@ -2050,6 +2678,18 @@
       {
         "syntax": "ip route show",
         "description": "Show the routing table."
+      },
+      {
+        "syntax": "ip addr add 192.168.1.10/24 dev eth0",
+        "description": "Add an IP address to an interface."
+      },
+      {
+        "syntax": "ip link set dev down",
+        "description": "Bring a network interface down."
+      },
+      {
+        "syntax": "ip neigh show",
+        "description": "Show the ARP cache (neighbor table)."
       }
     ]
   },
@@ -2084,6 +2724,18 @@
       {
         "syntax": "crontab -r",
         "description": "Remove the current user's crontab."
+      },
+      {
+        "syntax": "crontab -u username -e",
+        "description": "Edit another user's crontab."
+      },
+      {
+        "syntax": "crontab -u username -l",
+        "description": "List another user's crontab."
+      },
+      {
+        "syntax": "crontab -i -r",
+        "description": "Prompt before removing the crontab."
       }
     ]
   },
@@ -2118,6 +2770,18 @@
       {
         "syntax": "strace -e trace=open,read command",
         "description": "Trace only specific system calls."
+      },
+      {
+        "syntax": "strace -o output.txt command",
+        "description": "Save the trace output to a file."
+      },
+      {
+        "syntax": "strace -c command",
+        "description": "Count time, calls, and errors for each system call."
+      },
+      {
+        "syntax": "strace -t command",
+        "description": "Prefix each line of the trace with the time of day."
       }
     ]
   },
@@ -2152,6 +2816,14 @@
       {
         "syntax": "watch -d command",
         "description": "Highlight differences between updates."
+      },
+      {
+        "syntax": "watch -t command",
+        "description": "Turn off the header showing the interval, command, and current time."
+      },
+      {
+        "syntax": "watch -g command",
+        "description": "Exit when the output of the command changes."
       }
     ]
   },
@@ -2186,6 +2858,18 @@
       {
         "syntax": "dig @server domain",
         "description": "Query a specific DNS server."
+      },
+      {
+        "syntax": "dig -x IP_address",
+        "description": "Perform a reverse DNS lookup."
+      },
+      {
+        "syntax": "dig ANY domain",
+        "description": "Query all available DNS records."
+      },
+      {
+        "syntax": "dig +trace domain",
+        "description": "Trace the delegation path from the root name servers."
       }
     ]
   },
@@ -2216,6 +2900,14 @@
       {
         "syntax": "nslookup -type=record_type domain",
         "description": "Query specific DNS record types (MX, NS, etc.)."
+      },
+      {
+        "syntax": "nslookup IP_address",
+        "description": "Perform a reverse DNS lookup."
+      },
+      {
+        "syntax": "nslookup -debug domain",
+        "description": "Show debugging information."
       }
     ]
   },
@@ -2250,6 +2942,18 @@
       {
         "syntax": "ifconfig interface up",
         "description": "Activate a network interface."
+      },
+      {
+        "syntax": "ifconfig interface down",
+        "description": "Deactivate a network interface."
+      },
+      {
+        "syntax": "ifconfig interface 192.168.1.10",
+        "description": "Assign an IP address to an interface."
+      },
+      {
+        "syntax": "ifconfig interface netmask 255.255.255.0",
+        "description": "Set the netmask for an interface."
       }
     ]
   },
@@ -2280,6 +2984,14 @@
       {
         "syntax": "hostnamectl set-hostname name",
         "description": "Set the system hostname."
+      },
+      {
+        "syntax": "hostnamectl set-hostname 'Pretty Name' --pretty",
+        "description": "Set a pretty hostname (can contain spaces)."
+      },
+      {
+        "syntax": "hostnamectl status",
+        "description": "Show current system hostname status."
       }
     ]
   },
@@ -2314,6 +3026,18 @@
       {
         "syntax": "nmcli dev wifi list",
         "description": "List available Wi-Fi networks."
+      },
+      {
+        "syntax": "nmcli connection down id",
+        "description": "Deactivate a connection by ID."
+      },
+      {
+        "syntax": "nmcli connection show",
+        "description": "Show all configured connections."
+      },
+      {
+        "syntax": "nmcli device wifi connect SSID password PASS",
+        "description": "Connect to a Wi-Fi network."
       }
     ]
   },
@@ -2344,6 +3068,14 @@
       {
         "syntax": "mtr -r host",
         "description": "Report mode (text output)."
+      },
+      {
+        "syntax": "mtr -w host",
+        "description": "Report mode with wide output."
+      },
+      {
+        "syntax": "mtr -c 10 host",
+        "description": "Send 10 packets and then exit."
       }
     ]
   },
@@ -2374,6 +3106,14 @@
       {
         "syntax": "tracepath -n host",
         "description": "Trace path without DNS resolution."
+      },
+      {
+        "syntax": "tracepath -p port host",
+        "description": "Trace path using a specific destination port."
+      },
+      {
+        "syntax": "tracepath -l length host",
+        "description": "Trace path with a specific packet length."
       }
     ]
   },
@@ -2404,6 +3144,14 @@
       {
         "syntax": "arp -d host",
         "description": "Delete an ARP entry."
+      },
+      {
+        "syntax": "arp -s host mac",
+        "description": "Add a static ARP entry."
+      },
+      {
+        "syntax": "arp -n",
+        "description": "Display numeric addresses instead of hostnames."
       }
     ]
   },
@@ -2434,6 +3182,10 @@
       {
         "syntax": "whois ip_address",
         "description": "Query IP address info."
+      },
+      {
+        "syntax": "whois -H domain",
+        "description": "Hide legal disclaimers."
       }
     ]
   },
@@ -2464,6 +3216,10 @@
       {
         "syntax": "telnet host",
         "description": "Connect to default telnet port (23)."
+      },
+      {
+        "syntax": "telnet -l user host",
+        "description": "Connect and login as a specific user."
       }
     ]
   },
@@ -2494,6 +3250,14 @@
       {
         "syntax": "sftp -P port user@host",
         "description": "Connect using a specific port."
+      },
+      {
+        "syntax": "sftp -i key user@host",
+        "description": "Connect using a specific identity file."
+      },
+      {
+        "syntax": "sftp -C user@host",
+        "description": "Enable compression."
       }
     ]
   },
@@ -2528,6 +3292,18 @@
       {
         "syntax": "ufw enable",
         "description": "Enable the firewall."
+      },
+      {
+        "syntax": "ufw disable",
+        "description": "Disable the firewall."
+      },
+      {
+        "syntax": "ufw deny port",
+        "description": "Deny incoming traffic on a port."
+      },
+      {
+        "syntax": "ufw delete allow port",
+        "description": "Delete an existing allow rule."
       }
     ]
   },
@@ -2558,6 +3334,14 @@
       {
         "syntax": "ethtool -i devname",
         "description": "Display driver information."
+      },
+      {
+        "syntax": "ethtool -S devname",
+        "description": "Display statistics."
+      },
+      {
+        "syntax": "ethtool -p devname",
+        "description": "Blink the physical LED on the adapter (to identify it)."
       }
     ]
   },
@@ -2591,7 +3375,11 @@
       },
       {
         "syntax": "iftop -n",
-        "description": "Don't do hostname lookups."
+        "description": "Do not do hostname lookups."
+      },
+      {
+        "syntax": "iftop -P",
+        "description": "Show ports as well as hosts."
       }
     ]
   },
@@ -2622,6 +3410,14 @@
       {
         "syntax": "nethogs device",
         "description": "Monitor specific device."
+      },
+      {
+        "syntax": "nethogs -d 5",
+        "description": "Set refresh rate to 5 seconds."
+      },
+      {
+        "syntax": "nethogs -v 3",
+        "description": "Set view mode to MB/s."
       }
     ]
   },
@@ -2656,6 +3452,18 @@
       {
         "syntax": "iperf3 -c host -R",
         "description": "Reverse test (server sends, client receives)."
+      },
+      {
+        "syntax": "iperf3 -c host -u",
+        "description": "Perform UDP test."
+      },
+      {
+        "syntax": "iperf3 -c host -t 60",
+        "description": "Run test for 60 seconds."
+      },
+      {
+        "syntax": "iperf3 -c host -P 4",
+        "description": "Run 4 parallel streams."
       }
     ]
   },
@@ -2686,6 +3494,18 @@
       {
         "syntax": "vnstat -l",
         "description": "Live traffic monitoring."
+      },
+      {
+        "syntax": "vnstat -h",
+        "description": "Show hourly statistics."
+      },
+      {
+        "syntax": "vnstat -d",
+        "description": "Show daily statistics."
+      },
+      {
+        "syntax": "vnstat -m",
+        "description": "Show monthly statistics."
       }
     ]
   },
@@ -2716,6 +3536,14 @@
       {
         "syntax": "iwconfig interface essid name",
         "description": "Set the ESSID (network name)."
+      },
+      {
+        "syntax": "iwconfig interface mode managed",
+        "description": "Set the operating mode to managed."
+      },
+      {
+        "syntax": "iwconfig interface key s:password",
+        "description": "Set the WEP encryption key."
       }
     ]
   },
@@ -2750,6 +3578,14 @@
       {
         "syntax": "iw dev interface link",
         "description": "Get link status."
+      },
+      {
+        "syntax": "iw dev interface connect SSID",
+        "description": "Connect to a wireless network."
+      },
+      {
+        "syntax": "iw dev interface set type monitor",
+        "description": "Set interface to monitor mode."
       }
     ]
   },
@@ -2780,6 +3616,14 @@
       {
         "syntax": "socat - TCP:host:port",
         "description": "Connect to a TCP port (like netcat)."
+      },
+      {
+        "syntax": "socat -d -d TCP4-LISTEN:8080 STDOUT",
+        "description": "Create a listening socket and print incoming data to stdout."
+      },
+      {
+        "syntax": "socat FILE:file.txt TCP:host:port",
+        "description": "Send a file over TCP."
       }
     ]
   },
@@ -2810,6 +3654,14 @@
       {
         "syntax": "tcpflow -c",
         "description": "Console print only (don't create files)."
+      },
+      {
+        "syntax": "tcpflow -r file.pcap",
+        "description": "Read packets from a pcap file."
+      },
+      {
+        "syntax": "tcpflow -o directory",
+        "description": "Save output files to a specific directory."
       }
     ]
   },
@@ -2844,6 +3696,14 @@
       {
         "syntax": "brctl addif bridge device",
         "description": "Add an interface to a bridge."
+      },
+      {
+        "syntax": "brctl delif bridge device",
+        "description": "Remove an interface from a bridge."
+      },
+      {
+        "syntax": "brctl delbr name",
+        "description": "Delete a bridge."
       }
     ]
   },
@@ -2874,6 +3734,14 @@
       {
         "syntax": "ipcalc -b ip",
         "description": "Show broadcast address."
+      },
+      {
+        "syntax": "ipcalc -n ip",
+        "description": "Show network address."
+      },
+      {
+        "syntax": "ipcalc -m ip",
+        "description": "Show netmask."
       }
     ]
   },
@@ -2904,6 +3772,14 @@
       {
         "syntax": "route add default gw ip",
         "description": "Add a default gateway."
+      },
+      {
+        "syntax": "route del default gw ip",
+        "description": "Delete a default gateway."
+      },
+      {
+        "syntax": "route add -net ip netmask mask gw ip",
+        "description": "Add a static route to a network."
       }
     ]
   },
@@ -2938,6 +3814,18 @@
       {
         "syntax": "cp -a source dest",
         "description": "Archive mode (preserve attributes, recursive)."
+      },
+      {
+        "syntax": "cp -u source dest",
+        "description": "Copy only when the source file is newer than the destination file or when the destination file is missing."
+      },
+      {
+        "syntax": "cp -i source dest",
+        "description": "Prompt before overwrite."
+      },
+      {
+        "syntax": "cp -v source dest",
+        "description": "Verbose mode (explain what is being done)."
       }
     ]
   },
@@ -2968,6 +3856,18 @@
       {
         "syntax": "mv -f source dest",
         "description": "Force move (overwrite without prompting)."
+      },
+      {
+        "syntax": "mv -i source dest",
+        "description": "Prompt before overwrite."
+      },
+      {
+        "syntax": "mv -u source dest",
+        "description": "Move only when the source file is newer than the destination file or when the destination file is missing."
+      },
+      {
+        "syntax": "mv -v source dest",
+        "description": "Verbose mode."
       }
     ]
   },
@@ -3002,6 +3902,14 @@
       {
         "syntax": "rm -i file",
         "description": "Prompt before every removal."
+      },
+      {
+        "syntax": "rm -v file",
+        "description": "Verbose mode."
+      },
+      {
+        "syntax": "rm -d directory",
+        "description": "Remove empty directories."
       }
     ]
   },
@@ -3032,6 +3940,14 @@
       {
         "syntax": "mkdir -p path/to/dir",
         "description": "Create parent directories as needed."
+      },
+      {
+        "syntax": "mkdir -m 755 dir",
+        "description": "Set file mode (permissions)."
+      },
+      {
+        "syntax": "mkdir -v dir",
+        "description": "Verbose mode."
       }
     ]
   },
@@ -3061,6 +3977,10 @@
       {
         "syntax": "rmdir -p path/to/dir",
         "description": "Remove a directory and its ancestors if they become empty."
+      },
+      {
+        "syntax": "rmdir -v dir",
+        "description": "Verbose mode."
       }
     ]
   },
@@ -3091,6 +4011,14 @@
       {
         "syntax": "touch -c file",
         "description": "Do not create any files."
+      },
+      {
+        "syntax": "touch -t 202301011200 file",
+        "description": "Set timestamps to a specific time."
+      },
+      {
+        "syntax": "touch -r ref_file file",
+        "description": "Use this file's times instead of current time."
       }
     ]
   },
@@ -3121,6 +4049,14 @@
       {
         "syntax": "ln target linkname",
         "description": "Create a hard link."
+      },
+      {
+        "syntax": "ln -f target linkname",
+        "description": "Force existing destination files to be removed."
+      },
+      {
+        "syntax": "ln -v target linkname",
+        "description": "Verbose mode."
       }
     ]
   },
@@ -3151,6 +4087,14 @@
       {
         "syntax": "file -i filename",
         "description": "Output mime type strings."
+      },
+      {
+        "syntax": "file -b filename",
+        "description": "Brief mode (do not prepend filenames to output lines)."
+      },
+      {
+        "syntax": "file -L filename",
+        "description": "Follow symlinks."
       }
     ]
   },
@@ -3181,6 +4125,18 @@
       {
         "syntax": "date +format",
         "description": "Display date in specified format (e.g., +%F)."
+      },
+      {
+        "syntax": "date -u",
+        "description": "Display or set Coordinated Universal Time (UTC)."
+      },
+      {
+        "syntax": "date -s 'string'",
+        "description": "Set time described by string."
+      },
+      {
+        "syntax": "date -d 'string'",
+        "description": "Display time described by string, not 'now'."
       }
     ]
   },
@@ -3266,6 +4222,18 @@
       {
         "syntax": "id username",
         "description": "Print info for a specific user."
+      },
+      {
+        "syntax": "id -u",
+        "description": "Print only the effective user ID."
+      },
+      {
+        "syntax": "id -g",
+        "description": "Print only the effective group ID."
+      },
+      {
+        "syntax": "id -G",
+        "description": "Print all group IDs."
       }
     ]
   },
@@ -3296,6 +4264,14 @@
       {
         "syntax": "env VAR=val command",
         "description": "Run command with variable set."
+      },
+      {
+        "syntax": "env -u VAR command",
+        "description": "Run command with variable unset."
+      },
+      {
+        "syntax": "env -i command",
+        "description": "Run command with an empty environment."
       }
     ]
   },
@@ -3330,6 +4306,14 @@
       {
         "syntax": "history -c",
         "description": "Clear the history list."
+      },
+      {
+        "syntax": "history -d offset",
+        "description": "Delete the history entry at the specified offset."
+      },
+      {
+        "syntax": "history -w",
+        "description": "Write the current history to the history file."
       }
     ]
   },
@@ -3360,6 +4344,10 @@
       {
         "syntax": "alias name='command'",
         "description": "Create an alias."
+      },
+      {
+        "syntax": "alias -p",
+        "description": "Print all aliases in reusable format."
       }
     ]
   },
@@ -3390,6 +4378,10 @@
       {
         "syntax": "echo -e string",
         "description": "Enable interpretation of backslash escapes."
+      },
+      {
+        "syntax": "echo -n string",
+        "description": "Do not output the trailing newline."
       }
     ]
   },
@@ -3420,6 +4412,14 @@
       {
         "syntax": "cat > filename",
         "description": "Create file from stdin (Ctrl+D to save)."
+      },
+      {
+        "syntax": "cat -n filename",
+        "description": "Number all output lines."
+      },
+      {
+        "syntax": "cat -A filename",
+        "description": "Show all characters (including non-printing)."
       }
     ]
   },
@@ -3450,6 +4450,14 @@
       {
         "syntax": "man -k keyword",
         "description": "Search manual pages for keyword."
+      },
+      {
+        "syntax": "man -f command",
+        "description": "Display short description of command (whatis)."
+      },
+      {
+        "syntax": "man section command",
+        "description": "Show manual page from a specific section."
       }
     ]
   },
@@ -3513,6 +4521,14 @@
       {
         "syntax": "shutdown +m",
         "description": "Shutdown in m minutes."
+      },
+      {
+        "syntax": "shutdown -c",
+        "description": "Cancel a pending shutdown."
+      },
+      {
+        "syntax": "shutdown -h now",
+        "description": "Halt or power off immediately."
       }
     ]
   },
@@ -3543,6 +4559,14 @@
       {
         "syntax": "SELECT col1, col2 FROM table_name WHERE condition;",
         "description": "Select specific columns with a condition."
+      },
+      {
+        "syntax": "SELECT DISTINCT col FROM table_name;",
+        "description": "Select unique values from a column."
+      },
+      {
+        "syntax": "SELECT COUNT(*) FROM table_name;",
+        "description": "Count the number of rows in a table."
       }
     ]
   },
@@ -3568,6 +4592,10 @@
         "syntax": "INSERT INTO table (col1, col2) VALUES (val1, val2);",
         "description": "Insert a new row with specific values.",
         "isPrimary": true
+      },
+      {
+        "syntax": "INSERT INTO table VALUES (val1, val2);",
+        "description": "Insert a row with values for all columns."
       }
     ]
   },
@@ -3593,6 +4621,10 @@
         "syntax": "UPDATE table SET col = val WHERE condition;",
         "description": "Update rows matching a condition.",
         "isPrimary": true
+      },
+      {
+        "syntax": "UPDATE table SET col = val;",
+        "description": "Update all rows in the table (DANGEROUS)."
       }
     ]
   },
@@ -3618,6 +4650,10 @@
         "syntax": "DELETE FROM table WHERE condition;",
         "description": "Delete rows matching a condition.",
         "isPrimary": true
+      },
+      {
+        "syntax": "DELETE FROM table;",
+        "description": "Delete all rows from the table (DANGEROUS)."
       }
     ]
   },
@@ -3643,6 +4679,10 @@
         "syntax": "CREATE DATABASE name;",
         "description": "Create a new database.",
         "isPrimary": true
+      },
+      {
+        "syntax": "CREATE DATABASE IF NOT EXISTS name;",
+        "description": "Create a database only if it does not exist."
       }
     ]
   },
@@ -3668,6 +4708,10 @@
         "syntax": "CREATE TABLE name (col type options, ...);",
         "description": "Create a new table with columns.",
         "isPrimary": true
+      },
+      {
+        "syntax": "CREATE TABLE IF NOT EXISTS name (col type ...);",
+        "description": "Create a table only if it does not exist."
       }
     ]
   },
@@ -3698,6 +4742,10 @@
       {
         "syntax": "ALTER TABLE name DROP COLUMN col;",
         "description": "Remove a column from a table."
+      },
+      {
+        "syntax": "ALTER TABLE name MODIFY COLUMN col type;",
+        "description": "Change the data type of a column."
       }
     ]
   },
@@ -3723,6 +4771,10 @@
         "syntax": "DROP TABLE name;",
         "description": "Delete a table permanently.",
         "isPrimary": true
+      },
+      {
+        "syntax": "DROP TABLE IF EXISTS name;",
+        "description": "Delete a table only if it exists."
       }
     ]
   },
@@ -3772,6 +4824,10 @@
         "syntax": "SHOW DATABASES;",
         "description": "List all databases on the server.",
         "isPrimary": true
+      },
+      {
+        "syntax": "SHOW DATABASES LIKE 'pattern';",
+        "description": "List databases matching a pattern."
       }
     ]
   },
@@ -3797,6 +4853,10 @@
         "syntax": "SHOW TABLES;",
         "description": "List all tables in the current database.",
         "isPrimary": true
+      },
+      {
+        "syntax": "SHOW TABLES LIKE 'pattern';",
+        "description": "List tables matching a pattern."
       }
     ]
   },
@@ -3855,6 +4915,14 @@
       {
         "syntax": "SHOW STATUS LIKE 'pattern';",
         "description": "Filter status variables by pattern."
+      },
+      {
+        "syntax": "SHOW GLOBAL STATUS;",
+        "description": "Show global status variables."
+      },
+      {
+        "syntax": "SHOW SESSION STATUS;",
+        "description": "Show session status variables."
       }
     ]
   },
@@ -3884,6 +4952,14 @@
       {
         "syntax": "SHOW VARIABLES LIKE 'pattern';",
         "description": "Filter system variables by pattern."
+      },
+      {
+        "syntax": "SHOW GLOBAL VARIABLES;",
+        "description": "Show global system variables."
+      },
+      {
+        "syntax": "SHOW SESSION VARIABLES;",
+        "description": "Show session system variables."
       }
     ]
   },
@@ -3913,6 +4989,10 @@
       {
         "syntax": "KILL QUERY thread_id;",
         "description": "Terminate only the query running on the connection."
+      },
+      {
+        "syntax": "KILL CONNECTION thread_id;",
+        "description": "Terminate the connection (same as KILL)."
       }
     ]
   },
@@ -3937,6 +5017,10 @@
         "syntax": "SHOW SLAVE STATUS\\G",
         "description": "Show replication status in vertical format.",
         "isPrimary": true
+      },
+      {
+        "syntax": "SHOW REPLICA STATUS\\G",
+        "description": "Show replica status (newer syntax)."
       }
     ]
   },
@@ -3961,6 +5045,10 @@
         "syntax": "SHOW MASTER STATUS\\G",
         "description": "Show binary log file and position.",
         "isPrimary": true
+      },
+      {
+        "syntax": "SHOW BINARY LOG STATUS\\G",
+        "description": "Show binary log status (newer syntax)."
       }
     ]
   },
@@ -3985,6 +5073,10 @@
         "syntax": "SHOW STATUS LIKE 'wsrep_cluster_size';",
         "description": "Show the number of nodes in the cluster.",
         "isPrimary": true
+      },
+      {
+        "syntax": "SHOW GLOBAL STATUS LIKE 'wsrep_cluster_size';",
+        "description": "Show global cluster size."
       }
     ]
   },
@@ -4087,6 +5179,14 @@
       {
         "syntax": "smem -r",
         "description": "Show memory usage in reverse order."
+      },
+      {
+        "syntax": "smem -k",
+        "description": "Show memory usage in kilobytes."
+      },
+      {
+        "syntax": "smem -t",
+        "description": "Show totals."
       }
     ]
   },
@@ -4116,6 +5216,10 @@
       {
         "syntax": "slabtop -s c",
         "description": "Sort by cache size."
+      },
+      {
+        "syntax": "slabtop -o",
+        "description": "Run once and exit."
       }
     ]
   },
@@ -4145,6 +5249,14 @@
       {
         "syntax": "pmap -x pid",
         "description": "Show extended memory map information."
+      },
+      {
+        "syntax": "pmap -X pid",
+        "description": "Show even more extended details."
+      },
+      {
+        "syntax": "pmap -d pid",
+        "description": "Show device format."
       }
     ]
   },
@@ -4175,6 +5287,10 @@
       {
         "syntax": "mpstat -P ALL",
         "description": "Show statistics for all CPUs individually."
+      },
+      {
+        "syntax": "mpstat 1 5",
+        "description": "Report 5 times at 1 second intervals."
       }
     ]
   },
@@ -4204,6 +5320,14 @@
       {
         "syntax": "lscpu -e",
         "description": "Show extended information."
+      },
+      {
+        "syntax": "lscpu -p",
+        "description": "Show parsable output."
+      },
+      {
+        "syntax": "lscpu -J",
+        "description": "Show JSON output."
       }
     ]
   },
@@ -4238,6 +5362,14 @@
       {
         "syntax": "pidstat -d",
         "description": "Show I/O statistics by process."
+      },
+      {
+        "syntax": "pidstat -u",
+        "description": "Show CPU statistics (default)."
+      },
+      {
+        "syntax": "pidstat -p pid",
+        "description": "Show statistics for a specific PID."
       }
     ]
   },
@@ -4268,6 +5400,14 @@
       {
         "syntax": "sar -r",
         "description": "Show memory utilization history."
+      },
+      {
+        "syntax": "sar -n DEV",
+        "description": "Show network device statistics."
+      },
+      {
+        "syntax": "sar -d",
+        "description": "Show block device statistics."
       }
     ]
   },
@@ -4298,6 +5438,14 @@
       {
         "syntax": "lsblk -f",
         "description": "Output info about filesystems."
+      },
+      {
+        "syntax": "lsblk -m",
+        "description": "Output info about permissions."
+      },
+      {
+        "syntax": "lsblk -J",
+        "description": "Output in JSON format."
       }
     ]
   },
@@ -4327,6 +5475,14 @@
       {
         "syntax": "blkid device",
         "description": "Print attributes for a specific device."
+      },
+      {
+        "syntax": "blkid -L label",
+        "description": "Lookup device by label."
+      },
+      {
+        "syntax": "blkid -U uuid",
+        "description": "Lookup device by UUID."
       }
     ]
   },
@@ -4357,6 +5513,14 @@
       {
         "syntax": "smartctl -H device",
         "description": "Show device health status."
+      },
+      {
+        "syntax": "smartctl -i device",
+        "description": "Show device info."
+      },
+      {
+        "syntax": "smartctl -t short device",
+        "description": "Run a short self-test."
       }
     ]
   },
@@ -4382,6 +5546,14 @@
         "syntax": "badblocks -v device",
         "description": "Check for bad blocks in verbose mode.",
         "isPrimary": true
+      },
+      {
+        "syntax": "badblocks -s device",
+        "description": "Show progress."
+      },
+      {
+        "syntax": "badblocks -w device",
+        "description": "Do a destructive write-mode test."
       }
     ]
   },
@@ -4411,6 +5583,14 @@
       {
         "syntax": "fsck -y device",
         "description": "Attempt to fix detected errors automatically."
+      },
+      {
+        "syntax": "fsck -A",
+        "description": "Check all filesystems in /etc/fstab."
+      },
+      {
+        "syntax": "fsck -n device",
+        "description": "Make no changes to the filesystem."
       }
     ]
   },
@@ -4441,6 +5621,14 @@
       {
         "syntax": "iotop -o",
         "description": "Show only processes doing I/O."
+      },
+      {
+        "syntax": "iotop -b",
+        "description": "Batch mode (non-interactive)."
+      },
+      {
+        "syntax": "iotop -P",
+        "description": "Show only processes, not threads."
       }
     ]
   },
@@ -4466,6 +5654,14 @@
         "syntax": "ioping .",
         "description": "Check I/O latency on current directory.",
         "isPrimary": true
+      },
+      {
+        "syntax": "ioping -c 10 .",
+        "description": "Run 10 requests and exit."
+      },
+      {
+        "syntax": "ioping -R .",
+        "description": "Run sequential test."
       }
     ]
   },
@@ -4495,6 +5691,10 @@
       {
         "syntax": "ionice -c class -p pid",
         "description": "Set I/O scheduling class (1=RT, 2=BE, 3=Idle)."
+      },
+      {
+        "syntax": "ionice -c 3 -p pid",
+        "description": "Set to Idle class."
       }
     ]
   },
@@ -4525,6 +5725,14 @@
       {
         "syntax": "go build -o output_name",
         "description": "Build and specify output file name."
+      },
+      {
+        "syntax": "go build -v",
+        "description": "Verbose output."
+      },
+      {
+        "syntax": "go build -race",
+        "description": "Enable data race detection."
       }
     ]
   },
@@ -4555,6 +5763,10 @@
       {
         "syntax": "go run .",
         "description": "Run the package in the current directory."
+      },
+      {
+        "syntax": "go run -race .",
+        "description": "Run with race detection enabled."
       }
     ]
   },
@@ -4584,6 +5796,14 @@
       {
         "syntax": "go clean -modcache",
         "description": "Remove the entire module download cache."
+      },
+      {
+        "syntax": "go clean -cache",
+        "description": "Remove the entire build cache."
+      },
+      {
+        "syntax": "go clean -testcache",
+        "description": "Expire all test results."
       }
     ]
   },
@@ -4613,6 +5833,10 @@
       {
         "syntax": "go install package@version",
         "description": "Install a specific version of a package."
+      },
+      {
+        "syntax": "go install -v",
+        "description": "Verbose output."
       }
     ]
   },
@@ -4661,6 +5885,10 @@
         "syntax": "go mod tidy",
         "description": "Ensure go.mod matches the source code.",
         "isPrimary": true
+      },
+      {
+        "syntax": "go mod tidy -v",
+        "description": "Verbose output."
       }
     ]
   },
@@ -4715,6 +5943,10 @@
       {
         "syntax": "go get -u package",
         "description": "Update a dependency."
+      },
+      {
+        "syntax": "go get -t package",
+        "description": "Download modules needed to build tests."
       }
     ]
   },
@@ -4744,6 +5976,14 @@
       {
         "syntax": "go list ./...",
         "description": "List all packages in the current module."
+      },
+      {
+        "syntax": "go list -f '{{.Name}}'",
+        "description": "List with custom format."
+      },
+      {
+        "syntax": "go list -json",
+        "description": "List in JSON format."
       }
     ]
   },
@@ -4778,6 +6018,18 @@
       {
         "syntax": "go test -v",
         "description": "Run tests with verbose output."
+      },
+      {
+        "syntax": "go test -run TestName",
+        "description": "Run a specific test function."
+      },
+      {
+        "syntax": "go test -cover",
+        "description": "Show coverage analysis."
+      },
+      {
+        "syntax": "go test -bench .",
+        "description": "Run benchmarks."
       }
     ]
   },
@@ -4865,6 +6117,10 @@
       {
         "syntax": "go doc symbol",
         "description": "Show documentation for a symbol."
+      },
+      {
+        "syntax": "go doc -all package",
+        "description": "Show all documentation for the package."
       }
     ]
   },
@@ -4889,6 +6145,10 @@
         "syntax": "go version",
         "description": "Print the Go version.",
         "isPrimary": true
+      },
+      {
+        "syntax": "go version -m binary",
+        "description": "Print module version information embedded in the binary."
       }
     ]
   },
@@ -4919,6 +6179,14 @@
       {
         "syntax": "go env VAR",
         "description": "Print a specific environment variable."
+      },
+      {
+        "syntax": "go env -w VAR=val",
+        "description": "Set a default value for an environment variable."
+      },
+      {
+        "syntax": "go env -u VAR",
+        "description": "Unset a default value."
       }
     ]
   },
@@ -4953,6 +6221,22 @@
       {
         "syntax": "docker run -it image command",
         "description": "Run container interactively."
+      },
+      {
+        "syntax": "docker run --name name image",
+        "description": "Run container with a specific name."
+      },
+      {
+        "syntax": "docker run -p host:container image",
+        "description": "Publish a container's port(s) to the host."
+      },
+      {
+        "syntax": "docker run -v host:container image",
+        "description": "Bind mount a volume."
+      },
+      {
+        "syntax": "docker run --rm image",
+        "description": "Automatically remove the container when it exits."
       }
     ]
   },
@@ -4982,6 +6266,10 @@
       {
         "syntax": "docker exec -it container bash",
         "description": "Start an interactive shell in a running container."
+      },
+      {
+        "syntax": "docker exec -u user container command",
+        "description": "Run command as a specific user."
       }
     ]
   },
@@ -5007,6 +6295,10 @@
         "syntax": "docker stop container",
         "description": "Stop a running container.",
         "isPrimary": true
+      },
+      {
+        "syntax": "docker stop -t 10 container",
+        "description": "Stop a container with a timeout (seconds)."
       }
     ]
   },
@@ -5032,6 +6324,14 @@
         "syntax": "docker start container",
         "description": "Start a stopped container.",
         "isPrimary": true
+      },
+      {
+        "syntax": "docker start -a container",
+        "description": "Attach STDOUT/STDERR and forward signals."
+      },
+      {
+        "syntax": "docker start -i container",
+        "description": "Attach container's STDIN."
       }
     ]
   },
@@ -5056,6 +6356,10 @@
         "syntax": "docker restart container",
         "description": "Restart a container.",
         "isPrimary": true
+      },
+      {
+        "syntax": "docker restart -t 10 container",
+        "description": "Restart a container with a timeout (seconds)."
       }
     ]
   },
@@ -5086,6 +6390,10 @@
       {
         "syntax": "docker rm -f container",
         "description": "Force remove a running container."
+      },
+      {
+        "syntax": "docker rm -v container",
+        "description": "Remove the volumes associated with the container."
       }
     ]
   },
@@ -5111,6 +6419,10 @@
         "syntax": "docker inspect object",
         "description": "Inspect a Docker object (container, image, volume, network).",
         "isPrimary": true
+      },
+      {
+        "syntax": "docker inspect -f 'format' object",
+        "description": "Format the output using the given Go template."
       }
     ]
   },
@@ -5136,6 +6448,14 @@
         "syntax": "docker images",
         "description": "List all top-level images.",
         "isPrimary": true
+      },
+      {
+        "syntax": "docker images -a",
+        "description": "Show all images (default hides intermediate images)."
+      },
+      {
+        "syntax": "docker images -q",
+        "description": "Only show image IDs."
       }
     ]
   },
@@ -5190,6 +6510,10 @@
         "syntax": "docker pull image",
         "description": "Download an image from a registry.",
         "isPrimary": true
+      },
+      {
+        "syntax": "docker pull -a image",
+        "description": "Pull all tagged images in the repository."
       }
     ]
   },
@@ -5213,12 +6537,20 @@
     "variations": [
       {
         "syntax": "docker build .",
-        "description": "Build image from Dockerfile in current directory.",
+        "description": "Build an image from the current directory.",
         "isPrimary": true
       },
       {
-        "syntax": "docker build -t tag .",
+        "syntax": "docker build -t name .",
         "description": "Build and tag an image."
+      },
+      {
+        "syntax": "docker build -f Dockerfile .",
+        "description": "Build using a specific Dockerfile."
+      },
+      {
+        "syntax": "docker build --no-cache .",
+        "description": "Do not use cache when building."
       }
     ]
   },
@@ -5241,8 +6573,12 @@
     "variations": [
       {
         "syntax": "docker network ls",
-        "description": "List all Docker networks.",
+        "description": "List networks.",
         "isPrimary": true
+      },
+      {
+        "syntax": "docker network ls -q",
+        "description": "Only show network IDs."
       }
     ]
   },
@@ -5266,8 +6602,12 @@
     "variations": [
       {
         "syntax": "docker network create name",
-        "description": "Create a new network.",
+        "description": "Create a network.",
         "isPrimary": true
+      },
+      {
+        "syntax": "docker network create -d driver name",
+        "description": "Create a network with a specific driver."
       }
     ]
   },
@@ -5290,8 +6630,12 @@
     "variations": [
       {
         "syntax": "docker volume ls",
-        "description": "List all Docker volumes.",
+        "description": "List volumes.",
         "isPrimary": true
+      },
+      {
+        "syntax": "docker volume ls -q",
+        "description": "Only show volume IDs."
       }
     ]
   },
@@ -5316,6 +6660,34 @@
         "syntax": "docker volume create name",
         "description": "Create a new volume.",
         "isPrimary": true
+      }
+    ]
+  },
+  {
+    "id": "docker-volume-rm",
+    "name": "docker volume rm",
+    "description": "Remove one or more volumes.",
+    "category": "Docker Volume",
+    "platform": "Docker",
+    "version": 1,
+    "examples": [
+      "docker volume rm myvol"
+    ],
+    "tags": [
+      "docker",
+      "volume",
+      "remove",
+      "delete"
+    ],
+    "variations": [
+      {
+        "syntax": "docker volume rm volume",
+        "description": "Remove a volume.",
+        "isPrimary": true
+      },
+      {
+        "syntax": "docker volume rm -f volume",
+        "description": "Force remove a volume."
       }
     ]
   },
@@ -5369,12 +6741,16 @@
     "variations": [
       {
         "syntax": "docker-compose up",
-        "description": "Start services defined in docker-compose.yml.",
+        "description": "Create and start containers.",
         "isPrimary": true
       },
       {
         "syntax": "docker-compose up -d",
-        "description": "Start services in detached mode."
+        "description": "Start containers in detached mode."
+      },
+      {
+        "syntax": "docker-compose up --build",
+        "description": "Build images before starting containers."
       }
     ]
   },
@@ -5398,12 +6774,12 @@
     "variations": [
       {
         "syntax": "docker-compose down",
-        "description": "Stop and remove resources created by up.",
+        "description": "Stop and remove containers, networks.",
         "isPrimary": true
       },
       {
         "syntax": "docker-compose down -v",
-        "description": "Remove named volumes declared in the volumes section."
+        "description": "Remove named volumes declared in the `volumes` section."
       }
     ]
   },
@@ -5427,16 +6803,19 @@
     "variations": [
       {
         "syntax": "docker-compose logs",
-        "description": "View output from services.",
+        "description": "View output from containers.",
         "isPrimary": true
       },
       {
         "syntax": "docker-compose logs -f",
         "description": "Follow log output."
+      },
+      {
+        "syntax": "docker-compose logs service",
+        "description": "View logs for a specific service."
       }
     ]
-  }
-,
+  },
   {
     "id": "gluster-volume-info",
     "name": "gluster volume info",
@@ -5837,8 +7216,7 @@
         "isPrimary": true
       }
     ]
-  }
-,
+  },
   {
     "id": "vtysh",
     "name": "vtysh",
@@ -6288,8 +7666,7 @@
         "isPrimary": true
       }
     ]
-  }
-,
+  },
   {
     "id": "gluster-geo-replication-status",
     "name": "gluster geo-replication status",
@@ -6617,8 +7994,7 @@
         "isPrimary": true
       }
     ]
-  }
-,
+  },
   {
     "id": "npm-install",
     "name": "npm install",
@@ -6925,9 +8301,13 @@
     ],
     "variations": [
       {
-        "syntax": "kubectl apply -f filename",
-        "description": "Apply a configuration change to a resource from a file.",
+        "syntax": "kubectl apply -f file.yaml",
+        "description": "Apply a configuration to a resource.",
         "isPrimary": true
+      },
+      {
+        "syntax": "kubectl apply -k dir",
+        "description": "Apply resources from a kustomization directory."
       }
     ]
   },
@@ -6950,9 +8330,17 @@
     ],
     "variations": [
       {
-        "syntax": "kubectl delete type name",
-        "description": "Delete resources by type and name.",
+        "syntax": "kubectl delete pod name",
+        "description": "Delete a pod.",
         "isPrimary": true
+      },
+      {
+        "syntax": "kubectl delete -f file.yaml",
+        "description": "Delete resources defined in a file."
+      },
+      {
+        "syntax": "kubectl delete pod --all",
+        "description": "Delete all pods in the current namespace."
       }
     ]
   },
@@ -6975,9 +8363,13 @@
     ],
     "variations": [
       {
-        "syntax": "kubectl describe type name",
-        "description": "Show details of a specific resource or group of resources.",
+        "syntax": "kubectl describe pod name",
+        "description": "Show detailed information about a pod.",
         "isPrimary": true
+      },
+      {
+        "syntax": "kubectl describe node name",
+        "description": "Show detailed information about a node."
       }
     ]
   },
@@ -7000,9 +8392,13 @@
     ],
     "variations": [
       {
-        "syntax": "kubectl exec -it pod_name -- command",
-        "description": "Execute a command in a container with an interactive TTY.",
+        "syntax": "kubectl exec -it pod -- bash",
+        "description": "Start an interactive shell in a pod.",
         "isPrimary": true
+      },
+      {
+        "syntax": "kubectl exec pod -- command",
+        "description": "Run a command in a pod."
       }
     ]
   },
@@ -7024,9 +8420,13 @@
     ],
     "variations": [
       {
-        "syntax": "kubectl port-forward resource local_port:remote_port",
-        "description": "Forward one or more local ports to a pod.",
+        "syntax": "kubectl port-forward pod 8080:80",
+        "description": "Forward a local port to a port on the pod.",
         "isPrimary": true
+      },
+      {
+        "syntax": "kubectl port-forward svc/service 8080:80",
+        "description": "Forward a local port to a service."
       }
     ]
   },
@@ -7050,8 +8450,12 @@
     "variations": [
       {
         "syntax": "kubectl config view",
-        "description": "Display merged kubeconfig settings or a specified kubeconfig file.",
+        "description": "Display merged kubeconfig settings.",
         "isPrimary": true
+      },
+      {
+        "syntax": "kubectl config view --minify",
+        "description": "Remove all information not used by current-context."
       },
       {
         "syntax": "kubectl config use-context context_name",
@@ -7080,6 +8484,10 @@
         "syntax": "kubectl cluster-info",
         "description": "Display addresses of the master and services.",
         "isPrimary": true
+      },
+      {
+        "syntax": "kubectl cluster-info dump",
+        "description": "Dump relevant information for debugging and diagnosis."
       }
     ]
   },
@@ -7109,6 +8517,14 @@
       {
         "syntax": "kubectl rollout undo resource",
         "description": "Undo a previous rollout."
+      },
+      {
+        "syntax": "kubectl rollout history resource",
+        "description": "View rollout history."
+      },
+      {
+        "syntax": "kubectl rollout restart resource",
+        "description": "Restart a resource."
       }
     ]
   },
@@ -7158,6 +8574,10 @@
         "syntax": "kubectl get all",
         "description": "List all resources in the current namespace.",
         "isPrimary": true
+      },
+      {
+        "syntax": "kubectl get all --all-namespaces",
+        "description": "List all resources in all namespaces."
       }
     ]
   }
