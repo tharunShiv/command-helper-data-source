@@ -1,5 +1,5 @@
 {
-  "latestVersion": 7,
-  "dataUrl": "https://raw.githubusercontent.com/tharunShiv/command-helper-data-source/refs/heads/main/commands.json",
-  "latestAppVersion": "1.4.1"
+  "latestVersion": 8,
+  "dataUrl": "https://raw.githubusercontent.com/tharunShiv/command-shelf-data-source/refs/heads/main/commands.json",
+  "latestAppVersion": "1.5.0"
 }
